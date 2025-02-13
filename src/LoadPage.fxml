@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #E5F3FD;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoadPageController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="335.0">
+         <children>
+            <AnchorPane layoutY="-58.0" prefHeight="60.0" prefWidth="335.0" style="-fx-background-color: #1a72fa;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="114.0" layoutY="19.0" text="Mobile Load" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btn_loadBackToHome" layoutX="2.0" layoutY="18.0" mnemonicParsing="false" onAction="#loadBackToHomeHandler" prefHeight="29.0" prefWidth="37.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+                     <graphic>
+                        <ImageView fitHeight="13.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
+                           <image>
+                              <Image url="@../../../../../Downloads/whiteArrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="12.0" layoutY="60.0" prefHeight="110.0" prefWidth="311.0" style="-fx-background-color: #ffffff; -fx-background-radius: 0 0 10 10;" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
+               <children>
+                  <ImageView fitHeight="125.0" fitWidth="289.0" layoutX="11.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/cat%20-%20gcash.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="12.0" layoutY="183.0" prefHeight="82.0" prefWidth="310.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10 10 10 10;">
+               <children>
+                  <Label layoutX="22.0" layoutY="14.0" text="Number">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tf_numberToSendLoadTo" layoutX="28.0" layoutY="31.0" prefHeight="30.0" prefWidth="256.0" promptText="1234 567 8901" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-border-color: #0053ca; -fx-border-width: 1 1 1 1; -fx-font-weight: bold; -fx-border-radius: 5;">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="12.0" layoutY="339.0" prefHeight="326.0" prefWidth="310.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10 10 0 0;" AnchorPane.bottomAnchor="0.0">
+               <children>
+                  <TextField fx:id="tf_promoLoad" layoutX="24.0" layoutY="105.0" prefHeight="30.0" prefWidth="256.0" promptText="All Out Surf" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-border-color: #0053ca; -fx-border-width: 1 1 1 1; -fx-font-weight: bold; -fx-border-radius: 5;">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="24.0" layoutY="91.0" text="Promo">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btn_submitLoad" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="148.0" maxHeight="38.0" maxWidth="259.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="259.0" style="-fx-background-radius: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-family: Arial Rounded MT Bold; -fx-cursor: hand;" text="SUBMIT" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="131.0" layoutY="306.0" style="-fx-text-fill: #70baf7;" text="v5.83.0:998">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="30.0" layoutY="29.0" text="Telco">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="rb_smart" layoutX="42.0" layoutY="62.0" mnemonicParsing="false" text="Smart" textFill="#0053ca">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font></RadioButton>
+                  <RadioButton fx:id="rb_globe" layoutX="131.0" layoutY="62.0" mnemonicParsing="false" text="Globe" textFill="#0053ca">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="rb_DITO" layoutX="219.0" layoutY="62.0" mnemonicParsing="false" text="DITO" textFill="#0053ca">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #E5F3FD;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DepositPageController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="335.0">
+         <children>
+            <AnchorPane layoutY="-58.0" prefHeight="60.0" prefWidth="335.0" style="-fx-background-color: #1a72fa;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="134.0" layoutY="19.0" text="Deposit" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btn_depositBackToHome" layoutX="2.0" layoutY="18.0" mnemonicParsing="false" onAction="#depositBackToHomeHandler" prefHeight="29.0" prefWidth="37.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+                     <graphic>
+                        <ImageView fitHeight="13.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
+                           <image>
+                              <Image url="@../../../../../Downloads/whiteArrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="12.0" layoutY="60.0" prefHeight="110.0" prefWidth="311.0" style="-fx-background-color: #ffffff; -fx-background-radius: 0 0 10 10;" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
+               <children>
+                  <ImageView fitHeight="125.0" fitWidth="289.0" layoutX="11.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/joshua%20-%20gcash.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="12.0" layoutY="181.0" prefHeight="96.0" prefWidth="310.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10 10 10 10;">
+               <children>
+                  <Label layoutX="22.0" layoutY="22.0" text="Amount">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tf_amountToDeposit" layoutX="27.0" layoutY="43.0" prefHeight="30.0" prefWidth="256.0" promptText="P 0.00" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-border-color: #0053ca; -fx-border-width: 1 1 1 1; -fx-font-weight: bold; -fx-border-radius: 5;">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="12.0" layoutY="339.0" prefHeight="314.0" prefWidth="310.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10 10 0 0;" AnchorPane.bottomAnchor="0.0">
+               <children>
+                  <Label layoutX="83.0" layoutY="28.0" text="Protect your transactions for 30 days!">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="84.0" layoutY="39.0" text="P30 lang for coverage up to P15,000.">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="73.0" text="Insurance laban sa online shopping fraud, phishing at" textFill="#9c9c9c">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="86.0" text="account take-over." textFill="#9c9c9c">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <RadioButton layoutX="268.0" layoutY="30.0" mnemonicParsing="false" />
+                  <ImageView fitHeight="46.0" fitWidth="41.0" layoutX="30.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/lock.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btn_submitDeposit" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="112.0" maxHeight="38.0" maxWidth="259.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="259.0" style="-fx-background-radius: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-family: Arial Rounded MT Bold; -fx-cursor: hand;" text="SUBMIT" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="127.0" layoutY="294.0" style="-fx-text-fill: #70baf7;" text="v5.83.0:998">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

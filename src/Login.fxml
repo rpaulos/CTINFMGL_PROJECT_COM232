@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
+  <children>
+    <MenuBar style="-fx-background-color: BCD2E8;" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
+      <children>
+            <Label fx:id="lbl_username" layoutX="338.0" layoutY="90.0" style="-fx-text-fill: #0053ca;" text="Username">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
+               </font></Label>
+            <TextField fx:id="tf_username" layoutX="361.0" layoutY="117.0" prefHeight="26.0" prefWidth="217.0" promptText="Sabrina Carpenter" />
+            <Label fx:id="lbl_password" layoutX="339.0" layoutY="157.0" style="-fx-text-fill: #0053ca;" text="Password">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
+               </font></Label>
+            <PasswordField fx:id="pf_password" layoutX="364.0" layoutY="179.0" prefHeight="26.0" prefWidth="218.0" promptText="Password" />
+            <Button fx:id="btn_login" layoutX="510.0" layoutY="237.0" mnemonicParsing="false" onAction="#loginButtonHandler" prefHeight="26.0" prefWidth="68.0" style="-fx-background-radius: 25;" text="Login" />
+            <AnchorPane layoutY="-1.0" prefHeight="385.0" prefWidth="306.0" style="-fx-background-color: #1a72fa;">
+               <children>
+                  <ImageView fitHeight="87.0" fitWidth="84.0" layoutX="33.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/image-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="117.0" layoutY="43.0" style="-fx-text-fill: #FFFFFF;" text="GCASH" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="96.0" fitWidth="277.0" layoutX="14.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/joshua%20-%20gcash.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <Label layoutX="414.0" layoutY="28.0" style="-fx-text-fill: #0053ca;" text="LOGIN" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="119.0" fitWidth="142.0" layoutX="323.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/image-removebg-preview%20(2).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="448.0" layoutY="364.0" style="-fx-text-fill: #70baf7;" text="v5.83.0:998">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="10.0" />
+               </font>
+            </Label>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

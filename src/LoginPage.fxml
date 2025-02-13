@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (c) 2017, Gluon and/or its affiliates.
+    All rights reserved. Use is subject to license terms.
+
+    This file is available and licensed under the following license:
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+   - Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+   - Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in
+     the documentation and/or other materials provided with the distribution.
+   - Neither the name of Oracle Corporation and Gluon nor the names of its
+     contributors may be used to endorse or promote products derived
+     from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #1a72fa;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPageController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="335.0">
+         <children>
+            <ImageView fitHeight="87.0" fitWidth="84.0" layoutX="46.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/image-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lbl_titleGcash" layoutX="137.0" layoutY="49.0" style="-fx-text-fill: #FFFFFF;" text="GCASH" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="56.0" layoutY="113.0" style="-fx-text-fill: #FFFFFF;" text="Put your mobile number to get started." textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="43.0" layoutY="138.0" style="-fx-text-fill: #FFFFFF;" text="+ 63">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="25.0" />
+               </font>
+            </Label>
+            <GridPane layoutX="57.0" layoutY="206.0" prefHeight="255.0" prefWidth="224.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-radius: 50px; -fx-max-height: 50px; -fx-min-height: 50px; -fx-max-width: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-size: 25; -fx-font-family: Arial Rounded MT Bold;" text="1" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-radius: 50px; -fx-max-height: 50px; -fx-min-height: 50px; -fx-max-width: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-size: 25; -fx-font-family: Arial Rounded MT Bold;" text="2" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-radius: 50px; -fx-max-height: 50px; -fx-min-height: 50px; -fx-max-width: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-size: 25; -fx-font-family: Arial Rounded MT Bold;" text="3" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-radius: 50px; -fx-max-height: 50px; -fx-min-height: 50px; -fx-max-width: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-size: 25; -fx-font-family: Arial Rounded MT Bold;" text="4" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-radius: 50px; -fx-max-height: 50px; -fx-min-height: 50px; -fx-max-width: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-size: 25; -fx-font-family: Arial Rounded MT Bold;" text="5" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-radius: 50px; -fx-max-height: 50px; -fx-min-height: 50px; -fx-max-width: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-size: 25; -fx-font-family: Arial Rounded MT Bold;" text="6" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-radius: 50px; -fx-max-height: 50px; -fx-min-height: 50px; -fx-max-width: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-size: 25; -fx-font-family: Arial Rounded MT Bold;" text="7" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-radius: 50px; -fx-max-height: 50px; -fx-min-height: 50px; -fx-max-width: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-size: 25; -fx-font-family: Arial Rounded MT Bold;" text="8" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-radius: 50px; -fx-max-height: 50px; -fx-min-height: 50px; -fx-max-width: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-size: 25; -fx-font-family: Arial Rounded MT Bold;" text="9" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-radius: 50px; -fx-max-height: 50px; -fx-min-height: 50px; -fx-max-width: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-size: 25; -fx-font-family: Arial Rounded MT Bold;" text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+               </children>
+            </GridPane>
+            <Text layoutX="41.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #70baf7; -fx-font-weight: bold;" text="By tapping next, we'll collect your mobile number's network information to be able to send you a One-Time Password (OTP)." textAlignment="CENTER" wrappingWidth="252.9339599609375">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="10.0" />
+               </font>
+            </Text>
+            <Label layoutX="141.0" layoutY="582.0" style="-fx-text-fill: #70baf7;" text="v5.83.0:998">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="256.0" layoutY="582.0" style="-fx-text-fill: #ffffff;" text="Sign-Up">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="582.0" style="-fx-text-fill: #ffffff;" text="Help Center">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="10.0" />
+               </font>
+            </Label>
+            <Button layoutX="42.0" layoutY="517.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="254.0" style="-fx-background-radius: 50; -fx-background-color: #70baf7; -fx-font-weight: bold; -fx-text-fill: #ffffff;" text="Next">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Button>
+            <TextField layoutX="99.0" layoutY="132.0" prefHeight="42.0" prefWidth="186.0" promptText="1234 567 8901" style="-fx-prompt-text-fill: #70baf7; -fx-text-fill: #70baf7; -fx-font-size: 25; -fx-font-weight: bold; -fx-background-color: transparent; -fx-border-color: transparent transparent  #70baf7 transparent; -fx-border-width: 0 0 1 0;">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

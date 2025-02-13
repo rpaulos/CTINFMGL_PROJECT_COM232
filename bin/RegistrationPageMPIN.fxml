@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #E5F3FD;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegistrationPageMPINController">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="335.0" VBox.vgrow="ALWAYS">
+         <children>
+            <AnchorPane layoutX="12.0" layoutY="60.0" prefHeight="94.0" prefWidth="310.0" style="-fx-background-color: #ffffff; -fx-background-radius: 0 0 10 10;">
+               <children>
+                  <Label layoutX="22.0" layoutY="14.0" text="Mobile Personal Identification Number">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tf_registerMPIN" alignment="CENTER" layoutX="29.0" layoutY="34.0" onAction="#numberToPINHandler" prefHeight="29.0" prefWidth="251.0" promptText="1 2 3 4" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="58.0" layoutY="72.0" text="Never share your MPIN with anyone.">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="60.0" prefWidth="335.0" style="-fx-background-color: #1a72fa;">
+               <children>
+                  <Label layoutX="144.0" layoutY="19.0" text="MPIN" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btn_backToRegistrationPersonalInfo" layoutX="4.0" layoutY="17.0" mnemonicParsing="false" onAction="#backToRegistrationPersonalInfo" prefHeight="29.0" prefWidth="37.0" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="13.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
+                           <image>
+                              <Image url="@../../../../../Downloads/whiteArrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Label layoutX="139.0" layoutY="580.0" style="-fx-text-fill: #70baf7;" text="v5.83.0:998">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="10.0" />
+               </font>
+            </Label>
+            <Button fx:id="btn_registrationSubmit" alignment="CENTER" contentDisplay="CENTER" layoutX="251.0" layoutY="172.0" maxHeight="26.0" maxWidth="68.0" mnemonicParsing="false" onAction="#registrationSubmitHandler" prefHeight="26.0" prefWidth="68.0" style="-fx-background-radius: 50px; -fx-max-height: 25; -fx-min-height: 25; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-family: Arial Rounded MT Bold; -fx-cursor: hand;" text="Submit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="107.0" fitWidth="310.0" layoutX="13.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/yassi%20-%20gcash.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
