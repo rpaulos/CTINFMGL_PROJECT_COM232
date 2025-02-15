@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.time.LocalDate;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,13 +18,13 @@ public class RegistrationPagePersonalInfoController {
     private Button btn_backToLogin;
 
     @FXML
-    private Button btn_registrationToMPINRegister;
+    private Button btn_registerSubmit;
 
     @FXML
     private DatePicker dp_registerBirthdate;
 
     @FXML
-    private TextField tf_registerAddress;
+    private TextField tf_registerMPIN;
 
     @FXML
     private TextField tf_registerEmailAddress;
@@ -62,9 +63,36 @@ public class RegistrationPagePersonalInfoController {
 
     }
 
-    public void registrationToMPINRegisterHandler(ActionEvent event) throws IOException{
+    public void registerAccountHandler(ActionEvent event) throws IOException{
+        
+        //Get the value of each text field
+        String mobileNumber = tf_registerMobileNumber.getText();
+        String mobilePersonalIdentificationNumber = tf_registerMPIN.getText();
+        String emailAddress = tf_registerEmailAddress.getText();
+        String firstName = tf_registerFirstName.getText();
+        String lastName = tf_registerLastName.getText();
+        String nationality = tf_registerNationality.getText();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("RegistrationPageMPIN.fxml"));
+        //Get the value of the Date Picker
+        LocalDate selectedDate = dp_registerBirthdate.getValue();
+        if(selectedDate != null) {
+            String dateString = selectedDate.toString();
+            System.out.println(dateString);
+        }
+
+        System.out.print("This button works!");
+
+        /*
+         * TODO:
+         * This is the CREATE in CRUD
+         * Conncet to the DatabaseHandler
+         * This adds an account to the user table in the DB
+         */
+
+
+        //If all fields are not null (or empty), register them to the database
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPageNumber.fxml"));
 
         root = loader.load();
 
@@ -75,4 +103,17 @@ public class RegistrationPagePersonalInfoController {
 
     }
 
+
+    // public void registrationToMPINRegisterHandler(ActionEvent event) throws IOException{
+
+    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("RegistrationPageMPIN.fxml"));
+
+    //     root = loader.load();
+
+    //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    //     scene = new Scene(root);
+    //     stage.setScene(scene);
+    //     stage.show();
+
+    // }
 }

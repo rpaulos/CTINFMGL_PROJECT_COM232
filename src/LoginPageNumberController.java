@@ -65,28 +65,44 @@ public class LoginPageNumberController {
 
         String usernumber = tf_LoginNumber.getText().trim().replaceAll("\\s+", "");
 
-        System.out.println(usernumber);
-
         if (DatabaseHandler.validateMobileNumber(usernumber)) {
-            System.out.println("Valid Number :)");
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPageMPIN.fxml"));
-
+            FXMLLoader loader;
+    
+            if (usernumber.equalsIgnoreCase("Admin")) {
+                loader = new FXMLLoader(getClass().getResource("AdminPage.fxml"));
+            } else {
+                loader = new FXMLLoader(getClass().getResource("LoginPageMPIN.fxml"));
+            }
+    
             root = loader.load();
-
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
+            stage.centerOnScreen();
             stage.show();
-
-        } else {
-            System.out.println("Invalid Number :(");
-            /*
-             * If the mobile number isn't valid
-             * pop up an error message
-             */
         }
+        
+        // if (DatabaseHandler.validateMobileNumber(usernumber)) {
+        //     System.out.println("Valid Number :)");
+
+        //     FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPageMPIN.fxml"));
+
+        //     root = loader.load();
+
+        //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        //     scene = new Scene(root);
+        //     stage.setScene(scene);
+        //     stage.show();
+
+        // } else {
+        //     System.out.println("Invalid Number :(");
+        //     /*
+        //      * If the mobile number isn't valid
+        //      * pop up an error message
+        //      */
+        // }
     }
+
 
     public void numberButtonHandler(ActionEvent event) {
         Button clickedButton = (Button) event.getSource();

@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class HomePageController {
+public class HomePageController{
 
     @FXML
     private Button btn_cashIn;

@@ -8,49 +8,64 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #E5F3FD;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomePageController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="335.0">
+      <AnchorPane prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #E5F3FD;">
          <children>
-            <AnchorPane layoutX="13.0" layoutY="172.0" prefHeight="430.0" prefWidth="310.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="172.0" />
-            <AnchorPane prefHeight="52.0" prefWidth="335.0" />
-            <AnchorPane layoutY="539.0" prefHeight="63.0" prefWidth="335.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10 10 0 0; -fx-border-color: #edf0f2;">
+            <AnchorPane prefHeight="60.0" prefWidth="335.0" style="-fx-background-color: #1a72fa;">
                <children>
-                  <Label layoutX="139.0" layoutY="45.0" style="-fx-text-fill: #70baf7;" text="v5.83.0:998">
+                  <Label layoutX="128.0" layoutY="19.0" text="PROFILE" textFill="WHITE">
                      <font>
-                        <Font name="Arial Rounded MT Bold" size="10.0" />
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Button layoutX="29.0" layoutY="8.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="38.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+                  <Button fx:id="btn_backToLogin" layoutX="4.0" layoutY="17.0" mnemonicParsing="false" onAction="#backToLoginHandler" prefHeight="29.0" prefWidth="37.0" style="-fx-background-color: transparent;">
                      <graphic>
-                        <ImageView fitHeight="41.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: transparent;">
+                        <ImageView fitHeight="13.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
                            <image>
-                              <Image url="@../../../../../Downloads/transaction_history.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button layoutX="246.0" layoutY="8.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="38.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
-                     <graphic>
-                        <ImageView fitHeight="41.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: transparent;">
-                           <image>
-                              <Image url="@../../../../../Downloads/profile.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button layoutX="139.0" layoutY="-26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="38.0" style="-fx-background-color: white; -fx-background-radius: 50; -fx-border-radius: 50; -fx-max-height: 50; -fx-min-height: 50; -fx-max-width: 50; -fx-min-width: 50; -fx-cursor: hand; -fx-border-color: #1a72fa;">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: transparent;">
-                           <image>
-                              <Image url="@../../../../../Downloads/home.png" />
+                              <Image url="@../../../../../Downloads/whiteArrow.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="181.0" prefWidth="335.0" style="-fx-background-color: #0053ca;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="63.0" prefWidth="335.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10 10 0 0; -fx-border-color: #edf0f2;">
+         <children>
+            <Label layoutX="139.0" layoutY="45.0" style="-fx-text-fill: #70baf7;" text="v5.83.0:998">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="10.0" />
+               </font>
+            </Label>
+            <Button fx:id="btn_transactions" layoutX="29.0" layoutY="8.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="38.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: transparent;">
+                     <image>
+                        <Image url="@../../../../../Downloads/transaction_history.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btn_profile" layoutX="246.0" layoutY="8.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="38.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: transparent;">
+                     <image>
+                        <Image url="@../../../../../Downloads/profile.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btn_home" layoutX="139.0" layoutY="-26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="38.0" style="-fx-background-color: white; -fx-background-radius: 50; -fx-border-radius: 50; -fx-max-height: 50; -fx-min-height: 50; -fx-max-width: 50; -fx-min-width: 50; -fx-cursor: hand; -fx-border-color: #1a72fa;">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: transparent;">
+                     <image>
+                        <Image url="@../../../../../Downloads/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </children>

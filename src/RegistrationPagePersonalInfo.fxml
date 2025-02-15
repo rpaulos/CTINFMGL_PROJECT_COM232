@@ -53,7 +53,7 @@
                         <Font name="Arial Rounded MT Bold" size="11.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_registerMobileNumber" layoutX="29.0" layoutY="34.0" onAction="#numberToPINHandler" prefHeight="29.0" prefWidth="251.0" promptText="1234 567 8901" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
+                  <TextField fx:id="tf_registerMobileNumber" alignment="CENTER" layoutX="38.0" layoutY="29.0" prefHeight="30.0" prefWidth="234.0" promptText="1234 567 8901" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="15.0" />
                      </font>
@@ -78,64 +78,69 @@
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="12.0" layoutY="151.0" prefHeight="250.0" prefWidth="310.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10 10 10 10;">
+            <AnchorPane layoutX="12.0" layoutY="254.0" prefHeight="278.0" prefWidth="310.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10 10 10 10;">
                <children>
                   <Label layoutX="22.0" layoutY="13.0" text="Email Address">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="11.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_registerEmailAddress" layoutX="29.0" layoutY="29.0" onAction="#numberToPINHandler" prefHeight="29.0" prefWidth="251.0" promptText="oliviarodrigo@gmail.com" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
+                  <TextField fx:id="tf_registerEmailAddress" layoutX="29.0" layoutY="27.0" prefHeight="29.0" prefWidth="251.0" promptText="oliviarodrigo@gmail.com" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="22.0" layoutY="68.0" text="First Name">
+                  <Label layoutX="22.0" layoutY="65.0" text="First Name">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="11.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_registerFirstName" layoutX="29.0" layoutY="81.0" onAction="#numberToPINHandler" prefHeight="29.0" prefWidth="251.0" promptText="Olivia" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
+                  <TextField fx:id="tf_registerFirstName" layoutX="29.0" layoutY="76.0" prefHeight="29.0" prefWidth="251.0" promptText="Olivia" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="22.0" layoutY="125.0" text="Last Name">
+                  <Label layoutX="22.0" layoutY="113.0" text="Last Name">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="11.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_registerLastName" layoutX="29.0" layoutY="138.0" onAction="#numberToPINHandler" prefHeight="29.0" prefWidth="251.0" promptText="Rodrigo" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
+                  <TextField fx:id="tf_registerLastName" layoutX="29.0" layoutY="124.0" prefHeight="29.0" prefWidth="251.0" promptText="Rodrigo" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <DatePicker fx:id="dp_registerBirthdate" layoutX="34.0" layoutY="203.0" prefHeight="26.0" prefWidth="251.0" promptText="Birthday" />
-                  <Label layoutX="22.0" layoutY="178.0" text="Birthdate">
+                  <DatePicker fx:id="dp_registerBirthdate" layoutX="34.0" layoutY="180.0" prefHeight="26.0" prefWidth="251.0" promptText="Birthday" />
+                  <Label layoutX="22.0" layoutY="162.0" text="Birthdate">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="11.0" />
                      </font>
                   </Label>
+                  <Label layoutX="28.0" layoutY="214.0" text="Nationality">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tf_registerNationality" layoutX="29.0" layoutY="228.0" prefHeight="29.0" prefWidth="251.0" promptText="Filipino" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                  </TextField>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="12.0" layoutY="410.0" prefHeight="136.0" prefWidth="310.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10 10 10 10;">
+            <AnchorPane layoutX="12.0" layoutY="151.0" prefHeight="92.0" prefWidth="310.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10 10 10 10;">
                <children>
-                  <Label layoutX="22.0" layoutY="13.0" text="Nationality">
+                  <Label layoutX="22.0" layoutY="15.0" text="Mobile Personal Identification Number">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="11.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_registerNationality" layoutX="29.0" layoutY="29.0" onAction="#numberToPINHandler" prefHeight="29.0" prefWidth="251.0" promptText="Filipino" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="15.0" />
-                     </font>
-                  </TextField>
-                  <Label layoutX="22.0" layoutY="68.0" text="Address">
+                  <Label layoutX="58.0" layoutY="67.0" text="Never share your MPIN with anyone.">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="11.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_registerAddress" layoutX="29.0" layoutY="81.0" onAction="#numberToPINHandler" prefHeight="29.0" prefWidth="251.0" promptText="Quezon" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
+                  <TextField fx:id="tf_registerMPIN" alignment="CENTER" layoutX="39.0" layoutY="31.0" prefHeight="30.0" prefWidth="234.0" promptText="1 2 3 4" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="15.0" />
                      </font>
@@ -147,7 +152,7 @@
                   <Font name="Arial Rounded MT Bold" size="10.0" />
                </font>
             </Label>
-            <Button fx:id="btn_registrationToMPINRegister" alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" layoutY="562.0" maxHeight="26.0" maxWidth="68.0" mnemonicParsing="false" onAction="#registrationToMPINRegisterHandler" prefHeight="26.0" prefWidth="68.0" style="-fx-background-radius: 50px; -fx-max-height: 25; -fx-min-height: 25; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-family: Arial Rounded MT Bold; -fx-cursor: hand;" text="NEXT" textFill="WHITE">
+            <Button fx:id="btn_registerSubmit" alignment="CENTER" contentDisplay="CENTER" layoutX="246.0" layoutY="562.0" maxHeight="26.0" maxWidth="78.0" mnemonicParsing="false" onAction="#registerAccountHandler" prefHeight="26.0" prefWidth="78.0" style="-fx-background-radius: 50px; -fx-max-height: 25; -fx-min-height: 25; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-family: Arial Rounded MT Bold; -fx-cursor: hand;" text="SUBMIT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
