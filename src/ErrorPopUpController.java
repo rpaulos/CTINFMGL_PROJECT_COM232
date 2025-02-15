@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.text.Text;
 
-public class ErrorEmptyFieldController {
+public class ErrorPopUpController {
 
     @FXML
     private Button btn_closeError;

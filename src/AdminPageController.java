@@ -150,10 +150,10 @@ public class AdminPageController implements Initializable {
             isEmpty(tf_Address) || dp_Birthdate.getValue() == null) {
 
                 try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorEmptyField.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
                     Parent root = fxmlLoader.load();
 
-                    ErrorEmptyFieldController controller = fxmlLoader.getController();
+                    ErrorPopUpController controller = fxmlLoader.getController();
                     controller.setErrorMessage("An error has occured while processing action. Make sure to answer all fields before submitting.");
 
                     Stage newStage = new Stage();
@@ -186,14 +186,17 @@ public class AdminPageController implements Initializable {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessAccountCreated.fxml"));
                     Parent root = fxmlLoader.load();
+
                     Stage newStage = new Stage();
                     newStage.setTitle("Success: Account created");
                     newStage.setScene(new Scene(root));
                     newStage.centerOnScreen();
                     newStage.show();
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                
             } else {
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setContentText("Account Registration Failed");
