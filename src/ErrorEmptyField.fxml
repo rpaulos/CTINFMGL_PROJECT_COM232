@@ -13,26 +13,26 @@
    <children>
       <AnchorPane prefHeight="250.0" prefWidth="200.0">
          <children>
-            <AnchorPane layoutY="-9.0" prefHeight="54.0" prefWidth="300.0" style="-fx-background-color: #0053ca;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-9.0">
+            <AnchorPane layoutY="-9.0" prefHeight="66.0" prefWidth="300.0" style="-fx-background-color: #0053ca;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-9.0">
                <children>
-                  <ImageView fitHeight="36.0" fitWidth="43.0" layoutX="4.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="49.0" fitWidth="57.0" layoutX="122.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../Downloads/warning.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <Text layoutX="17.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error!">
+            <Text layoutX="97.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning!">
                <font>
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>
             </Text>
-            <Text layoutX="20.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="An error has occured while processing action. Make sure to answer all fields before submitting." wrappingWidth="260.7999877929687">
+            <Text layoutX="20.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="An error has occured while processing action. Make sure to answer all fields before submitting." textAlignment="CENTER" wrappingWidth="260.7999877929687">
                <font>
                   <Font name="Calibri" size="13.0" />
                </font>
             </Text>
-            <Button fx:id="btn_closeError" layoutX="215.0" layoutY="146.0" mnemonicParsing="false" onAction="#closeErrorHandler" prefHeight="26.0" prefWidth="76.0" style="-fx-background-radius: 50; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-cursor: hand;" text="Close" textFill="WHITE" />
+            <Button fx:id="btn_closeError" layoutX="112.0" layoutY="147.0" mnemonicParsing="false" onAction="#closeErrorHandler" prefHeight="26.0" prefWidth="76.0" style="-fx-background-radius: 50; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-cursor: hand;" text="Close" textFill="WHITE" />
          </children>
       </AnchorPane>
    </children>
