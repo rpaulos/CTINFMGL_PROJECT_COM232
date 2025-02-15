@@ -96,7 +96,7 @@
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="btn_signUp" alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="569.0" maxHeight="26.0" maxWidth="58.0" mnemonicParsing="false" onAction="#signUpHandler" prefHeight="26.0" prefWidth="58.0" style="-fx-background-radius: 50px; -fx-max-height: 25; -fx-min-height: 25; -fx-min-width: 50px; -fx-background-color: transparent; -fx-font-weight: bold; -fx-font-size: 10; -fx-font-family: Arial Rounded MT Bold; -fx-cursor: hand; -fx-background-color: ;" text="Sign-Up" textFill="WHITE">
+            <Button fx:id="btn_signUp" alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="569.0" maxHeight="26.0" maxWidth="58.0" mnemonicParsing="false" onAction="#signUpHandler" prefHeight="26.0" prefWidth="58.0" style="-fx-background-radius: 50px; -fx-max-height: 25; -fx-min-height: 25; -fx-min-width: 50px; -fx-background-color: transparent; -fx-font-weight: bold; -fx-font-size: 10; -fx-font-family: Arial Rounded MT Bold; -fx-cursor: hand;" text="Sign-Up" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="10.0" />
                </font>
