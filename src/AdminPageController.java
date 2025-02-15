@@ -184,8 +184,11 @@ public class AdminPageController implements Initializable {
 
             if (DatabaseHandler.addUser(user)) {
                 try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessAccountCreated.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
                     Parent root = fxmlLoader.load();
+
+                    SuccessPopUpController controller = fxmlLoader.getController();
+                    controller.setSuccessMessage("User registration complete. The account is now active and ready for access.");
 
                     Stage newStage = new Stage();
                     newStage.setTitle("Success: Account created");
@@ -196,7 +199,7 @@ public class AdminPageController implements Initializable {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                
+
             } else {
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setContentText("Account Registration Failed");
