@@ -152,11 +152,16 @@ public class AdminPageController implements Initializable {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorEmptyField.fxml"));
                     Parent root = fxmlLoader.load();
+
+                    ErrorEmptyFieldController controller = fxmlLoader.getController();
+                    controller.setErrorMessage("An error has occured while processing action. Make sure to answer all fields before submitting.");
+
                     Stage newStage = new Stage();
                     newStage.setTitle("Error: Empty field");
                     newStage.setScene(new Scene(root));
                     newStage.centerOnScreen();
                     newStage.show();
+                    
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

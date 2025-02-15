@@ -26,7 +26,7 @@
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>
             </Text>
-            <Text fx:id="txt_errorMessage" layoutX="20.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="An error has occured while processing action. Make sure to answer all fields before submitting." textAlignment="CENTER" wrappingWidth="260.7999877929687">
+            <Text fx:id="txt_errorMessage" layoutX="20.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Default text." textAlignment="CENTER" wrappingWidth="260.7999877929687">
                <font>
                   <Font name="Calibri" size="13.0" />
                </font>

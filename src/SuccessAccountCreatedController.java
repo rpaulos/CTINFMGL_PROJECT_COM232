@@ -4,7 +4,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class SuccessAcountCreatedController {
+public class SuccessAccountCreatedController {
 
     @FXML
     private Button btn_closeSuccess;
