@@ -59,13 +59,14 @@ public class LoginPageMPINController {
     private Scene scene; 
     private Parent root;
 
+    public static String numberToValidate;
+    public static String MPINToValidate;
+
     public void LoginToHomeHandler(ActionEvent event) throws IOException{
 
         String MPIN = pf_PIN.getText().trim().replaceAll("\\s+", "");
-        System.out.println("Entered PIN: " + MPIN);
 
         if (DatabaseHandler.validateMPIN(MPIN)) {
-            System.out.println("SUCCESS");
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
 

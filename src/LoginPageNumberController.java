@@ -66,6 +66,8 @@ public class LoginPageNumberController {
         String usernumber = tf_LoginNumber.getText().trim().replaceAll("\\s+", "");
 
         if (DatabaseHandler.validateMobileNumber(usernumber)) {
+            LoginPageMPINController.numberToValidate = usernumber;
+
             FXMLLoader loader;
     
             if (usernumber.equalsIgnoreCase("Admin")) {
@@ -73,8 +75,9 @@ public class LoginPageNumberController {
             } else {
                 loader = new FXMLLoader(getClass().getResource("LoginPageMPIN.fxml"));
             }
-    
+
             root = loader.load();
+    
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

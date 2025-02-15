@@ -102,4 +102,8 @@ public class HomePageController{
 
     }
 
+    public void displayName(String number) {
+        lbl_name.setText(number);
+    }
+
 }
