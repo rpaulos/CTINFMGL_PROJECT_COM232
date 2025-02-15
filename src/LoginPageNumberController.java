@@ -82,27 +82,7 @@ public class LoginPageNumberController {
             stage.show();
         }
         
-        // if (DatabaseHandler.validateMobileNumber(usernumber)) {
-        //     System.out.println("Valid Number :)");
-
-        //     FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPageMPIN.fxml"));
-
-        //     root = loader.load();
-
-        //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        //     scene = new Scene(root);
-        //     stage.setScene(scene);
-        //     stage.show();
-
-        // } else {
-        //     System.out.println("Invalid Number :(");
-        //     /*
-        //      * If the mobile number isn't valid
-        //      * pop up an error message
-        //      */
-        // }
     }
-
 
     public void numberButtonHandler(ActionEvent event) {
         Button clickedButton = (Button) event.getSource();
