@@ -178,9 +178,17 @@ public class AdminPageController implements Initializable {
             User user = new User(phoneNumber, firstName, lastName, emailAddress, MPIN, birthDate, country, address);
 
             if (DatabaseHandler.addUser(user)) {
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setContentText("Account Registered");
-                alert.showAndWait();
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessAccountCreated.fxml"));
+                    Parent root = fxmlLoader.load();
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Success: Account created");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             } else {
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setContentText("Account Registration Failed");
