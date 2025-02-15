@@ -154,7 +154,7 @@ public class AdminPageController implements Initializable {
                     Parent root = fxmlLoader.load();
 
                     ErrorPopUpController controller = fxmlLoader.getController();
-                    controller.setErrorMessage("An error has occured while processing action. Make sure to answer all fields before submitting.");
+                    controller.setErrorMessage("An error has occurred while processing action. Make sure to answer all fields before submitting.");
 
                     Stage newStage = new Stage();
                     newStage.setTitle("Error: Empty field");
@@ -201,11 +201,23 @@ public class AdminPageController implements Initializable {
                 }
 
             } else {
-                Alert alert = new Alert(AlertType.ERROR);
-                alert.setContentText("Account Registration Failed");
-                alert.showAndWait();
-            }
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
 
+                    ErrorPopUpController controller = fxmlLoader.getController();
+                    controller.setErrorMessage("An error has occurred while processing action. Make sure to answer all fields before submitting.");
+
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Error: Empty field");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                    
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
         displayUser();
     }
@@ -221,14 +233,40 @@ public class AdminPageController implements Initializable {
         String phoneNumber = user.getPhone_number();
 
         if (DatabaseHandler.deleteUser(user)) {
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setContentText("Account Deleted");
-            alert.showAndWait();
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
+                Parent root = fxmlLoader.load();
+
+                SuccessPopUpController controller = fxmlLoader.getController();
+                controller.setSuccessMessage("The account has been successfully deleted. All related data has been removed.");
+
+                Stage newStage = new Stage();
+                newStage.setTitle("Success: Account deleted");
+                newStage.setScene(new Scene(root));
+                newStage.centerOnScreen();
+                newStage.show();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             displayUser();
         } else {
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setContentText("Account Registered");
-            alert.showAndWait();
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                Parent root = fxmlLoader.load();
+
+                ErrorPopUpController controller = fxmlLoader.getController();
+                controller.setErrorMessage("An error has occurred while processing action.");
+
+                Stage newStage = new Stage();
+                newStage.setTitle("Error: Account not deleted");
+                newStage.setScene(new Scene(root));
+                newStage.centerOnScreen();
+                newStage.show();
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }
@@ -240,13 +278,18 @@ public class AdminPageController implements Initializable {
             isEmpty(tf_Address) || dp_Birthdate.getValue() == null) {
 
                 try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorEmptyField.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
                     Parent root = fxmlLoader.load();
+
+                    ErrorPopUpController controller = fxmlLoader.getController();
+                    controller.setErrorMessage("An error has occurred while processing action. Make sure to answer all fields before submitting.");
+
                     Stage newStage = new Stage();
                     newStage.setTitle("Error: Empty field");
                     newStage.setScene(new Scene(root));
                     newStage.centerOnScreen();
                     newStage.show();
+                    
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -268,13 +311,39 @@ public class AdminPageController implements Initializable {
             User user = new User(phoneNumber, firstName, lastName, emailAddress, MPIN, birthDate, country, address);
 
             if (DatabaseHandler.updateUser(user)) {
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setContentText("User updated");
-                alert.showAndWait();
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+
+                    SuccessPopUpController controller = fxmlLoader.getController();
+                    controller.setSuccessMessage("The account has been successfully updated.");
+
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Success: Account deleted");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             } else {
-                Alert alert = new Alert(AlertType.ERROR);
-                alert.setContentText("Update cannot go through");
-                alert.showAndWait();
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+
+                    ErrorPopUpController controller = fxmlLoader.getController();
+                    controller.setErrorMessage("An error has occurred while processing action. Update can't go through.");
+
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Error: Empty field");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                    
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
         }
