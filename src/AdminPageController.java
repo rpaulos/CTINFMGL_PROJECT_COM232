@@ -220,9 +220,17 @@ public class AdminPageController implements Initializable {
             isEmpty(tf_EmailAddress) || isEmpty(tf_PIN) || isEmpty(tf_Country) ||
             isEmpty(tf_Address) || dp_Birthdate.getValue() == null) {
 
-                Alert alert = new Alert(AlertType.ERROR);
-                alert.setContentText("All fields must be filled out to proceed.");
-                alert.showAndWait();
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorEmptyField.fxml"));
+                    Parent root = fxmlLoader.load();
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Error: Empty field");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
         
         } else {
 

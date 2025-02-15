@@ -104,9 +104,9 @@
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_FirstName" layoutX="35.2" layoutY="83.0" prefHeight="26.0" prefWidth="170.0" promptText="Raphael" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.2" />
-                  <TextField fx:id="tf_LastName" layoutX="35.2" layoutY="131.0" prefHeight="26.0" prefWidth="170.0" promptText="Cruz" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.2" />
-                  <TextField fx:id="tf_EmailAddress" layoutX="35.2" layoutY="188.0" prefHeight="26.0" prefWidth="170.0" promptText="raphaelcruz@gmail.com" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.2" />
+                  <TextField fx:id="tf_FirstName" layoutX="35.2" layoutY="83.0" prefHeight="26.0" prefWidth="170.0" promptText="Rae" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.2" />
+                  <TextField fx:id="tf_LastName" layoutX="35.2" layoutY="131.0" prefHeight="26.0" prefWidth="170.0" promptText="Paulos" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.2" />
+                  <TextField fx:id="tf_EmailAddress" layoutX="35.2" layoutY="188.0" prefHeight="26.0" prefWidth="170.0" promptText="r.paulos@gmail.com" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.2" />
                   <TextField fx:id="tf_PIN" layoutX="35.2" layoutY="237.0" prefHeight="26.0" prefWidth="170.0" promptText="1 2 3 4" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.2" />
                   <TextField fx:id="tf_Country" layoutX="42.0" layoutY="343.0" prefHeight="26.0" prefWidth="170.0" promptText="Philippines" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.0" />
                   <TextField fx:id="tf_Address" layoutX="68.0" layoutY="396.0" prefHeight="26.0" prefWidth="170.0" promptText="Manila" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.0" />
@@ -116,9 +116,9 @@
             <TableView fx:id="mytable" layoutX="267.0" layoutY="14.0" prefHeight="507.0" prefWidth="799.0" style="-fx-background-color: #FAFAFA;">
               <columns>
                 <TableColumn fx:id="phone_numbercol" prefWidth="119.20002746582031" text="phone_number" />
-                <TableColumn fx:id="first_namecol" prefWidth="122.4000244140625" text="first_name" />
-                  <TableColumn fx:id="last_namecol" minWidth="0.0" prefWidth="119.20001220703125" text="last_name" />
-                  <TableColumn fx:id="email_addresscol" minWidth="0.0" prefWidth="97.5999755859375" text="email_address" />
+                <TableColumn fx:id="first_namecol" prefWidth="112.79998779296875" text="first_name" />
+                  <TableColumn fx:id="last_namecol" minWidth="0.0" prefWidth="120.79998779296875" text="last_name" />
+                  <TableColumn fx:id="email_addresscol" minWidth="0.0" prefWidth="146.4000244140625" text="email_address" />
                   <TableColumn fx:id="pincol" prefWidth="50.40008544921875" text="PIN" />
                   <TableColumn fx:id="birthdatecol" prefWidth="64.800048828125" text="birthdate" />
                   <TableColumn fx:id="countrycol" prefWidth="75.0" text="country" />
