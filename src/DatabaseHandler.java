@@ -65,10 +65,29 @@ public class DatabaseHandler {
         return false;
     }
 
-    public static boolean validateMPIN(String PIN){
+    // public static boolean validateMPIN(String PIN){
+
+    //     getInstance();
+    //     String query = "SELECT * FROM users WHERE PIN = '" + PIN + "'";
+        
+    //     System.out.println(query);
+
+    //     ResultSet result = handler.execQuery(query);
+    //     try {
+    //         if (result.next()) {
+    //             return true;
+    //         }
+    //     }
+    //     catch (SQLException e){
+    //         e.printStackTrace();
+    //     }
+    //     return false;
+    // }
+
+    public static boolean validateMobileNumberAndMPIN(String phone_number, String PIN){
 
         getInstance();
-        String query = "SELECT * FROM users WHERE PIN = '" + PIN + "'";
+        String query = "SELECT * FROM users WHERE phone_number = '" + phone_number + "' AND PIN = '" + PIN + "'";
         
         System.out.println(query);
 

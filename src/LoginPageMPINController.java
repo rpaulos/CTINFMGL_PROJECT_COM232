@@ -64,9 +64,9 @@ public class LoginPageMPINController {
 
     public void LoginToHomeHandler(ActionEvent event) throws IOException{
 
-        String MPIN = pf_PIN.getText().trim().replaceAll("\\s+", "");
+        MPINToValidate = pf_PIN.getText().trim().replaceAll("\\s+", "");
 
-        if (DatabaseHandler.validateMPIN(MPIN)) {
+        if (DatabaseHandler.validateMobileNumberAndMPIN(numberToValidate, MPINToValidate)) {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
 
@@ -78,6 +78,7 @@ public class LoginPageMPINController {
             stage.show();
 
         } else {
+            //Wrong number or password pop up message
             System.out.println("UNSUCCESSFUL");
 
         }

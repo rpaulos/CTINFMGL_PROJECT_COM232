@@ -83,6 +83,8 @@ public class LoginPageNumberController {
             stage.setScene(scene);
             stage.centerOnScreen();
             stage.show();
+        } else {
+            //Account does not exist pop up message
         }
         
     }
