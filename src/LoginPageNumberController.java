@@ -66,6 +66,7 @@ public class LoginPageNumberController {
         String usernumber = tf_LoginNumber.getText().trim().replaceAll("\\s+", "");
 
         if (DatabaseHandler.validateMobileNumber(usernumber)) {
+            
             LoginPageMPINController.numberToValidate = usernumber;
 
             FXMLLoader loader;

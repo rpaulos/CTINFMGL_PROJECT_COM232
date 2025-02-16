@@ -68,6 +68,9 @@ public class LoginPageMPINController {
 
         if (DatabaseHandler.validateMobileNumberAndMPIN(numberToValidate, MPINToValidate)) {
 
+            HomePageController.validNumber = numberToValidate;
+            HomePageController.validPIN = MPINToValidate;
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
 
             root = loader.load();
