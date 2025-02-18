@@ -104,6 +104,29 @@ public class DatabaseHandler {
         return first_name;
     }
 
+    public static float getUserBalance(String phone_number) {
+        String query = "SELECT balance FROM wallet WHERE phone_number = ?";
+        float balance = 0.0f;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+
+        try {
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, phone_number);
+            result = stmt.executeQuery();
+
+            if(result.next()) {
+                balance = result.getFloat("balance");
+            } 
+            
+        } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        return balance;
+    }
+
     // public static boolean expressSend(String numberString, float amount, String phone_number){
     //     getInstance();
     //     String query = "UPDATE wallet SET balance = balance + " + amount + " WHERE phone_number = '" + numberString + "'"; 

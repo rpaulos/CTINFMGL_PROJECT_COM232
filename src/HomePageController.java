@@ -13,7 +13,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class HomePageController implements Initializable{
+public class HomePageController implements Initializable {
 // public class HomePageController{
 
     @FXML
@@ -49,6 +49,8 @@ public class HomePageController implements Initializable{
     @FXML
     private Label lbl_name;
 
+    private String first_name;
+
     private Stage stage;
     private Scene scene; 
     private Parent root;
@@ -60,16 +62,11 @@ public class HomePageController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         ExpressSendPageController.number = validNumber;
         getName();
+        getBalance();
         
     }
 
-    // public void getName() {
-
-    //     String first_name = DatabaseHandler.getInstance().getFirstName(validNumber, validPIN);
-
-    // }
-
-    public void sendHandler(ActionEvent event) throws IOException{
+    public void sendHandler(ActionEvent event) throws IOException {
 
         ExpressSendPageController.number = validNumber;
 
@@ -84,7 +81,7 @@ public class HomePageController implements Initializable{
 
     }
 
-    public void loadHandler(ActionEvent event) throws IOException{
+    public void loadHandler(ActionEvent event) throws IOException {
 
         ExpressSendPageController.number = validNumber;
 
@@ -100,7 +97,7 @@ public class HomePageController implements Initializable{
     }
 
 
-    public void depositHandler(ActionEvent event) throws IOException{
+    public void depositHandler(ActionEvent event) throws IOException {
 
         ExpressSendPageController.number = validNumber;
 
@@ -115,7 +112,7 @@ public class HomePageController implements Initializable{
 
     }
 
-    public void WithdrawHandler(ActionEvent event) throws IOException{
+    public void WithdrawHandler(ActionEvent event) throws IOException {
 
         ExpressSendPageController.number = validNumber;
 
@@ -131,13 +128,19 @@ public class HomePageController implements Initializable{
     }
 
     public void getName() {
-        String first_name = DatabaseHandler.getFirstName(validNumber, validPIN);
+        first_name = DatabaseHandler.getFirstName(validNumber, validPIN);
 
         if (first_name != null) {
             lbl_name.setText(first_name);
         } else {
             lbl_name.setText("ERROR");
         }
+    }
+
+    public void getBalance() {
+        float balance = DatabaseHandler.getUserBalance(validNumber);
+        String formatBalance = String.format("%,.2f", balance);
+        lbl_balance.setText(formatBalance);
     }
 
 }

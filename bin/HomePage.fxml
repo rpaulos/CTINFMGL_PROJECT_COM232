@@ -84,7 +84,7 @@
             </AnchorPane>
             <AnchorPane layoutX="13.0" layoutY="52.0" prefHeight="88.0" prefWidth="310.0" style="-fx-background-color: #1a72fa; -fx-background-radius: 10 10 0 0;">
                <children>
-                  <Label fx:id="lbl_balance" layoutX="26.0" layoutY="40.0" text="BALANCE" textFill="WHITE">
+                  <Label fx:id="lbl_balance" layoutX="42.0" layoutY="40.0" text="BALANCE" textFill="WHITE">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="32.0" />
                      </font>
@@ -113,6 +113,11 @@
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Button>
+                  <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="11.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/peso.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="13.0" layoutY="136.0" prefHeight="94.0" prefWidth="310.0" style="-fx-background-color: #ffffff; -fx-background-radius: 0 0 10 10;">
