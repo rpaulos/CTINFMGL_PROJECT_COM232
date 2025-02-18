@@ -13,8 +13,8 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-// public class HomePageController implements Initializable{
-public class HomePageController{
+public class HomePageController implements Initializable{
+// public class HomePageController{
 
     @FXML
     private Button btn_cashIn;
@@ -56,12 +56,12 @@ public class HomePageController{
     public static String validNumber;
     public static String validPIN;
 
-    // @Override
-    // public void initialize(URL url, ResourceBundle rb) {
-    //     ExpressSendPageController.number = validNumber;
-    //     ExpressSendPageController.pin = validPIN;
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        ExpressSendPageController.number = validNumber;
+        getName();
         
-    // }
+    }
 
     // public void getName() {
 
@@ -128,6 +128,16 @@ public class HomePageController{
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    public void getName() {
+        String first_name = DatabaseHandler.getFirstName(validNumber, validPIN);
+
+        if (first_name != null) {
+            lbl_name.setText(first_name);
+        } else {
+            lbl_name.setText("ERROR");
+        }
     }
 
 }

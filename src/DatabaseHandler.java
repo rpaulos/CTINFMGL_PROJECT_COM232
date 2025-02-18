@@ -80,6 +80,30 @@ public class DatabaseHandler {
     }
     */
 
+    public static String getFirstName(String phone_number, String PIN) {
+        String query = "SELECT first_name FROM users WHERE phone_number = ? AND PIN = ?";
+        String first_name = null;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+
+        try {
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, phone_number);
+            stmt.setString(2, PIN);
+            result = stmt.executeQuery();
+
+            if(result.next()) {
+                first_name = result.getString("first_name");
+            } 
+            
+        } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        return first_name;
+    }
+
     // public static boolean expressSend(String numberString, float amount, String phone_number){
     //     getInstance();
     //     String query = "UPDATE wallet SET balance = balance + " + amount + " WHERE phone_number = '" + numberString + "'"; 
