@@ -13,7 +13,8 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class HomePageController implements Initializable{
+// public class HomePageController implements Initializable{
+public class HomePageController{
 
     @FXML
     private Button btn_cashIn;
@@ -55,19 +56,22 @@ public class HomePageController implements Initializable{
     public static String validNumber;
     public static String validPIN;
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        getName();
+    // @Override
+    // public void initialize(URL url, ResourceBundle rb) {
+    //     ExpressSendPageController.number = validNumber;
+    //     ExpressSendPageController.pin = validPIN;
         
-    }
+    // }
 
-    public void getName() {
-        System.out.println(validNumber);
-        System.out.println(validPIN);
+    // public void getName() {
 
-    }
+    //     String first_name = DatabaseHandler.getInstance().getFirstName(validNumber, validPIN);
+
+    // }
 
     public void sendHandler(ActionEvent event) throws IOException{
+
+        ExpressSendPageController.number = validNumber;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ExpressSendPage.fxml"));
 
@@ -81,6 +85,8 @@ public class HomePageController implements Initializable{
     }
 
     public void loadHandler(ActionEvent event) throws IOException{
+
+        ExpressSendPageController.number = validNumber;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LoadPage.fxml"));
 
@@ -96,6 +102,8 @@ public class HomePageController implements Initializable{
 
     public void depositHandler(ActionEvent event) throws IOException{
 
+        ExpressSendPageController.number = validNumber;
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("DepositPage.fxml"));
 
         root = loader.load();
@@ -108,6 +116,8 @@ public class HomePageController implements Initializable{
     }
 
     public void WithdrawHandler(ActionEvent event) throws IOException{
+
+        ExpressSendPageController.number = validNumber;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("WithdrawPage.fxml"));
 

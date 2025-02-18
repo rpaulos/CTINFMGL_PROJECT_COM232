@@ -65,27 +65,54 @@ public class DatabaseHandler {
         return false;
     }
 
-    // public static boolean validateMPIN(String PIN){
+    //GET THE FIRST NAME FOR THE lbl_name in the HomePage.fxml
+    // public static String getFirstName(String phone_number, String PIN) {
+    //     String query = "SELECT first_name FROM users WHERE phone_number = '" + phone_number + "AND PIN = '" + PIN + "'"; 
+    // }
 
-    //     getInstance();
-    //     String query = "SELECT * FROM users WHERE PIN = '" + PIN + "'";
+    /* GET THE BALANCE FOR lbl_balance AND DISPLAY IT ON THE HomePage.fxml
+    public static float getBalance(String phone_number, String PIN){
+        getInstance();
+        String query = "SELECT * FROM wallet WHERE phone_number = '" + phone_number + "' AND PIN = '" + PIN + "'";
+
+        System.out.println(query);
         
-    //     System.out.println(query);
+    }
+    */
+
+    // public static boolean expressSend(String numberString, float amount, String phone_number){
+    //     getInstance();
+    //     String query = "UPDATE wallet SET balance = balance + " + amount + " WHERE phone_number = '" + numberString + "'"; 
+
+    //     ResultSet result = handler.execQuery(query);
+    //     try {
+    //         if (result.next()) {
+    //             subtractFromBalance(phone_number, amount); //calls subtractFromBalance() or find a way to execute two querries
+    //             return true; //expressSend can't reach this because of the line above is calling a diff method
+    //         }
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
+    //     return false;
+
+    // }
+
+    // public static boolean subtractFromBalance(String phone_number, float amount) {
+    //     getInstance();
+    //     String query = "UPDATE wallet SET balance = balance - " + amount + " WHERE phone_number = '" + phone_number + "'";
 
     //     ResultSet result = handler.execQuery(query);
     //     try {
     //         if (result.next()) {
     //             return true;
     //         }
-    //     }
-    //     catch (SQLException e){
+    //     } catch (Exception e) {
     //         e.printStackTrace();
     //     }
     //     return false;
     // }
 
     public static boolean validateMobileNumberAndMPIN(String phone_number, String PIN){
-
         getInstance();
         String query = "SELECT * FROM users WHERE phone_number = '" + phone_number + "' AND PIN = '" + PIN + "'";
         

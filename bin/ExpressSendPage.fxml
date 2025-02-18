@@ -103,7 +103,7 @@
                         <Font name="Arial Rounded MT Bold" size="11.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btn_submitExpressSend" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="174.0" maxHeight="38.0" maxWidth="259.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="259.0" style="-fx-background-radius: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-family: Arial Rounded MT Bold; -fx-cursor: hand;" text="SUBMIT" textFill="WHITE">
+                  <Button fx:id="btn_submitExpressSend" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="174.0" maxHeight="38.0" maxWidth="259.0" mnemonicParsing="false" onAction="#expressSendHandler" prefHeight="30.0" prefWidth="259.0" style="-fx-background-radius: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-family: Arial Rounded MT Bold; -fx-cursor: hand;" text="SUBMIT" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
