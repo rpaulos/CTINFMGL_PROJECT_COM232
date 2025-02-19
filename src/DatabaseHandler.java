@@ -1,3 +1,4 @@
+import java.lang.classfile.instruction.StackInstruction;
 import java.sql.*;
 
 public class DatabaseHandler {
@@ -46,6 +47,17 @@ public class DatabaseHandler {
         return result;
     }
 
+    public int execUpdateQuery(String query) {
+        int affectedRows = 0;
+        try {
+            stmt = getDBConnection().createStatement();
+            affectedRows = stmt.executeUpdate(query);
+        } catch (SQLException ex) {
+            System.out.println("Not working");
+        }
+        return affectedRows;
+    }
+
     public static boolean validateMobileNumber(String phone_number){
 
         getInstance();
@@ -65,21 +77,38 @@ public class DatabaseHandler {
         return false;
     }
 
-    //GET THE FIRST NAME FOR THE lbl_name in the HomePage.fxml
-    // public static String getFirstName(String phone_number, String PIN) {
-    //     String query = "SELECT first_name FROM users WHERE phone_number = '" + phone_number + "AND PIN = '" + PIN + "'"; 
-    // }
-
-    /* GET THE BALANCE FOR lbl_balance AND DISPLAY IT ON THE HomePage.fxml
-    public static float getBalance(String phone_number, String PIN){
+    //validateMobileNumberAndMPIN handles the validation of the account
+    public static boolean validateMobileNumberAndMPIN(String phone_number, String PIN){
         getInstance();
-        String query = "SELECT * FROM wallet WHERE phone_number = '" + phone_number + "' AND PIN = '" + PIN + "'";
-
-        System.out.println(query);
+        String query = "SELECT * FROM users WHERE phone_number = '" + phone_number + "' AND PIN = '" + PIN + "'";
         
-    }
-    */
+        System.out.println(query);
 
+        ResultSet result = handler.execQuery(query);
+        try {
+            if (result.next()) {
+                return true;
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static ResultSet getUsers(){
+        ResultSet result = null;
+        
+        try {
+            String query = "SELECT * FROM users";
+            result = handler.execQuery(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    //getFirstName and getUserBalance is used to display the name and balance of the user in the HomePage
     public static String getFirstName(String phone_number, String PIN) {
         String query = "SELECT first_name FROM users WHERE phone_number = ? AND PIN = ?";
         String first_name = null;
@@ -127,22 +156,27 @@ public class DatabaseHandler {
         return balance;
     }
 
-    // public static boolean expressSend(String numberString, float amount, String phone_number){
-    //     getInstance();
-    //     String query = "UPDATE wallet SET balance = balance + " + amount + " WHERE phone_number = '" + numberString + "'"; 
+    //expressSend and subtractFromBalance handles the amound to send to other users
 
-    //     ResultSet result = handler.execQuery(query);
-    //     try {
-    //         if (result.next()) {
-    //             subtractFromBalance(phone_number, amount); //calls subtractFromBalance() or find a way to execute two querries
-    //             return true; //expressSend can't reach this because of the line above is calling a diff method
-    //         }
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     }
-    //     return false;
+    public static float expressSend(String numberToSendTo, float amountToSend) {
+        String query = "UPDATE wallet SET balance = balance + ? WHERE phone_number = ?";
+        float balance = 0.0f;
+        Connection conn = null;
+        PreparedStatement stmt = null;
 
-    // }
+        try {
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setFloat(1, amountToSend);
+            stmt.setString(2, numberToSendTo);
+            
+            int affectedRows = stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return balance;
+    }
 
     // public static boolean subtractFromBalance(String phone_number, float amount) {
     //     getInstance();
@@ -158,36 +192,6 @@ public class DatabaseHandler {
     //     }
     //     return false;
     // }
-
-    public static boolean validateMobileNumberAndMPIN(String phone_number, String PIN){
-        getInstance();
-        String query = "SELECT * FROM users WHERE phone_number = '" + phone_number + "' AND PIN = '" + PIN + "'";
-        
-        System.out.println(query);
-
-        ResultSet result = handler.execQuery(query);
-        try {
-            if (result.next()) {
-                return true;
-            }
-        }
-        catch (SQLException e){
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public static ResultSet getUsers(){
-        ResultSet result = null;
-        
-        try {
-            String query = "SELECT * FROM users";
-            result = handler.execQuery(query);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
 
     public static boolean addUser(User user) {
         try {
