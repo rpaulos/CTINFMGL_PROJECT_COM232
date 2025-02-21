@@ -33,8 +33,10 @@ public class ExpressSendPageController {
     private Parent root;
 
     public static String number;
+    public static float myBalance;
 
     private static boolean isEmpty(TextField field) {
+        System.out.println("myBalance: " + myBalance);
         return field == null || field.getText().trim().isEmpty();
     }
 
@@ -91,12 +93,57 @@ public class ExpressSendPageController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
         
         } else {
             String numberToSendTo = tf_numberToSendTo.getText();
             float amountToSend = Float.parseFloat(tf_amountToSend.getText());
 
-            DatabaseHandler.expressSend(numberToSendTo, amountToSend);
+            System.out.print(myBalance);
+            System.out.print(amountToSend);
+
+            if (amountToSend > myBalance) {
+
+                try {
+                
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+    
+                    ErrorPopUpController controller = fxmlLoader.getController();
+                    controller.setErrorMessage("Insufficient Balance.");
+                    
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Error: Insufficient Balance");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                                
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            } else {
+
+                try {
+
+                    DatabaseHandler.expressSend(numberToSendTo, amountToSend);
+
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+    
+                    SuccessPopUpController controller = fxmlLoader.getController();
+                    controller.setSuccessMessage("Transaction completed");
+                    
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Success: Transaction Successful");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                                
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
     

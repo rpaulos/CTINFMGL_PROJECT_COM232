@@ -157,7 +157,9 @@ public class DatabaseHandler {
     }
 
     //expressSend and subtractFromBalance handles the amound to send to other users
-
+    //Need a way to negate the amountToSend from the phone_number of the user who sent the money
+    //Plus a way to check the balance first  before sending the money. 
+    //If balance < amountToSend, show a pop up message
     public static float expressSend(String numberToSendTo, float amountToSend) {
         String query = "UPDATE wallet SET balance = balance + ? WHERE phone_number = ?";
         float balance = 0.0f;

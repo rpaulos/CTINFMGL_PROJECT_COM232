@@ -57,6 +57,7 @@ public class HomePageController implements Initializable {
 
     public static String validNumber;
     public static String validPIN;
+    public static float balance;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -138,9 +139,11 @@ public class HomePageController implements Initializable {
     }
 
     public void getBalance() {
-        float balance = DatabaseHandler.getUserBalance(validNumber);
+        balance = DatabaseHandler.getUserBalance(validNumber);
         String formatBalance = String.format("%,.2f", balance);
         lbl_balance.setText(formatBalance);
+        ExpressSendPageController.myBalance = balance;
+        System.out.println(balance);
     }
 
 }
