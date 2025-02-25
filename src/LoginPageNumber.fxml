@@ -91,7 +91,7 @@
                   <Font name="Arial Rounded MT Bold" size="10.0" />
                </font>
             </Label>
-            <Button fx:id="btn_Next" layoutX="42.0" layoutY="517.0" mnemonicParsing="false" onAction="#numberToMPINHandler" prefHeight="42.0" prefWidth="254.0" style="-fx-background-radius: 50; -fx-background-color: #70baf7; -fx-font-weight: bold; -fx-text-fill: #ffffff; -fx-cursor: hand;" text="Submit">
+            <Button fx:id="btn_Next" layoutX="42.0" layoutY="517.0" mnemonicParsing="false" onAction="#numberToMPINHandler" prefHeight="42.0" prefWidth="254.0" style="-fx-background-radius: 50; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-text-fill: #ffffff; -fx-cursor: hand;" text="Submit">
                <font>
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
