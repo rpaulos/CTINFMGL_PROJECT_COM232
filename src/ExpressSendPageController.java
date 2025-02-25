@@ -42,6 +42,7 @@ public class ExpressSendPageController {
 
     public void expressSendHandler(ActionEvent event) throws IOException {
 
+        //Checks if the tf_numberToSendTo and tf_amountToSend are empty
         if (isEmpty(tf_numberToSendTo) || isEmpty(tf_amountToSend)) {
             try {
                 
@@ -61,15 +62,13 @@ public class ExpressSendPageController {
                 e.printStackTrace();
             }
 
-        
+        //Get the numberToSendTo and amountToSend
         } else {
             String numberToSendTo = tf_numberToSendTo.getText();
             float amountToSend = Float.parseFloat(tf_amountToSend.getText());
 
-            System.out.print(myBalance);
-            System.out.print(amountToSend);
-
-            if (amountToSend > myBalance) {
+            //Checks if there's enough balance to send
+            if (myBalance < amountToSend) {
 
                 try {
                 
@@ -89,11 +88,35 @@ public class ExpressSendPageController {
                     e.printStackTrace();
                 }
 
+            //Checks if the numberToSendTo is the same as the number the user added
+            } else if (numberToSendTo.equals(number)) {
+
+                try {
+                
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+    
+                    ErrorPopUpController controller = fxmlLoader.getController();
+                    controller.setErrorMessage("Error: Cannot express send money to your own account. Please enter a ddiferent account.");
+                    
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Transaction Error");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                                
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            //Calls the expressSend and negateBalance DB Handler to go through the transaction
             } else {
 
                 try {
 
                     DatabaseHandler.expressSend(numberToSendTo, amountToSend);
+                    Float negateFromBalance = amountToSend;
+                    DatabaseHandler.negateBalance(negateFromBalance, number);
 
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
                     Parent root = fxmlLoader.load();

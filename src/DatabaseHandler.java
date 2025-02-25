@@ -180,6 +180,24 @@ public class DatabaseHandler {
         return balance;
     }
 
+    public static void negateBalance(Float negateFromBalance, String myNumber) {
+        String query = "UPDATE wallet SET balance = balance - ? WHERE phone_number = ?";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setFloat(1, negateFromBalance); 
+            stmt.setString(2, myNumber);
+
+            int affectedRows = stmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     // public static boolean subtractFromBalance(String phone_number, float amount) {
     //     getInstance();
     //     String query = "UPDATE wallet SET balance = balance - " + amount + " WHERE phone_number = '" + phone_number + "'";
