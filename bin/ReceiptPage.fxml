@@ -14,17 +14,8 @@
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="335.0">
          <children>
-            <AnchorPane layoutX="42.0" layoutY="149.0" prefHeight="439.0" prefWidth="295.0" style="-fx-background-color: white; -fx-background-radius: 20 20 0 0;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+            <AnchorPane layoutX="42.0" layoutY="149.0" prefHeight="439.0" prefWidth="295.0" style="-fx-background-color: white; -fx-background-radius: 8 8 0 0;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                <children>
-                  <AnchorPane layoutX="118.0" layoutY="-30.0" prefHeight="87.0" prefWidth="90.0" style="-fx-background-color: #1a72fa; -fx-border-color: white; -fx-border-radius: 100; -fx-border-width: 2; -fx-background-radius: 100; -fx-max-width: 60; -fx-max-height: 60;">
-                     <children>
-                        <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../Downloads/checkmark.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
                   <Line endX="154.89999389648438" layoutX="-132.59999389648436" layoutY="145.0" startX="403.3999938964844" stroke="#e4e4e4" AnchorPane.leftAnchor="21.80000000000001" AnchorPane.rightAnchor="23.899999999999977" />
                   <Line endX="154.89999389648438" layoutX="-132.0" layoutY="184.0" startX="403.3999938964844" stroke="#e4e4e4" />
                   <Text fill="#4c4881" layoutX="26.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount">
@@ -32,7 +23,7 @@
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="#4c4881" layoutX="245.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00">
+                  <Text fx:id="amountSent" fill="#4c4881" layoutX="245.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>
@@ -42,7 +33,7 @@
                         <Font name="Arial Rounded MT Bold" size="8.0" />
                      </font>
                   </Text>
-                  <Text fill="#4c4881" layoutX="235.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00">
+                  <Text fx:id="totalAmountSent" fill="#4c4881" layoutX="235.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="18.0" />
                      </font>
@@ -55,17 +46,17 @@
                         <ColorAdjust />
                      </effect>
                   </ImageView>
-                  <Text fill="#4c4881" layoutX="114.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Initials">
+                  <Text fx:id="initials" fill="#4c4881" layoutX="112.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Initials" textAlignment="CENTER">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="22.0" />
                      </font>
                   </Text>
-                  <Text fill="#afadc1" layoutX="110.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sent via GCash">
+                  <Text fill="#afadc1" layoutX="103.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sent via GCash">
                      <font>
-                        <Font name="Arial Rounded MT Bold" size="8.0" />
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>
                   </Text>
-                  <AnchorPane layoutY="322.0" prefHeight="134.0" prefWidth="294.0" style="-fx-background-color: #E5F3FD; -fx-background-radius: 0;">
+                  <AnchorPane layoutY="316.0" prefHeight="140.0" prefWidth="294.0" style="-fx-background-color: #E5F3FD; -fx-background-radius: 0;">
                      <children>
                         <AnchorPane layoutX="17.0" layoutY="51.0" prefHeight="65.0" prefWidth="262.0" style="-fx-background-radius: 5; -fx-background-color: #9ce9c7;">
                            <children>
@@ -97,39 +88,67 @@
                               <Font name="Arial Rounded MT Bold" size="8.0" />
                            </font>
                         </Text>
-                        <Text fill="#4c4881" layoutX="53.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0000 111 22222">
+                        <Text fx:id="refNo" fill="#4c4881" layoutX="53.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0000 111 22222">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="8.0" />
                            </font>
                         </Text>
-                        <Text fill="#4c4881" layoutX="211.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction Date">
+                        <Text fx:id="transacDate" fill="#4c4881" layoutX="211.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction Date">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="8.0" />
                            </font>
                         </Text>
                      </children>
                   </AnchorPane>
-                  <Text fill="#4c4881" layoutX="120.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NUMBER">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="12.0" />
-                     </font>
-                  </Text>
+                  <AnchorPane layoutX="79.2" layoutY="61.0" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #E5F3FD; -fx-background-radius: 20; -fx-min-height: 20;" AnchorPane.leftAnchor="79.0">
+                     <children>
+                        <Text fx:id="myNumber" fill="#4c4881" layoutX="44.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="123 456 7890" wrappingWidth="101.293701171875">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="myNumber1" fill="#4c4881" layoutX="13.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+63" wrappingWidth="32.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
-            <Text fill="WHITE" layoutX="127.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Express Send">
+            <Text fill="WHITE" layoutX="129.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Express Send">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font>
             </Text>
-            <Button layoutX="-5.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+            <Button fx:id="btn_close" layoutX="1.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                <graphic>
-                  <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="15.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Downloads/ex.png" />
+                        <Image url="@../../../../../Downloads/close.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
+            <ImageView fitHeight="16.0" fitWidth="150.0" layoutX="19.0" layoutY="561.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/receiptEnd.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="16.0" fitWidth="150.0" layoutX="166.0" layoutY="561.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/receiptEnd.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="148.0" layoutY="87.0" minHeight="42.0" minWidth="42.0" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #1a72fa; -fx-border-color: white; -fx-border-radius: 100; -fx-border-width: 2; -fx-background-radius: 100; -fx-max-width: 60; -fx-max-height: 60; -fx-min-height: 25; -fx-min-width: 25;">
+               <children>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="11.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/checkmark.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
