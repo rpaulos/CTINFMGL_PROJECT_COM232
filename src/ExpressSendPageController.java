@@ -40,6 +40,7 @@ public class ExpressSendPageController {
         return field == null || field.getText().trim().isEmpty();
     }
 
+    //Handles the Express Send feature of GCASH
     public void expressSendHandler(ActionEvent event) throws IOException {
 
         //Checks if the tf_numberToSendTo and tf_amountToSend are empty
@@ -62,8 +63,8 @@ public class ExpressSendPageController {
                 e.printStackTrace();
             }
 
-        //Get the numberToSendTo and amountToSend
         } else {
+            //Get the numberToSendTo and amountToSend
             String numberToSendTo = tf_numberToSendTo.getText();
             float amountToSend = Float.parseFloat(tf_amountToSend.getText());
 
@@ -71,11 +72,12 @@ public class ExpressSendPageController {
             if (myBalance < amountToSend) {
 
                 try {
-                
+                    //Load the error pop up
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
                     Parent root = fxmlLoader.load();
     
                     ErrorPopUpController controller = fxmlLoader.getController();
+                    //Set new message for insufficient balance
                     controller.setErrorMessage("Insufficient Balance.");
                     
                     Stage newStage = new Stage();
@@ -91,12 +93,13 @@ public class ExpressSendPageController {
             //Checks if the numberToSendTo is the same as the number the user added
             } else if (numberToSendTo.equals(number)) {
 
-                try {
-                
+                try {  
+                    //Load the error pop up
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
                     Parent root = fxmlLoader.load();
     
                     ErrorPopUpController controller = fxmlLoader.getController();
+                    //Set new message for sending money to yourself
                     controller.setErrorMessage("Error: Cannot express send money to your own account. Please enter a ddiferent account.");
                     
                     Stage newStage = new Stage();
@@ -113,15 +116,20 @@ public class ExpressSendPageController {
             } else {
 
                 try {
-
+                    //Calls the expressSend method in order to add money to the numberToSendTo
                     DatabaseHandler.expressSend(numberToSendTo, amountToSend);
+
+                    //Calls the negateBalance method in order to subtract the money the user sent
                     Float negateFromBalance = amountToSend;
                     DatabaseHandler.negateBalance(negateFromBalance, number);
 
+                    //Loads the success pop up
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
                     Parent root = fxmlLoader.load();
     
                     SuccessPopUpController controller = fxmlLoader.getController();
+
+                    //Set new message for completing transaction
                     controller.setSuccessMessage("Transaction completed");
                     
                     Stage newStage = new Stage();
@@ -137,6 +145,7 @@ public class ExpressSendPageController {
         }
     }
 
+    //Handles the back button to the home page
     public void sendBackToHomeHandler(ActionEvent event) throws IOException{
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
