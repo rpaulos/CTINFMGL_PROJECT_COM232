@@ -115,32 +115,53 @@ public class ExpressSendPageController {
             //Calls the expressSend and negateBalance DB Handler to go through the transaction
             } else {
 
-                try {
-                    //Calls the expressSend method in order to add money to the numberToSendTo
-                    DatabaseHandler.expressSend(numberToSendTo, amountToSend);
+                // try {
+                //     //Calls the expressSend method in order to add money to the numberToSendTo
+                //     DatabaseHandler.expressSend(numberToSendTo, amountToSend);
 
-                    //Calls the negateBalance method in order to subtract the money the user sent
-                    Float negateFromBalance = amountToSend;
-                    DatabaseHandler.negateBalance(negateFromBalance, number);
+                //     //Calls the negateBalance method in order to subtract the money the user sent
+                //     Float negateFromBalance = amountToSend;
+                //     DatabaseHandler.negateBalance(negateFromBalance, number);
 
-                    //Loads the success pop up
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
-                    Parent root = fxmlLoader.load();
+                //     //Loads the success pop up
+                //     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
+                //     Parent root = fxmlLoader.load();
     
-                    SuccessPopUpController controller = fxmlLoader.getController();
+                //     SuccessPopUpController controller = fxmlLoader.getController();
 
-                    //Set new message for completing transaction
-                    controller.setSuccessMessage("Transaction completed");
+                //     //Set new message for completing transaction
+                //     controller.setSuccessMessage("Transaction completed");
                     
-                    Stage newStage = new Stage();
-                    newStage.setTitle("Success: Transaction Successful");
-                    newStage.setScene(new Scene(root));
-                    newStage.centerOnScreen();
-                    newStage.show();
+                //     Stage newStage = new Stage();
+                //     newStage.setTitle("Success: Transaction Successful");
+                //     newStage.setScene(new Scene(root));
+                //     newStage.centerOnScreen();
+                //     newStage.show();
                                 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                // } catch (Exception e) {
+                //     e.printStackTrace();
+                // }
+
+                //TODO: Pass amountToSend to the ReceiptPageController
+                ReceiptPageController.amountSent = amountToSend;
+                ReceiptPageController.numberSentTo = numberToSendTo;
+
+                //Calls the expressSend method in order to add money to the numberToSendTo
+                DatabaseHandler.expressSend(numberToSendTo, amountToSend);
+
+                //Calls the negateBalance method in order to subtract the money the user sent
+                Float negateFromBalance = amountToSend;
+                DatabaseHandler.negateBalance(negateFromBalance, number);
+
+                //Loads the receipt page
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ReceiptPage.fxml"));
+
+                root = loader.load();
+
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
             }
         }
     }

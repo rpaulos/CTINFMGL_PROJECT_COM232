@@ -64,7 +64,6 @@ public class HomePageController implements Initializable {
         ExpressSendPageController.number = validNumber;
         getName();
         getBalance();
-        
     }
 
     public void sendHandler(ActionEvent event) throws IOException {

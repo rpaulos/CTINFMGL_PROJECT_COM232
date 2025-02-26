@@ -1,5 +1,6 @@
 import java.lang.classfile.instruction.StackInstruction;
 import java.sql.*;
+import javax.naming.spi.DirStateFactory;
 
 public class DatabaseHandler {
 
@@ -178,6 +179,37 @@ public class DatabaseHandler {
             e.printStackTrace();
         }
         return balance;
+    }
+
+    public static String getFirstLastName(String phone_number) {
+        String query = "SELECT first_Name, last_Name FROM wallet WHERE phone_number = ?";
+        String first_name = null;
+        String last_name = null;
+        String initials = null;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+
+        try {
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, phone_number);
+            result = stmt.executeQuery();
+            
+            if(result.next()) {
+                first_name = result.getString("first_name");
+                last_name = result.getString("last_name");
+
+                String firstInitial = first_name != null && !first_name.isEmpty() ? first_name.substring(0, 1).toUpperCase() + ".." : "";
+                String lastInitial = last_name != null && !last_name.isEmpty() ? last_name.substring(0, 1).toUpperCase() + ".." : "";
+            
+                initials = firstInitial + " " + lastInitial;
+
+                }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return initials;
     }
 
     public static void negateBalance(Float negateFromBalance, String myNumber) {
