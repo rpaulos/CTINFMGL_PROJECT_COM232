@@ -1,4 +1,6 @@
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -52,7 +54,7 @@ public class ReceiptPageController implements Initializable{
         txt_amountSent.setText(Float.toString(amountSent));
         txt_totalAmountSent.setText(Float.toString(amountSent));
 
-        //Call the DB handler to get the first and last name
+        //Call the DB handler to get the first and last name and set the initials
         String initials = DatabaseHandler.getFirstLastName(numberSentTo);
 
         if (initials != null && !initials.isEmpty()) {
@@ -60,5 +62,11 @@ public class ReceiptPageController implements Initializable{
         } else {
             txt_initials.setText("Error");
         }
+
+        //Set the date of transaction
+        LocalDateTime transacDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formattedDate = transacDateTime.format(formatter);
+        txt_transacDate.setText(formattedDate);
     }
 }
