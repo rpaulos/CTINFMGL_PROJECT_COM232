@@ -198,21 +198,6 @@ public class DatabaseHandler {
         }
     }
 
-    // public static boolean subtractFromBalance(String phone_number, float amount) {
-    //     getInstance();
-    //     String query = "UPDATE wallet SET balance = balance - " + amount + " WHERE phone_number = '" + phone_number + "'";
-
-    //     ResultSet result = handler.execQuery(query);
-    //     try {
-    //         if (result.next()) {
-    //             return true;
-    //         }
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     }
-    //     return false;
-    // }
-
     public static boolean addUser(User user) {
         try {
             pstatement = getDBConnection().prepareStatement("INSERT INTO users (phone_number, first_name, last_name, email_address, PIN, birthdate, country, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
