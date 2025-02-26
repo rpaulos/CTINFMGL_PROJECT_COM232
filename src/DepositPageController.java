@@ -1,3 +1,5 @@
+import java.awt.Desktop;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -25,7 +27,40 @@ public class DepositPageController {
     private Scene scene; 
     private Parent root;
 
-        public void depositBackToHomeHandler(ActionEvent event) throws IOException{
+    public static String number;
+    
+    private static boolean isEmpty(TextField field) {
+        return field == null || field.getText().trim().isEmpty();
+    }
+
+    public void depositHandler(ActionEvent event) throws IOException {
+
+        //Checks if the user inputs an amount to deposit
+        if (isEmpty(tf_amountToDeposit)) {
+            try {
+                //Load error pop up
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                Parent root = fxmlLoader.load();
+
+                ErrorPopUpController controller = fxmlLoader.getController();
+                //Set new message for incomplete field
+                controller.setErrorMessage("An error has occurred while processing action. Make sure to answer all fields before submitting.");
+                
+                Stage newStage = new Stage();
+                newStage.setTitle("Error: Empty field");
+                newStage.setScene(new Scene(root));
+                newStage.centerOnScreen();
+                newStage.show();
+                            
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            Float amountToDeposit = Float.parseFloat(tf_amountToDeposit.getText());
+        }
+    }
+
+    public void depositBackToHomeHandler(ActionEvent event) throws IOException{
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
 
