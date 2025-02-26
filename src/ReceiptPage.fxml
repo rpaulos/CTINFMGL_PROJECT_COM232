@@ -116,7 +116,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <Text fill="WHITE" layoutX="129.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Express Send">
+            <Text fx:id="txt_title" fill="WHITE" layoutX="129.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Express Send">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font>

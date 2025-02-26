@@ -1,5 +1,4 @@
-import java.awt.Desktop;
-import java.awt.event.ActionEvent;
+
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -57,6 +56,12 @@ public class DepositPageController {
             }
         } else {
             Float amountToDeposit = Float.parseFloat(tf_amountToDeposit.getText());
+            DatabaseHandler.deposit(amountToDeposit, number);
+
+            //Call the receipt page
+
+            
+            
         }
     }
 

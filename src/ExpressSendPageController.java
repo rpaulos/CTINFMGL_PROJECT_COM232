@@ -36,7 +36,6 @@ public class ExpressSendPageController {
     public static float myBalance;
 
     private static boolean isEmpty(TextField field) {
-        System.out.println("myBalance: " + myBalance);
         return field == null || field.getText().trim().isEmpty();
     }
 
@@ -46,11 +45,12 @@ public class ExpressSendPageController {
         //Checks if the tf_numberToSendTo and tf_amountToSend are empty
         if (isEmpty(tf_numberToSendTo) || isEmpty(tf_amountToSend)) {
             try {
-                
+                //Load the error pop up
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
                 Parent root = fxmlLoader.load();
 
                 ErrorPopUpController controller = fxmlLoader.getController();
+                //Set new message for incomplete field
                 controller.setErrorMessage("An error has occurred while processing action. Make sure to answer all fields before submitting.");
                 
                 Stage newStage = new Stage();
@@ -115,34 +115,6 @@ public class ExpressSendPageController {
             //Calls the expressSend and negateBalance DB Handler to go through the transaction
             } else {
 
-                // try {
-                //     //Calls the expressSend method in order to add money to the numberToSendTo
-                //     DatabaseHandler.expressSend(numberToSendTo, amountToSend);
-
-                //     //Calls the negateBalance method in order to subtract the money the user sent
-                //     Float negateFromBalance = amountToSend;
-                //     DatabaseHandler.negateBalance(negateFromBalance, number);
-
-                //     //Loads the success pop up
-                //     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
-                //     Parent root = fxmlLoader.load();
-    
-                //     SuccessPopUpController controller = fxmlLoader.getController();
-
-                //     //Set new message for completing transaction
-                //     controller.setSuccessMessage("Transaction completed");
-                    
-                //     Stage newStage = new Stage();
-                //     newStage.setTitle("Success: Transaction Successful");
-                //     newStage.setScene(new Scene(root));
-                //     newStage.centerOnScreen();
-                //     newStage.show();
-                                
-                // } catch (Exception e) {
-                //     e.printStackTrace();
-                // }
-
-                //TODO: Pass amountToSend to the ReceiptPageController
                 ReceiptPageController.amountSent = amountToSend;
                 ReceiptPageController.numberSentTo = numberToSendTo;
 

@@ -181,6 +181,24 @@ public class DatabaseHandler {
         return balance;
     }
 
+    public static void negateBalance(Float negateFromBalance, String myNumber) {
+        String query = "UPDATE wallet SET balance = balance - ? WHERE phone_number = ?";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setFloat(1, negateFromBalance); 
+            stmt.setString(2, myNumber);
+
+            int affectedRows = stmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String getFirstLastName(String phone_number) {
         String query = "SELECT first_Name, last_Name FROM wallet WHERE phone_number = ?";
         String first_name = null;
@@ -212,17 +230,17 @@ public class DatabaseHandler {
         return initials;
     }
 
-    public static void negateBalance(Float negateFromBalance, String myNumber) {
-        String query = "UPDATE wallet SET balance = balance - ? WHERE phone_number = ?";
+    public static void deposit(Float addToBalance, String phone_number) {
+        String query = "UPDATE wallet SET balance = balance + ? WHERE phone_number = ?";
         Connection conn = null;
         PreparedStatement stmt = null;
 
         try {
+
             conn = getDBConnection();
             stmt = conn.prepareStatement(query);
-            stmt.setFloat(1, negateFromBalance); 
-            stmt.setString(2, myNumber);
-
+            stmt.setFloat(1, addToBalance);
+            stmt.setString(2, phone_number);
             int affectedRows = stmt.executeUpdate();
 
         } catch (Exception e) {
