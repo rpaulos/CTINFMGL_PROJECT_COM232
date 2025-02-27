@@ -27,6 +27,7 @@ public class DepositPageController {
     private Parent root;
 
     public static String number;
+    public static int feature = 3;
     
     private static boolean isEmpty(TextField field) {
         return field == null || field.getText().trim().isEmpty();
@@ -59,6 +60,14 @@ public class DepositPageController {
             DatabaseHandler.deposit(amountToDeposit, number);
 
             //Call the receipt page
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ReceiptPage.fxml"));
+
+                root = loader.load();
+
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
 
             
             

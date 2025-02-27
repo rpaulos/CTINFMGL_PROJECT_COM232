@@ -34,6 +34,7 @@ public class ExpressSendPageController {
 
     public static String number;
     public static float myBalance;
+    public static int feature = 1;
 
     private static boolean isEmpty(TextField field) {
         return field == null || field.getText().trim().isEmpty();
@@ -115,6 +116,7 @@ public class ExpressSendPageController {
             //Calls the expressSend and negateBalance DB Handler to go through the transaction
             } else {
 
+                ReceiptPageController.mode = feature;
                 ReceiptPageController.amountSent = amountToSend;
                 ReceiptPageController.numberSentTo = numberToSendTo;
 

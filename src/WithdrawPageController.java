@@ -25,6 +25,46 @@ public class WithdrawPageController {
     private Scene scene; 
     private Parent root;
 
+    public static String number;
+    
+    private static boolean isEmpty(TextField field) {
+        return field == null || field.getText().trim().isEmpty();
+    }
+
+    public void withdrawHandler(ActionEvent event) throws IOException {
+
+        //Checks if the user inputs an amount to deposit
+        if (isEmpty(tf_amountToWithdraw)) {
+            try {
+                //Load error pop up
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                Parent root = fxmlLoader.load();
+
+                ErrorPopUpController controller = fxmlLoader.getController();
+                //Set new message for incomplete field
+                controller.setErrorMessage("An error has occurred while processing action. Make sure to answer all fields before submitting.");
+                
+                Stage newStage = new Stage();
+                newStage.setTitle("Error: Empty field");
+                newStage.setScene(new Scene(root));
+                newStage.centerOnScreen();
+                newStage.show();
+                            
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            Float amountToWithdraw = Float.parseFloat(tf_amountToWithdraw.getText());
+            DatabaseHandler.withdraw(amountToWithdraw, number);
+            System.out.println("YPU HAVE WITHDRAW FROM YOUR ACCOUNT PUSSLAYYYY");
+
+            //Call the receipt page
+
+            
+            
+        }
+    }
+
     public void withdrawBackToHomeHandler(ActionEvent event) throws IOException{
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));

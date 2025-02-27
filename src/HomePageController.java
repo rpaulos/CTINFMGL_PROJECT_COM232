@@ -61,8 +61,8 @@ public class HomePageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ExpressSendPageController.number = validNumber;
-        DepositPageController.number = validNumber;
+        // ExpressSendPageController.number = validNumber;
+        // DepositPageController.number = validNumber;
         getName();
         getBalance();
     }
@@ -115,7 +115,7 @@ public class HomePageController implements Initializable {
 
     public void WithdrawHandler(ActionEvent event) throws IOException {
 
-        ExpressSendPageController.number = validNumber;
+        WithdrawPageController.number = validNumber;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("WithdrawPage.fxml"));
 

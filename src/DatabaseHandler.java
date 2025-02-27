@@ -248,6 +248,24 @@ public class DatabaseHandler {
         }
     }
 
+    public static void withdraw(Float negateFromBalance, String phone_number) {
+        String query = "UPDATE wallet SET balance = balance - ? WHERE phone_number = ?";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setFloat(1, negateFromBalance);
+            stmt.setString(2, phone_number);
+            int affectedRows = stmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static boolean addUser(User user) {
         try {
             pstatement = getDBConnection().prepareStatement("INSERT INTO users (phone_number, first_name, last_name, email_address, PIN, birthdate, country, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");

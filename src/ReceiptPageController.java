@@ -34,18 +34,40 @@ public class ReceiptPageController implements Initializable{
     @FXML
     private Text txt_totalAmountSent;
 
+    @FXML
+    private Text txt_title;
+
     private Stage stage;
     private Scene scene; 
     private Parent root;
 
     public static float amountSent;
     public static String numberSentTo;
+    public static int mode;
     
     public void initialize(URL url, ResourceBundle rb) {
-        setReceipt();
+
+        switch (mode) {
+            case 1:
+                setExpressSendReceipt();
+                break;
+            
+            case 2:
+                setLoadReceipt();
+                break;
+            
+            case 3:
+                setDepositReceipt();
+                break;
+            
+            case 4:
+                setWithdrawReceipt();
+                break;
+            
+        }
     }
 
-    public void setReceipt() {
+    public void setExpressSendReceipt() {
         //Ommits the first character of the number and set the text
         String modifiedNumber = numberSentTo.substring(1);
         txt_myNumber.setText(modifiedNumber);
@@ -69,4 +91,53 @@ public class ReceiptPageController implements Initializable{
         String formattedDate = transacDateTime.format(formatter);
         txt_transacDate.setText(formattedDate);
     }
+
+    public void setLoadReceipt() {
+        //Ommits the first character of the number and set the text
+        String modifiedNumber = numberSentTo.substring(1);
+        txt_myNumber.setText(modifiedNumber);
+
+        //Casts the float to a string and set the text for the amount sent
+        txt_amountSent.setText(Float.toString(amountSent));
+        txt_totalAmountSent.setText(Float.toString(amountSent));
+
+        //Set the date of transaction
+        LocalDateTime transacDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formattedDate = transacDateTime.format(formatter);
+        txt_transacDate.setText(formattedDate);
+    }
+
+    public void setDepositReceipt() {
+        //Ommits the first character of the number and set the text
+        String modifiedNumber = numberSentTo.substring(1);
+        txt_myNumber.setText(modifiedNumber);
+
+        //Casts the float to a string and set the text for the amount sent
+        txt_amountSent.setText(Float.toString(amountSent));
+        txt_totalAmountSent.setText(Float.toString(amountSent));
+
+        //Set the date of transaction
+        LocalDateTime transacDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formattedDate = transacDateTime.format(formatter);
+        txt_transacDate.setText(formattedDate);
+    }
+
+    public void setWithdrawReceipt() {
+        //Ommits the first character of the number and set the text
+        String modifiedNumber = numberSentTo.substring(1);
+        txt_myNumber.setText(modifiedNumber);
+
+        //Casts the float to a string and set the text for the amount sent
+        txt_amountSent.setText(Float.toString(amountSent));
+        txt_totalAmountSent.setText(Float.toString(amountSent));
+
+        //Set the date of transaction
+        LocalDateTime transacDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formattedDate = transacDateTime.format(formatter);
+        txt_transacDate.setText(formattedDate);
+    }
+
 }
