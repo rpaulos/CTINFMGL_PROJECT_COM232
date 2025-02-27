@@ -110,8 +110,8 @@ public class DatabaseHandler {
     }
 
     //getFirstName and getUserBalance is used to display the name and balance of the user in the HomePage
-    public static String getFirstName(String phone_number, String PIN) {
-        String query = "SELECT first_name FROM users WHERE phone_number = ? AND PIN = ?";
+    public static String getFirstName(String phone_number) {
+        String query = "SELECT first_name FROM users WHERE phone_number = ?";
         String first_name = null;
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -121,7 +121,6 @@ public class DatabaseHandler {
             conn = getDBConnection();
             stmt = conn.prepareStatement(query);
             stmt.setString(1, phone_number);
-            stmt.setString(2, PIN);
             result = stmt.executeQuery();
 
             if(result.next()) {
@@ -133,6 +132,122 @@ public class DatabaseHandler {
             }
         return first_name;
     }
+
+    public static String getLastName(String phone_number) {
+        String query = "SELECT last_name FROM users WHERE phone_number = ?";
+        String last_name = null;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+
+        try {
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, phone_number);
+            result = stmt.executeQuery();
+
+            if(result.next()) {
+                last_name = result.getString("last_name");
+            } 
+            
+        } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        return last_name;
+    }
+
+    public static String getEmailAddress(String phone_number) {
+        String query = "SELECT email_address FROM users WHERE phone_number = ?";
+        String email_address = null;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+
+        try {
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, phone_number);
+            result = stmt.executeQuery();
+
+            if(result.next()) {
+                email_address = result.getString("email_address");
+            } 
+            
+        } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        return email_address;
+    }
+
+    public static Date getBirthdate(String phone_number) {
+        String query = "SELECT birthdate FROM users WHERE phone_number = ?";
+        Date birthdate = null;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+    
+        try {
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, phone_number);
+            result = stmt.executeQuery();
+    
+            if(result.next()) {
+                birthdate = result.getDate("birthdate");
+            } 
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return birthdate;
+    }
+
+    public static String getCountry(String phone_number) {
+        String query = "SELECT country FROM users WHERE phone_number = ?";
+        String country = null;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+
+        try {
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, phone_number);
+            result = stmt.executeQuery();
+
+            if(result.next()) {
+                country = result.getString("country");
+            } 
+            
+        } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        return country;
+    }
+
+    public static String getAddress(String phone_number) {
+        String query = "SELECT address FROM users WHERE phone_number = ?";
+        String address = null;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+
+        try {
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, phone_number);
+            result = stmt.executeQuery();
+
+            if(result.next()) {
+                address = result.getString("address");
+            } 
+            
+        } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        return address;
+    }
+    
 
     public static float getUserBalance(String phone_number) {
         String query = "SELECT balance FROM wallet WHERE phone_number = ?";

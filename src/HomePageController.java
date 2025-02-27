@@ -129,7 +129,7 @@ public class HomePageController implements Initializable {
     }
 
     public void getName() {
-        first_name = DatabaseHandler.getFirstName(validNumber, validPIN);
+        first_name = DatabaseHandler.getFirstName(validNumber);
 
         if (first_name != null) {
             lbl_name.setText(first_name);
@@ -147,6 +147,10 @@ public class HomePageController implements Initializable {
     }
 
     public void profilePageHandler(ActionEvent event) throws IOException {
+
+        ProfilePageController.myNumber = validNumber;
+
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
 
         root = loader.load();
