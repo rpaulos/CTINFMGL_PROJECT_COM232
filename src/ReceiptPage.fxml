@@ -18,27 +18,27 @@
                <children>
                   <Line endX="154.89999389648438" layoutX="-132.59999389648436" layoutY="145.0" startX="403.3999938964844" stroke="#e4e4e4" AnchorPane.leftAnchor="21.80000000000001" AnchorPane.rightAnchor="23.899999999999977" />
                   <Line endX="154.89999389648438" layoutX="-132.0" layoutY="184.0" startX="403.3999938964844" stroke="#e4e4e4" />
-                  <Text fill="#4c4881" layoutX="26.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount">
+                  <Text fill="#4c4881" layoutX="35.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txt_amountSent" fill="#4c4881" layoutX="245.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00">
+                  <Text fx:id="txt_amount" fill="#4c4881" layoutX="232.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="#4c4881" layoutX="25.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Amount Sent">
+                  <Text fx:id="txt_totalAmountLabel" fill="#4c4881" layoutX="35.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Amount Sent">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="8.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txt_totalAmountSent" fill="#4c4881" layoutX="235.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00">
+                  <Text fx:id="txt_totalAmount" fill="#4c4881" layoutX="216.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" wrappingWidth="61.046875">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="18.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="213.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="190.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../OneDrive/Pictures/Screenshots/Screenshot%202025-02-25%20013647.png" />
                      </image>
@@ -51,7 +51,7 @@
                         <Font name="Arial Rounded MT Bold" size="22.0" />
                      </font>
                   </Text>
-                  <Text fill="#afadc1" layoutX="103.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sent via GCash">
+                  <Text fx:id="txt_SentViaLabel" fill="#afadc1" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sent via GCash" textAlignment="CENTER" wrappingWidth="294.4">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>
@@ -100,7 +100,7 @@
                         </Text>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="79.2" layoutY="61.0" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #E5F3FD; -fx-background-radius: 20; -fx-min-height: 20;" AnchorPane.leftAnchor="79.0">
+                  <AnchorPane layoutX="75.0" layoutY="61.0" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #E5F3FD; -fx-background-radius: 20; -fx-min-height: 20;" AnchorPane.leftAnchor="75.0">
                      <children>
                         <Text fx:id="txt_myNumber" fill="#4c4881" layoutX="44.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="123 456 7890" wrappingWidth="101.293701171875">
                            <font>
@@ -116,12 +116,12 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <Text fx:id="txt_title" fill="WHITE" layoutX="129.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Express Send">
+            <Text fx:id="txt_title" fill="WHITE" layoutX="-1.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Express Send" textAlignment="CENTER" wrappingWidth="335.0">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font>
             </Text>
-            <Button fx:id="btn_close" layoutX="1.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+            <Button fx:id="btn_close" layoutX="1.0" layoutY="7.0" mnemonicParsing="false" onAction="#sendBackToHomeHandler" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>

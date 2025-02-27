@@ -61,8 +61,7 @@ public class HomePageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // ExpressSendPageController.number = validNumber;
-        // DepositPageController.number = validNumber;
+        ReceiptPageController.myNumber = validNumber;
         getName();
         getBalance();
     }

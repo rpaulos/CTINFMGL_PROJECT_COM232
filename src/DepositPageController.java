@@ -55,8 +55,12 @@ public class DepositPageController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
         } else {
+
+            ReceiptPageController.mode = feature;
             Float amountToDeposit = Float.parseFloat(tf_amountToDeposit.getText());
+            ReceiptPageController.amountDeposited = amountToDeposit;
             DatabaseHandler.deposit(amountToDeposit, number);
 
             //Call the receipt page
@@ -69,8 +73,6 @@ public class DepositPageController {
                 stage.setScene(scene);
                 stage.show();
 
-            
-            
         }
     }
 
