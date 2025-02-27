@@ -1,3 +1,4 @@
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -143,6 +144,17 @@ public class HomePageController implements Initializable {
         lbl_balance.setText(formatBalance);
         ExpressSendPageController.myBalance = balance;
         System.out.println(balance);
+    }
+
+    public void profilePageHandler(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
+
+        root = loader.load();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

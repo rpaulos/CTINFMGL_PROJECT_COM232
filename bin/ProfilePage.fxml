@@ -8,26 +8,93 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProfilePageController">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #E5F3FD;">
          <children>
-            <AnchorPane prefHeight="60.0" prefWidth="335.0" style="-fx-background-color: #1a72fa;">
+            <AnchorPane prefHeight="153.0" prefWidth="335.0" style="-fx-background-color: #0053ca;">
                <children>
-                  <Label layoutX="128.0" layoutY="19.0" text="PROFILE" textFill="WHITE">
+                  <AnchorPane layoutX="26.0" layoutY="31.0" maxHeight="77.0" maxWidth="78.0" prefHeight="77.0" prefWidth="78.0" style="-fx-background-radius: 50; -fx-min-height: 60; -fx-max-width: 60; -fx-min-width: 60; -fx-max-height: 60; -fx-background-color: #E5F3FD;">
+                     <children>
+                        <Label fx:id="lbl_initials" layoutX="13.0" layoutY="14.0" text="RP" textFill="#120884">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label fx:id="lbl_name" layoutX="101.0" layoutY="34.0" text="Rae Paulos" textFill="WHITE">
                      <font>
-                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btn_backToLogin" layoutX="4.0" layoutY="17.0" mnemonicParsing="false" onAction="#backToLoginHandler" prefHeight="29.0" prefWidth="37.0" style="-fx-background-color: transparent;">
-                     <graphic>
-                        <ImageView fitHeight="13.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
+                  <Label fx:id="lbl_number" layoutX="101.0" layoutY="53.0" text="09123456789" textFill="#e5f3fd">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="122.0" layoutY="69.0" text="Fully Verified" textFill="#e5f3fd">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="100.0" layoutY="70.0" maxHeight="77.0" maxWidth="78.0" minHeight="14.0" minWidth="13.0" prefHeight="14.0" prefWidth="13.0" style="-fx-background-radius: 50; -fx-background-color: #E5F3FD;">
+                     <children>
+                        <ImageView fitHeight="24.0" fitWidth="28.0" layoutX="-6.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../Downloads/whiteArrow.png" />
+                              <Image url="@../../../../../Downloads/verified.png" />
                            </image>
                         </ImageView>
-                     </graphic>
+                     </children>
+                  </AnchorPane>
+                  <Button layoutX="23.0" layoutY="107.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="158.0" style="-fx-background-radius: 20; -fx-background-color: #0053ca; -fx-border-color: white; -fx-border-radius: 20;" text="View Benefits" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
                   </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="12.0" layoutY="161.0" prefHeight="172.0" prefWidth="310.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+               <children>
+                  <Label fx:id="lbl_name1" layoutX="28.0" layoutY="24.0" text="Birthdate" textFill="#120884">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_name11" layoutX="27.0" layoutY="70.0" text="Email Address" textFill="#120884">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_name111" layoutX="25.0" layoutY="116.0" text="Current Address" textFill="#120884">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_birthdate" layoutX="28.0" layoutY="39.0" text="JULY 5, 2004" textFill="#08043e">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_emailAddress" layoutX="28.0" layoutY="82.0" text="rpaulos@gcash-admin.com" textFill="#08043e">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_addressCountry" layoutX="27.0" layoutY="130.0" text="Manila, Philippines" textFill="#08043e">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="12.0" layoutY="347.0" prefHeight="193.0" prefWidth="310.0" style="-fx-background-color: white; -fx-background-radius: 10 10 0 0;">
+               <children>
+                  <ImageView fitHeight="96.0" fitWidth="294.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/cat%20-%20gcash.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>
