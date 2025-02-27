@@ -26,6 +26,7 @@ public class WithdrawPageController {
     private Parent root;
 
     public static String number;
+    public static int feature = 4;
     
     private static boolean isEmpty(TextField field) {
         return field == null || field.getText().trim().isEmpty();
@@ -53,15 +54,23 @@ public class WithdrawPageController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            
         } else {
+            
+            ReceiptPageController.mode = feature;
             Float amountToWithdraw = Float.parseFloat(tf_amountToWithdraw.getText());
+            ReceiptPageController.amountWithdrawn = amountToWithdraw;
             DatabaseHandler.withdraw(amountToWithdraw, number);
-            System.out.println("YPU HAVE WITHDRAW FROM YOUR ACCOUNT PUSSLAYYYY");
 
             //Call the receipt page
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ReceiptPage.fxml"));
 
-            
-            
+                root = loader.load();
+
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
         }
     }
 
