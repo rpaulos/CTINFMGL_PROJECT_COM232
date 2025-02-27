@@ -14,44 +14,41 @@
          <children>
             <AnchorPane prefHeight="153.0" prefWidth="335.0" style="-fx-background-color: #0053ca;">
                <children>
-                  <AnchorPane layoutX="26.0" layoutY="31.0" maxHeight="77.0" maxWidth="78.0" prefHeight="77.0" prefWidth="78.0" style="-fx-background-radius: 50; -fx-min-height: 60; -fx-max-width: 60; -fx-min-width: 60; -fx-max-height: 60; -fx-background-color: #E5F3FD;">
+                  <AnchorPane layoutX="26.0" layoutY="40.0" maxHeight="74.0" maxWidth="80.0" prefHeight="80.0" prefWidth="80.0" style="-fx-background-radius: 50; -fx-min-height: 70; -fx-max-width: 70; -fx-min-width: 70; -fx-max-height: 70; -fx-background-color: #E5F3FD;">
                      <children>
-                        <Label fx:id="lbl_initials" layoutX="13.0" layoutY="15.0" prefHeight="31.0" prefWidth="37.0" text="RP" textFill="#120884">
+                        <Label fx:id="lbl_initials" layoutX="15.0" layoutY="18.0" prefHeight="36.0" prefWidth="44.0" text="RP" textFill="#120884">
                            <font>
-                              <Font name="Arial Rounded MT Bold" size="25.0" />
+                              <Font name="Arial Rounded MT Bold" size="30.0" />
                            </font>
                         </Label>
                      </children>
                   </AnchorPane>
-                  <Label fx:id="lbl_name" layoutX="101.0" layoutY="34.0" text="Rae Paulos" textFill="WHITE">
+                  <Label fx:id="lbl_name" layoutX="110.0" layoutY="44.0" text="Rae Paulos" textFill="WHITE">
                      <font>
-                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_number" layoutX="101.0" layoutY="53.0" text="09123456789" textFill="#e5f3fd">
+                  <Label fx:id="lbl_number" layoutX="111.0" layoutY="66.0" text="09123456789" textFill="#e5f3fd">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="10.0" />
                      </font>
                   </Label>
-                  <Label layoutX="122.0" layoutY="69.0" text="Fully Verified" textFill="#e5f3fd">
+                  <Label layoutX="136.0" layoutY="86.0" text="Fully Verified" textFill="#e5f3fd">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="11.0" />
                      </font>
                   </Label>
-                  <AnchorPane layoutX="100.0" layoutY="70.0" maxHeight="77.0" maxWidth="78.0" minHeight="14.0" minWidth="13.0" prefHeight="14.0" prefWidth="13.0" style="-fx-background-radius: 50; -fx-background-color: #E5F3FD;">
-                     <children>
-                        <ImageView fitHeight="24.0" fitWidth="28.0" layoutX="-6.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../Downloads/verified.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-                  <Button layoutX="23.0" layoutY="107.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="158.0" style="-fx-background-radius: 20; -fx-background-color: #0053ca; -fx-border-color: white; -fx-border-radius: 20;" text="View Benefits" textFill="WHITE">
+                  <AnchorPane layoutX="110.0" layoutY="85.0" maxHeight="77.0" maxWidth="78.0" minHeight="14.0" minWidth="13.0" prefHeight="18.0" prefWidth="18.0" style="-fx-background-radius: 50; -fx-background-color: #E5F3FD;" />
+                  <Button layoutX="231.0" layoutY="113.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-background-radius: 20; -fx-background-color: #0053ca; -fx-border-color: white; -fx-border-radius: 20;" text="Edit Profile" textFill="WHITE" AnchorPane.rightAnchor="20.0">
                      <font>
-                        <Font name="System Bold" size="13.0" />
+                        <Font name="System Bold" size="10.0" />
                      </font>
                   </Button>
+                  <ImageView fitHeight="31.0" fitWidth="29.0" layoutX="104.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/verified.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="12.0" layoutY="161.0" prefHeight="172.0" prefWidth="310.0" style="-fx-background-color: white; -fx-background-radius: 10;">
