@@ -49,6 +49,8 @@ public class AdminPageController implements Initializable {
 
     ObservableList<DepositTransactions> depositTransactionsList = FXCollections.observableArrayList();
 
+    ObservableList<WithdrawTransactions> withdrawTransactionsList = FXCollections.observableArrayList();
+
     @FXML
     private TableView<User> mytable;
 
@@ -66,6 +68,9 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private TableView<DepositTransactions> myDepositTable;
+
+    @FXML
+    private TableView<WithdrawTransactions> myWithdrawTable;
 
     @FXML
     private TableColumn<User, String> phone_numbercol, first_namecol, last_namecol, 
@@ -90,6 +95,10 @@ public class AdminPageController implements Initializable {
     @FXML
     private TableColumn<DepositTransactions, String> deposit_transaction_ID_depositcol, depositor_number_depositcol, 
                                 depositor_name_depositcol, amount_depositcol, transaction_date_depositcol;
+
+    @FXML
+    private TableColumn<WithdrawTransactions, String> withdraw_transaction_ID_withdrawcol, withdrawer_number_withdrawcol, 
+                                withdrawer_name_withdrawcol, amount_withdrawcol, transaction_date_withdrawcol;
 
     @FXML
     private Button btn_Create;
@@ -133,6 +142,7 @@ public class AdminPageController implements Initializable {
         displayTransactionTypes();
         displaySendTransactions();
         displayDepositTransactions();
+        displayWithdrawTransactions();
         
     }
 
@@ -168,6 +178,12 @@ public class AdminPageController implements Initializable {
         depositor_name_depositcol.setCellValueFactory(new PropertyValueFactory<>("depositor_name"));
         amount_depositcol.setCellValueFactory(new PropertyValueFactory<>("amount"));
         transaction_date_depositcol.setCellValueFactory(new PropertyValueFactory<>("transaction_date"));
+
+        withdraw_transaction_ID_withdrawcol.setCellValueFactory(new PropertyValueFactory<>("withdraw_transaction_id"));
+        withdrawer_number_withdrawcol.setCellValueFactory(new PropertyValueFactory<>("withdrawer_number"));
+        withdrawer_name_withdrawcol.setCellValueFactory(new PropertyValueFactory<>("withdrawer_name"));
+        amount_withdrawcol.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        transaction_date_withdrawcol.setCellValueFactory(new PropertyValueFactory<>("transaction_date"));
     }
 
     private void displayUser() {
@@ -308,6 +324,30 @@ public class AdminPageController implements Initializable {
         }
 
         myDepositTable.setItems(depositTransactionsList); 
+
+    }
+
+    private void displayWithdrawTransactions() {
+
+        withdrawTransactionsList.clear();
+
+        ResultSet result = DatabaseHandler.getWithdrawTransactions();
+        
+        try {
+            while (result.next()) {
+                String withdraw_transaction_ID = String.valueOf(result.getInt("withdraw_transaction_ID"));
+                String withdrawer_number = result.getString("withdrawer_number");
+                String withdrawer_name = result.getString("withdrawer_name");
+                String amount = result.getString("amount");
+                String transaction_date = result.getString("transaction_date");
+
+                withdrawTransactionsList.add(new WithdrawTransactions(withdraw_transaction_ID, withdrawer_number, withdrawer_name, amount, transaction_date));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        myWithdrawTable.setItems(withdrawTransactionsList); 
 
     }
 

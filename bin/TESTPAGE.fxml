@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="567.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminPageController">
+<VBox prefHeight="610.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminPageController">
    <children>
       <MenuBar VBox.vgrow="NEVER">
          <menus>
@@ -59,74 +59,94 @@
             </Menu>
          </menus>
       </MenuBar>
-      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="542.0" prefWidth="1086.0" style="-fx-background-color: #E5F3FD;" VBox.vgrow="ALWAYS">
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="582.0" prefWidth="1092.0" style="-fx-background-color: #E5F3FD;" VBox.vgrow="ALWAYS">
          <children>
-            <AnchorPane layoutX="11.0" layoutY="460.0" prefHeight="62.0" prefWidth="242.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+            <AnchorPane layoutX="15.0" layoutY="504.0" prefHeight="62.0" prefWidth="242.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" AnchorPane.leftAnchor="15.0">
                <children>
                   <Button fx:id="btn_Create" layoutX="13.0" layoutY="18.0" mnemonicParsing="false" onAction="#createUser" style="-fx-background-radius: 10px; -fx-background-color: #0053ca; -fx-min-width: 60px; -fx-font-weight: bold;" text="Create" textFill="WHITE" AnchorPane.leftAnchor="13.0" />
                   <Button fx:id="btn_Delete" layoutX="170.0" layoutY="19.0" mnemonicParsing="false" onAction="#deleteUser" style="-fx-background-radius: 10px; -fx-background-color: #0053ca; -fx-min-width: 60px; -fx-font-weight: bold;" text="Delete" textFill="WHITE" />
                   <Button fx:id="btn_Update" layoutX="90.0" layoutY="18.0" mnemonicParsing="false" onAction="#updateUser" style="-fx-background-radius: 10px; -fx-background-color: #0053ca; -fx-min-width: 60px; -fx-font-weight: bold;" text="Update" textFill="WHITE" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="438.0" prefWidth="238.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+            <AnchorPane layoutX="14.0" layoutY="57.0" prefHeight="435.0" prefWidth="238.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" AnchorPane.leftAnchor="15.0">
                <children>
-                  <TextField fx:id="tf_PhoneNumber" layoutX="35.2" layoutY="28.0" prefHeight="26.0" prefWidth="170.0" promptText="1234 567 8901" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.2" />
-                  <Label layoutX="19.0" layoutY="67.0" text="First Name" AnchorPane.leftAnchor="19.0">
+                  <TextField fx:id="tf_PhoneNumber" layoutX="35.2" layoutY="28.0" prefHeight="26.0" prefWidth="170.0" promptText="1234 567 8901" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="40.0" />
+                  <Label layoutX="15.0" layoutY="64.0" text="First Name" AnchorPane.leftAnchor="10.0">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_FirstName" layoutX="35.2" layoutY="83.0" prefHeight="26.0" prefWidth="170.0" promptText="Rae" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.2" />
-                  <TextField fx:id="tf_LastName" layoutX="35.2" layoutY="131.0" prefHeight="26.0" prefWidth="170.0" promptText="Paulos" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.2" />
-                  <TextField fx:id="tf_EmailAddress" layoutX="35.2" layoutY="188.0" prefHeight="26.0" prefWidth="170.0" promptText="r.paulos@gmail.com" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.2" />
-                  <TextField fx:id="tf_PIN" layoutX="35.2" layoutY="237.0" prefHeight="26.0" prefWidth="170.0" promptText="1 2 3 4" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.2" />
-                  <TextField fx:id="tf_Country" layoutX="42.0" layoutY="343.0" prefHeight="26.0" prefWidth="170.0" promptText="Philippines" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.0" />
-                  <TextField fx:id="tf_Address" layoutX="68.0" layoutY="396.0" prefHeight="26.0" prefWidth="170.0" promptText="Manila" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.0" />
-                  <DatePicker fx:id="dp_Birthdate" layoutX="34.2" layoutY="294.0" prefHeight="27.0" prefWidth="172.0" promptText="yyyy/mm/dd" style="-fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="35.0" />
+                  <TextField fx:id="tf_FirstName" layoutX="35.2" layoutY="83.0" prefHeight="26.0" prefWidth="170.0" promptText="Rae" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="40.0" />
+                  <TextField fx:id="tf_LastName" layoutX="35.2" layoutY="131.0" prefHeight="26.0" prefWidth="170.0" promptText="Paulos" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="40.0" />
+                  <TextField fx:id="tf_EmailAddress" layoutX="35.2" layoutY="188.0" prefHeight="26.0" prefWidth="170.0" promptText="r.paulos@gmail.com" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="40.0" />
+                  <TextField fx:id="tf_PIN" layoutX="35.2" layoutY="237.0" prefHeight="26.0" prefWidth="170.0" promptText="1 2 3 4" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="40.0" />
+                  <TextField fx:id="tf_Country" layoutX="42.0" layoutY="343.0" prefHeight="26.0" prefWidth="170.0" promptText="Philippines" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="40.0" />
+                  <TextField fx:id="tf_Address" layoutX="68.0" layoutY="396.0" prefHeight="26.0" prefWidth="170.0" promptText="Manila" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="40.0" />
+                  <DatePicker fx:id="dp_Birthdate" layoutX="34.2" layoutY="294.0" prefHeight="27.0" prefWidth="172.0" promptText="yyyy/mm/dd" style="-fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="40.0" />
+                  <Label layoutX="11.2" layoutY="7.0" text="Phone Number" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="6.0" layoutY="375.0" text="Address" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="3.0" layoutY="325.0" text="Country" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="-4.0" layoutY="275.0" text="Birthdate" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="17.0" layoutY="221.0" text="PIN" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="-14.0" layoutY="170.0" text="Email Address" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="-2.0" layoutY="115.0" text="Last Name" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-            <Label layoutX="30.0" layoutY="24.0" text="Phone Number" AnchorPane.leftAnchor="30.0">
-               <font>
-                  <Font name="Arial Rounded MT Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="18.0" layoutY="129.0" text="Last Name" AnchorPane.leftAnchor="30.0">
-               <font>
-                  <Font name="Arial Rounded MT Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="19.0" layoutY="183.0" text="Email Address" AnchorPane.leftAnchor="30.0">
-               <font>
-                  <Font name="Arial Rounded MT Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="19.0" layoutY="236.0" text="PIN" AnchorPane.leftAnchor="30.0">
-               <font>
-                  <Font name="Arial Rounded MT Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="18.0" layoutY="290.0" text="Birthdate" AnchorPane.leftAnchor="30.0">
-               <font>
-                  <Font name="Arial Rounded MT Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="18.0" layoutY="341.0" text="Country" AnchorPane.leftAnchor="30.0">
-               <font>
-                  <Font name="Arial Rounded MT Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="18.0" layoutY="392.0" text="Address" AnchorPane.leftAnchor="30.0">
-               <font>
-                  <Font name="Arial Rounded MT Bold" size="12.0" />
-               </font>
-            </Label>
-            <TabPane layoutX="277.0" layoutY="14.0" prefHeight="508.0" prefWidth="796.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane layoutX="277.0" layoutY="14.0" prefHeight="558.0" prefWidth="796.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
+                  <Tab text="Admin">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <AnchorPane layoutX="21.0" layoutY="27.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TableView fx:id="myAdminTable" layoutX="61.0" layoutY="23.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn fx:id="admin_id_col" prefWidth="120.0" text="admin_ID" />
+                                        <TableColumn fx:id="admin_full_name_col" prefWidth="150.0" text="admin_full_name" />
+                                          <TableColumn fx:id="admin_email_col" prefWidth="150.0" text="admin_email" />
+                                          <TableColumn fx:id="admin_pin_col" prefWidth="100.0" text="admin_PIN" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
                 <Tab text="Users">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="410.0" prefWidth="798.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="410.0" prefWidth="798.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 10;">
                            <children>
-                              <TableView fx:id="mytable" layoutX="1.0" prefHeight="507.0" prefWidth="799.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 0 0 10 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView fx:id="mytable" layoutX="1.0" prefHeight="507.0" prefWidth="799.0" style="-fx-background-color: #FAFAFA;" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <columns>
                                     <TableColumn fx:id="phone_numbercol" minWidth="120.0" prefWidth="120.0" text="phone_number" />
                                     <TableColumn fx:id="first_namecol" minWidth="120.0" prefWidth="120.0" text="first_name" />
@@ -149,21 +169,8 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <AnchorPane layoutX="42.4" layoutY="14.0" prefHeight="479.0" prefWidth="754.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <ImageView fitHeight="115.0" fitWidth="279.0" layoutX="18.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="20.0">
-                                       <image>
-                                          <Image url="@Images/gcat%20-%20gcash.png" />
-                                       </image>
-                                    </ImageView>
-                                    <ImageView fitHeight="138.0" fitWidth="172.0" layoutX="613.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Images/gcatsuit.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </AnchorPane>
-                              <TableView fx:id="myWalletTable" layoutX="14.0" layoutY="14.0" minWidth="480.0" prefHeight="479.0" prefWidth="483.0" style="-fx-background-radius: 0 0 0 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="313.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane layoutX="42.4" layoutY="14.0" prefHeight="479.0" prefWidth="754.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <TableView fx:id="myWalletTable" layoutX="14.0" layoutY="14.0" minWidth="480.0" prefHeight="479.0" prefWidth="483.0" style="-fx-background-radius: 0 0 0 10;" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
                                   <TableColumn fx:id="phone_number_walletcol" minWidth="120.0" prefWidth="120.0" text="phone_number" />
                                   <TableColumn fx:id="first_name_walletcol" minWidth="120.0" prefWidth="120.0" text="first_name" />
@@ -179,16 +186,8 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <AnchorPane layoutX="118.4" layoutY="14.0" prefHeight="479.0" prefWidth="678.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <ImageView fitHeight="160.0" fitWidth="250.0" layoutX="127.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Images/gcat_ball.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </AnchorPane>
-                              <TableView fx:id="myMoneyTable" layoutX="14.0" layoutY="14.0" prefHeight="479.0" prefWidth="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane layoutX="118.4" layoutY="14.0" prefHeight="479.0" prefWidth="678.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <TableView fx:id="myMoneyTable" layoutX="14.0" layoutY="14.0" prefHeight="479.0" prefWidth="120.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
                                   <TableColumn fx:id="currency_moneycol" minWidth="120.0" prefWidth="75.0" text="currency" />
                                 </columns>
@@ -201,16 +200,8 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <AnchorPane layoutX="173.0" layoutY="37.0" prefHeight="479.0" prefWidth="678.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <ImageView fitHeight="209.0" fitWidth="276.0" layoutX="321.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Images/gcat_def.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </AnchorPane>
-                              <TableView fx:id="myTransactionTypeTable" layoutX="14.0" layoutY="14.0" minWidth="130.0" prefHeight="200.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane layoutX="173.0" layoutY="37.0" prefHeight="479.0" prefWidth="678.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <TableView fx:id="myTransactionTypeTable" layoutX="14.0" layoutY="14.0" minWidth="130.0" prefHeight="200.0" prefWidth="130.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
                                   <TableColumn fx:id="transaction_type_ID_transactiontypecol" minWidth="130.0" prefWidth="75.0" text="transaction_type_ID" />
                                 </columns>
@@ -231,7 +222,7 @@
                                             <content>
                                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 10;">
                                                    <children>
-                                                      <TableView fx:id="mySendTable" layoutX="100.0" layoutY="110.0" prefHeight="479.0" prefWidth="775.0" style="-fx-background-radius: 0 0 10 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <TableView fx:id="mySendTable" layoutX="100.0" layoutY="110.0" prefHeight="479.0" prefWidth="775.0" style="-fx-background-radius: 0 0 10 10;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                         <columns>
                                                           <TableColumn fx:id="send_transaction_ID_sendcol" minWidth="100.0" prefWidth="120.0" text="send_transaction_ID" />
                                                             <TableColumn fx:id="sender_number_sendcol" prefWidth="120.0" text="sender_number" />
@@ -251,7 +242,7 @@
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 10;">
                                                    <children>
                                                       <AnchorPane layoutX="561.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                      <TableView fx:id="myDepositTable" layoutX="-338.0" layoutY="206.0" prefHeight="430.0" prefWidth="583.0" style="-fx-background-radius: 0 0 10 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <TableView fx:id="myDepositTable" layoutX="-338.0" layoutY="206.0" prefHeight="430.0" prefWidth="583.0" style="-fx-background-radius: 0 0 10 10;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <columns>
                                                             <TableColumn fx:id="deposit_transaction_ID_depositcol" minWidth="100.0" prefWidth="150.0" text="deposit_transaction_ID" />
                                                             <TableColumn fx:id="depositor_number_depositcol" minWidth="100.0" prefWidth="120.0" text="depositor_number" />
@@ -269,13 +260,13 @@
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 10;">
                                                    <children>
                                                       <AnchorPane layoutX="55.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                      <TableView fx:id="myWithdrawTable" layoutX="-214.0" layoutY="181.0" prefHeight="430.0" prefWidth="583.0" style="-fx-background-radius: 0 0 10 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <TableView fx:id="myWithdrawTable" layoutX="-214.0" layoutY="181.0" prefHeight="430.0" prefWidth="583.0" style="-fx-background-radius: 0 0 10 10;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <columns>
                                                             <TableColumn fx:id="withdraw_transaction_ID_withdrawcol" minWidth="100.0" prefWidth="150.0" text="withdraw_transaction_ID" />
                                                             <TableColumn fx:id="withdrawer_number_withdrawcol" minWidth="100.0" prefWidth="120.0" text="withdrawer_number" />
-                                                            <TableColumn fx:id="withdraw_name_withdrawcol" minWidth="100.0" prefWidth="120.0" text="withdrawer_name" />
-                                                            <TableColumn fx:id="amount__withdrawcol" prefWidth="70.0" text="amount" />
-                                                            <TableColumn fx:id="transaction_date__withdrawcol" prefWidth="120.0" text="transaction_date" />
+                                                            <TableColumn fx:id="withdrawer_name_withdrawcol" minWidth="100.0" prefWidth="120.0" text="withdrawer_name" />
+                                                            <TableColumn fx:id="amount_withdrawcol" prefWidth="70.0" text="amount" />
+                                                            <TableColumn fx:id="transaction_date_withdrawcol" prefWidth="120.0" text="transaction_date" />
                                                          </columns>
                                                       </TableView>
                                                    </children>
@@ -292,6 +283,16 @@
                   </Tab>
               </tabs>
             </TabPane>
+            <ImageView fitHeight="30.0" fitWidth="71.0" layoutX="23.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+               <image>
+                  <Image url="@../../../../../Downloads/gcash-logo_brandlogos.net_kiaqh-512x427.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="61.0" layoutY="15.2" text="GCASH" textFill="#341176" AnchorPane.topAnchor="15.2">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="25.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
