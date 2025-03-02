@@ -235,9 +235,9 @@
                                                         <columns>
                                                           <TableColumn fx:id="send_transaction_ID_sendcol" minWidth="100.0" prefWidth="120.0" text="send_transaction_ID" />
                                                             <TableColumn fx:id="sender_number_sendcol" prefWidth="120.0" text="sender_number" />
-                                                            <TableColumn fx:id="sender_name_sendcol" prefWidth="120.0" text="sender_number" />
-                                                            <TableColumn fx:id="receiver_name_sendcol" prefWidth="120.0" text="receiver_name" />
+                                                            <TableColumn fx:id="sender_name_sendcol" prefWidth="120.0" text="sender_name" />
                                                             <TableColumn fx:id="receiver_number_sendcol" prefWidth="120.0" text="receiver_number" />
+                                                            <TableColumn fx:id="receiver_name_sendcol" prefWidth="120.0" text="receiver_name" />
                                                             <TableColumn fx:id="amount_sendcol" minWidth="70.0" prefWidth="70.0" text="amount" />
                                                             <TableColumn fx:id="transaction_date_sendcol" prefWidth="130.0" text="transaction_date" />
                                                         </columns>
@@ -269,7 +269,7 @@
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 10;">
                                                    <children>
                                                       <AnchorPane layoutX="55.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                      <TableView fx:id="myDepositTable1" layoutX="-214.0" layoutY="181.0" prefHeight="430.0" prefWidth="583.0" style="-fx-background-radius: 0 0 10 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <TableView fx:id="myWithdrawTable" layoutX="-214.0" layoutY="181.0" prefHeight="430.0" prefWidth="583.0" style="-fx-background-radius: 0 0 10 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <columns>
                                                             <TableColumn fx:id="withdraw_transaction_ID_withdrawcol" minWidth="100.0" prefWidth="150.0" text="withdraw_transaction_ID" />
                                                             <TableColumn fx:id="withdrawer_number_withdrawcol" minWidth="100.0" prefWidth="120.0" text="withdrawer_number" />

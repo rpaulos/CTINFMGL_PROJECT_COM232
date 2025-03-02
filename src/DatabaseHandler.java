@@ -159,18 +159,18 @@ public class DatabaseHandler {
         return result;
     }
     
-    //getLoadTransactions
-    public static ResultSet getLoadTransactions(){
-        ResultSet result = null;
+    // //getLoadTransactions
+    // public static ResultSet getLoadTransactions(){
+    //     ResultSet result = null;
         
-        try {
-            String query = "SELECT * FROM load_transactions";
-            result = handler.execQuery(query);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
+    //     try {
+    //         String query = "SELECT * FROM load_transactions";
+    //         result = handler.execQuery(query);
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
+    //     return result;
+    // }
 
     //getDepositTransactions
     public static ResultSet getDepositTransactions(){

@@ -45,6 +45,10 @@ public class AdminPageController implements Initializable {
 
     ObservableList<TransactionTypes> transactionTypesList = FXCollections.observableArrayList();
 
+    ObservableList<SendTransactions> sendTransactionsList = FXCollections.observableArrayList();
+
+    ObservableList<DepositTransactions> depositTransactionsList = FXCollections.observableArrayList();
+
     @FXML
     private TableView<User> mytable;
 
@@ -58,46 +62,34 @@ public class AdminPageController implements Initializable {
     private TableView<TransactionTypes> myTransactionTypeTable;
 
     @FXML
-    private TableColumn<User, String> phone_numbercol;
+    private TableView<SendTransactions> mySendTable;
 
     @FXML
-    private TableColumn<User, String> first_namecol;
+    private TableView<DepositTransactions> myDepositTable;
 
     @FXML
-    private TableColumn<User, String> last_namecol;
+    private TableColumn<User, String> phone_numbercol, first_namecol, last_namecol, 
+                                email_addresscol, pincol, birthdatecol, countrycol, 
+                                addresscol;
+    
+    @FXML
+    private TableColumn<Wallet, String> phone_number_walletcol, first_name_walletcol, 
+                                last_name_walletcol, balance_walletcol;
 
     @FXML
-    private TableColumn<User, String> email_addresscol;
+    private TableColumn<Money, String> currency_moneycol;
 
     @FXML
-    private TableColumn<User, String> pincol;
+    private TableColumn<TransactionTypes, String> transaction_type_ID_transactiontypecol;
 
     @FXML
-    private TableColumn<User, String> birthdatecol;
+    private TableColumn<SendTransactions, String> send_transaction_ID_sendcol, sender_number_sendcol, 
+                                sender_name_sendcol, receiver_name_sendcol, receiver_number_sendcol, 
+                                amount_sendcol, transaction_date_sendcol;
 
     @FXML
-    private TableColumn<User, String> countrycol;
-
-    @FXML
-    private TableColumn<User, String> addresscol;
-
-    @FXML
-    private TableColumn<?, ?> phone_number_walletcol;
-
-    @FXML
-    private TableColumn<?, ?> first_name_walletcol;
-
-    @FXML
-    private TableColumn<?, ?> last_name_walletcol;
-
-    @FXML
-    private TableColumn<?, ?> balance_walletcol;
-
-    @FXML
-    private TableColumn<?, ?> currency_moneycol;
-
-    @FXML
-    private TableColumn<?, ?> transaction_type_ID_transactiontypecol;
+    private TableColumn<DepositTransactions, String> deposit_transaction_ID_depositcol, depositor_number_depositcol, 
+                                depositor_name_depositcol, amount_depositcol, transaction_date_depositcol;
 
     @FXML
     private Button btn_Create;
@@ -139,6 +131,8 @@ public class AdminPageController implements Initializable {
         displayWallet();
         displayMoney();
         displayTransactionTypes();
+        displaySendTransactions();
+        displayDepositTransactions();
         
     }
 
@@ -160,6 +154,20 @@ public class AdminPageController implements Initializable {
         currency_moneycol.setCellValueFactory(new PropertyValueFactory<>("currency"));
 
         transaction_type_ID_transactiontypecol.setCellValueFactory(new PropertyValueFactory<>("transaction_type_ID"));
+
+        send_transaction_ID_sendcol.setCellValueFactory(new PropertyValueFactory<>("send_transaction_id"));
+        sender_number_sendcol.setCellValueFactory(new PropertyValueFactory<>("sender_number"));
+        sender_name_sendcol.setCellValueFactory(new PropertyValueFactory<>("sender_name"));
+        receiver_number_sendcol.setCellValueFactory(new PropertyValueFactory<>("receiver_number"));
+        receiver_name_sendcol.setCellValueFactory(new PropertyValueFactory<>("receiver_name"));
+        amount_sendcol.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        transaction_date_sendcol.setCellValueFactory(new PropertyValueFactory<>("transaction_date"));
+
+        deposit_transaction_ID_depositcol.setCellValueFactory(new PropertyValueFactory<>("deposit_transaction_id"));
+        depositor_number_depositcol.setCellValueFactory(new PropertyValueFactory<>("depositor_number"));
+        depositor_name_depositcol.setCellValueFactory(new PropertyValueFactory<>("depositor_name"));
+        amount_depositcol.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        transaction_date_depositcol.setCellValueFactory(new PropertyValueFactory<>("transaction_date"));
     }
 
     private void displayUser() {
@@ -235,7 +243,6 @@ public class AdminPageController implements Initializable {
     }
 
     private void displayTransactionTypes() {
-
         transactionTypesList.clear();
 
         ResultSet result = DatabaseHandler.getTransactionTypes();
@@ -251,6 +258,56 @@ public class AdminPageController implements Initializable {
         }
 
         myTransactionTypeTable.setItems(transactionTypesList); 
+    }
+
+    private void displaySendTransactions() {
+
+        sendTransactionsList.clear();
+
+        ResultSet result = DatabaseHandler.getSendTransactions();
+        
+        try {
+            while (result.next()) {
+                String send_transaction_ID = String.valueOf(result.getInt("send_transaction_ID"));                
+                String sender_number = result.getString("sender_number");
+                String sender_name = result.getString("sender_name");
+                String receiver_number = result.getString("receiver_number");
+                String receiver_name = result.getString("receiver_name");
+                String amount = result.getString("amount");
+                String transaction_date = result.getString("transaction_date");
+                
+
+                sendTransactionsList.add(new SendTransactions(send_transaction_ID, sender_number, sender_name, receiver_number, receiver_name, amount, transaction_date));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        mySendTable.setItems(sendTransactionsList); 
+
+    }
+
+    private void displayDepositTransactions() {
+
+        depositTransactionsList.clear();
+
+        ResultSet result = DatabaseHandler.getDepositTransactions();
+        
+        try {
+            while (result.next()) {
+                String deposit_transaction_ID = String.valueOf(result.getInt("deposit_transaction_ID"));
+                String depositor_number = result.getString("depositor_number");
+                String depositor_name = result.getString("depositor_name");
+                String amount = result.getString("amount");
+                String transaction_date = result.getString("transaction_date");
+
+                depositTransactionsList.add(new DepositTransactions(deposit_transaction_ID,depositor_number, depositor_name, amount, transaction_date));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        myDepositTable.setItems(depositTransactionsList); 
 
     }
 
