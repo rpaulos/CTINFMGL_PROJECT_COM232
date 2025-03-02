@@ -81,10 +81,38 @@ public class LoginPageMPINController {
             stage.show();
 
         } else {
-            //Wrong number or password pop up message
-            System.out.println("UNSUCCESSFUL");
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                Parent root = fxmlLoader.load();
+
+                ErrorPopUpController controller = fxmlLoader.getController();
+                controller.setErrorMessage("Incorrect number or MPIN. Make sure all fields are correct.");
+
+                Stage newStage = new Stage();
+                newStage.setTitle("Error");
+                newStage.setScene(new Scene(root));
+                newStage.centerOnScreen();
+                newStage.show();
+
+                backToLoginNumber();
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
         }
+    }
+
+    public void backToLoginNumber() {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPageNumber.fxml"));
+
+        root = loader.load();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void PINButtonHandler(ActionEvent event) {

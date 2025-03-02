@@ -69,8 +69,31 @@ public class ExpressSendPageController {
             String numberToSendTo = tf_numberToSendTo.getText();
             float amountToSend = Float.parseFloat(tf_amountToSend.getText());
 
+            //validateNumber
+
+            if (!DatabaseHandler.validateMobileNumber(numberToSendTo)) {
+
+                try {
+                    //Load the error pop up
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+    
+                    ErrorPopUpController controller = fxmlLoader.getController();
+                    //Set new message for insufficient balance
+                    controller.setErrorMessage("Account does not exist");
+                    
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Error: Account Error");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                                
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             //Checks if there's enough balance to send
-            if (myBalance < amountToSend) {
+            } else if (myBalance < amountToSend) {
 
                 try {
                     //Load the error pop up

@@ -116,9 +116,49 @@ public class ProfilePageController implements Initializable{
         lbl_addressCountry.setText(myLocation);
     }
 
+    public void sendToEditProfilePage(ActionEvent event) throws IOException{
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("EditProfilePage.fxml"));
+
+        root = loader.load();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
     public void sendBackToHomeHandler(ActionEvent event) throws IOException{
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+
+        root = loader.load();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    public void sendBackToLoginHandler(ActionEvent event) throws IOException{
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPageNumber.fxml"));
+
+        root = loader.load();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void deleteAccountHandler(ActionEvent event) throws IOException{
+
+        DatabaseHandler.deleteAccount(myNumber);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPageNumber.fxml"));
 
         root = loader.load();
 

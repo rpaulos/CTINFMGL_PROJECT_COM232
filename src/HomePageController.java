@@ -63,6 +63,7 @@ public class HomePageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ReceiptPageController.myNumber = validNumber;
+        EditProfilePageController.myNumber = validNumber;
         getName();
         getBalance();
     }
@@ -82,20 +83,20 @@ public class HomePageController implements Initializable {
 
     }
 
-    public void loadHandler(ActionEvent event) throws IOException {
+    // public void loadHandler(ActionEvent event) throws IOException {
 
-        ExpressSendPageController.number = validNumber;
+    //     ExpressSendPageController.number = validNumber;
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("LoadPage.fxml"));
+    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("LoadPage.fxml"));
 
-        root = loader.load();
+    //     root = loader.load();
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    //     scene = new Scene(root);
+    //     stage.setScene(scene);
+    //     stage.show();
 
-    }
+    // }
 
 
     public void depositHandler(ActionEvent event) throws IOException {
@@ -116,6 +117,7 @@ public class HomePageController implements Initializable {
     public void WithdrawHandler(ActionEvent event) throws IOException {
 
         WithdrawPageController.number = validNumber;
+        WithdrawPageController.myBalance = balance;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("WithdrawPage.fxml"));
 

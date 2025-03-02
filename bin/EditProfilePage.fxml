@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProfilePageController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EditProfilePageController">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #E5F3FD;">
          <children>
@@ -60,7 +60,7 @@
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btn_Create" layoutX="80.0" layoutY="382.0" mnemonicParsing="false" onAction="#createUser" prefHeight="26.0" prefWidth="150.0" style="-fx-background-radius: 15; -fx-background-color: #0053ca; -fx-min-width: 60px; -fx-font-weight: bold;" text="Submit" textFill="WHITE" />
+                  <Button fx:id="btn_submit" layoutX="80.0" layoutY="382.0" mnemonicParsing="false" onAction="#submitEditProfileHandler" prefHeight="26.0" prefWidth="150.0" style="-fx-background-radius: 15; -fx-background-color: #0053ca; -fx-min-width: 60px; -fx-font-weight: bold;" text="Submit" textFill="WHITE" />
                </children>
             </AnchorPane>
          </children>

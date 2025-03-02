@@ -109,6 +109,95 @@ public class DatabaseHandler {
         return result;
     }
 
+    public static ResultSet getWallet(){
+        ResultSet result = null;
+        
+        try {
+            String query = "SELECT * FROM wallet";
+            result = handler.execQuery(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static ResultSet getMoney(){
+        ResultSet result = null;
+        
+        try {
+            String query = "SELECT * FROM money";
+            result = handler.execQuery(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    //getTransactionTypes
+    public static ResultSet getTransactionTypes(){
+        ResultSet result = null;
+        
+        try {
+            String query = "SELECT * FROM transaction_types";
+            result = handler.execQuery(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    
+    //getSendTransactions
+    public static ResultSet getSendTransactions(){
+        ResultSet result = null;
+        
+        try {
+            String query = "SELECT * FROM send_transactions";
+            result = handler.execQuery(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    
+    //getLoadTransactions
+    public static ResultSet getLoadTransactions(){
+        ResultSet result = null;
+        
+        try {
+            String query = "SELECT * FROM load_transactions";
+            result = handler.execQuery(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    //getDepositTransactions
+    public static ResultSet getDepositTransactions(){
+        ResultSet result = null;
+        
+        try {
+            String query = "SELECT * FROM deposit_transactions";
+            result = handler.execQuery(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    //getWithdrawTransactions
+    public static ResultSet getWithdrawTransactions(){
+        ResultSet result = null;
+        
+        try {
+            String query = "SELECT * FROM withdraw_transactions";
+            result = handler.execQuery(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
     //getFirstName and getUserBalance is used to display the name and balance of the user in the HomePage
     public static String getFirstName(String phone_number) {
         String query = "SELECT first_name FROM users WHERE phone_number = ?";
@@ -381,6 +470,46 @@ public class DatabaseHandler {
         }
     }
 
+    public static void deleteAccount(String phone_number) {
+        String query = "DELETE FROM users WHERE phone_number = ?";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, phone_number);
+            int affectedRows = stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+    public static void updateAccount(String phone_number, String firstName, String lastName, String email_address, String address, String country, int pin) {
+        String query = "UPDATE users SET first_name = ?, last_name = ?, email_address = ?, address = ?, country = ?, pin = ? WHERE phone_number = ?;";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, firstName);
+            stmt.setString(2, lastName);
+            stmt.setString(3, email_address);
+            stmt.setString(4, address);
+            stmt.setString(5, country);
+            stmt.setInt(6, pin);
+            stmt.setString(7, phone_number);
+            
+            int affectedRows = stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static boolean addUser(User user) {
         try {
             pstatement = getDBConnection().prepareStatement("INSERT INTO users (phone_number, first_name, last_name, email_address, PIN, birthdate, country, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
@@ -419,6 +548,31 @@ public class DatabaseHandler {
 
         try {
             pstatement = getDBConnection().prepareStatement("UPDATE users SET phone_number = ?, first_name = ?, last_name = ?, email_address = ?, PIN = ?, birthdate = ?, country = ?, address = ? WHERE phone_number = ?");
+            pstatement.setString(1, user.getPhone_number());
+            pstatement.setString(2, user.getFirst_name());
+            pstatement.setString(3, user.getLast_name());
+            pstatement.setString(4, user.getEmail_address());
+            pstatement.setString(5, user.getPIN());
+            pstatement.setString(6, user.getBirthdate());
+            pstatement.setString(7, user.getCountry());
+            pstatement.setString(8, user.getAddress());
+            pstatement.setString(9, user.getPhone_number());
+
+            int res = pstatement.executeUpdate();
+
+            if (res > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean EditUser(User user) {
+
+        try {
+            pstatement = getDBConnection().prepareStatement("UPDATE users SET phone_number = ?, first_name = ?, last_name = ?, email_address = ?, PIN = ?, country = ?, address = ? WHERE phone_number = ?");
             pstatement.setString(1, user.getPhone_number());
             pstatement.setString(2, user.getFirst_name());
             pstatement.setString(3, user.getLast_name());

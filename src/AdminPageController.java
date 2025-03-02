@@ -2,7 +2,7 @@
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.util.Observable;
-import javax.swing.Action;
+// import javax.swing.Action;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,14 +32,30 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+// import javax.swing.table.TableColumn;
 
 
 public class AdminPageController implements Initializable {
 
     ObservableList<User> userlist = FXCollections.observableArrayList();
 
+    ObservableList<Wallet> walletList = FXCollections.observableArrayList();
+
+    ObservableList<Money> moneyList = FXCollections.observableArrayList();
+
+    ObservableList<TransactionTypes> transactionTypesList = FXCollections.observableArrayList();
+
     @FXML
     private TableView<User> mytable;
+
+    @FXML
+    private TableView<Wallet> myWalletTable;
+
+    @FXML
+    private TableView<Money> myMoneyTable;
+
+    @FXML
+    private TableView<TransactionTypes> myTransactionTypeTable;
 
     @FXML
     private TableColumn<User, String> phone_numbercol;
@@ -64,6 +80,24 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private TableColumn<User, String> addresscol;
+
+    @FXML
+    private TableColumn<?, ?> phone_number_walletcol;
+
+    @FXML
+    private TableColumn<?, ?> first_name_walletcol;
+
+    @FXML
+    private TableColumn<?, ?> last_name_walletcol;
+
+    @FXML
+    private TableColumn<?, ?> balance_walletcol;
+
+    @FXML
+    private TableColumn<?, ?> currency_moneycol;
+
+    @FXML
+    private TableColumn<?, ?> transaction_type_ID_transactiontypecol;
 
     @FXML
     private Button btn_Create;
@@ -102,6 +136,9 @@ public class AdminPageController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         initializeCol();
         displayUser();
+        displayWallet();
+        displayMoney();
+        displayTransactionTypes();
         
     }
 
@@ -114,6 +151,15 @@ public class AdminPageController implements Initializable {
         birthdatecol.setCellValueFactory(new PropertyValueFactory<>("birthdate"));
         countrycol.setCellValueFactory(new PropertyValueFactory<>("country"));
         addresscol.setCellValueFactory(new PropertyValueFactory<>("address"));
+
+        phone_number_walletcol.setCellValueFactory(new PropertyValueFactory<>("phone_number"));
+        first_name_walletcol.setCellValueFactory(new PropertyValueFactory<>("first_name"));
+        last_name_walletcol.setCellValueFactory(new PropertyValueFactory<>("last_name"));
+        balance_walletcol.setCellValueFactory(new PropertyValueFactory<>("balance"));
+
+        currency_moneycol.setCellValueFactory(new PropertyValueFactory<>("currency"));
+
+        transaction_type_ID_transactiontypecol.setCellValueFactory(new PropertyValueFactory<>("transaction_type_ID"));
     }
 
     private void displayUser() {
@@ -134,12 +180,77 @@ public class AdminPageController implements Initializable {
                 String address = result.getString("address");
 
                 userlist.add(new User(phone_number, first_name, last_name, email_address, PIN, birthdate, country, address));
+                
+                displayWallet();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         mytable.setItems(userlist);
+
+    }
+
+    private void displayWallet() {
+
+        walletList.clear();
+
+        ResultSet result = DatabaseHandler.getWallet();
+        
+        try {
+            while (result.next()) {
+                String phone_number = result.getString("phone_number");
+                String first_name = result.getString("first_name");
+                String last_name = result.getString("last_name");
+                String balance = result.getString("balance");
+
+                walletList.add(new Wallet(phone_number, first_name, last_name, balance));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        myWalletTable.setItems(walletList);
+
+    }
+
+    private void displayMoney() {
+
+        moneyList.clear();
+
+        ResultSet result = DatabaseHandler.getMoney();
+        
+        try {
+            while (result.next()) {
+                String currency = result.getString("currency");
+
+                moneyList.add(new Money(currency));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        myMoneyTable.setItems(moneyList);
+
+    }
+
+    private void displayTransactionTypes() {
+
+        transactionTypesList.clear();
+
+        ResultSet result = DatabaseHandler.getTransactionTypes();
+        
+        try {
+            while (result.next()) {
+                String transaction_type_ID = result.getString("transaction_type_ID");
+
+                transactionTypesList.add(new TransactionTypes(transaction_type_ID));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        myTransactionTypeTable.setItems(transactionTypesList); 
 
     }
 

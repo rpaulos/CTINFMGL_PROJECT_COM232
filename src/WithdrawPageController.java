@@ -26,6 +26,7 @@ public class WithdrawPageController {
     private Parent root;
 
     public static String number;
+    public static float myBalance;
     public static int feature = 4;
     
     private static boolean isEmpty(TextField field) {
@@ -56,14 +57,36 @@ public class WithdrawPageController {
             }
             
         } else {
-            
-            ReceiptPageController.mode = feature;
-            Float amountToWithdraw = Float.parseFloat(tf_amountToWithdraw.getText());
-            ReceiptPageController.amountWithdrawn = amountToWithdraw;
-            DatabaseHandler.withdraw(amountToWithdraw, number);
 
-            //Call the receipt page
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ReceiptPage.fxml"));
+            Float amountToWithdraw = Float.parseFloat(tf_amountToWithdraw.getText());
+
+            if (myBalance < amountToWithdraw) {
+
+                try {
+                    //Load the error pop up
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+    
+                    ErrorPopUpController controller = fxmlLoader.getController();
+                    //Set new message for insufficient balance
+                    controller.setErrorMessage("Insufficient Balance.");
+                    
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Error: Insufficient Balance");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                                
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                ReceiptPageController.mode = feature;
+                ReceiptPageController.amountWithdrawn = amountToWithdraw;
+                DatabaseHandler.withdraw(amountToWithdraw, number);
+
+                //Call the receipt page
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ReceiptPage.fxml"));
 
                 root = loader.load();
 
@@ -71,6 +94,7 @@ public class WithdrawPageController {
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
+            }
         }
     }
 

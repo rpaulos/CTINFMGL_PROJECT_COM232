@@ -108,7 +108,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <Button fx:id="btn_cashIn" alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="47.0" maxHeight="26.0" maxWidth="79.0" minHeight="20.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="79.0" style="-fx-background-radius: 50px; -fx-max-height: 25; -fx-min-height: 25; -fx-background-color: #E5F3FD; -fx-font-weight: bold; -fx-font-family: Arial Rounded MT Bold; -fx-cursor: hand;" text="+ Cash In" textFill="#0053ca">
+                  <Button fx:id="btn_cashIn" alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="47.0" maxHeight="26.0" maxWidth="79.0" minHeight="20.0" mnemonicParsing="false" onAction="#depositHandler" prefHeight="20.0" prefWidth="79.0" style="-fx-background-radius: 50px; -fx-max-height: 25; -fx-min-height: 25; -fx-background-color: #E5F3FD; -fx-font-weight: bold; -fx-font-family: Arial Rounded MT Bold; -fx-cursor: hand;" text="+ Cash In" textFill="#0053ca">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
@@ -122,7 +122,7 @@
             </AnchorPane>
             <AnchorPane layoutX="13.0" layoutY="136.0" prefHeight="94.0" prefWidth="310.0" style="-fx-background-color: #ffffff; -fx-background-radius: 0 0 10 10;">
                <children>
-                  <Button fx:id="btn_toExpressSend" layoutX="11.0" layoutY="10.0" mnemonicParsing="false" onAction="#sendHandler" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+                  <Button fx:id="btn_toExpressSend" layoutX="22.0" layoutY="10.0" mnemonicParsing="false" onAction="#sendHandler" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                      <graphic>
                         <ImageView fitHeight="55.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: transparent;">
                            <image>
@@ -131,16 +131,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btn_load" layoutX="83.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadHandler" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
-                     <graphic>
-                        <ImageView fitHeight="55.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: transparent;">
-                           <image>
-                              <Image url="@../../../../../Downloads/load.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="btn_deposit" layoutX="152.0" layoutY="10.0" mnemonicParsing="false" onAction="#depositHandler" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+                  <Button fx:id="btn_deposit" layoutX="118.0" layoutY="10.0" mnemonicParsing="false" onAction="#depositHandler" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                      <graphic>
                         <ImageView fitHeight="55.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: transparent;">
                            <image>
@@ -149,7 +140,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btn_withdraw" layoutX="228.0" layoutY="10.0" mnemonicParsing="false" onAction="#WithdrawHandler" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+                  <Button fx:id="btn_withdraw" layoutX="214.0" layoutY="10.0" mnemonicParsing="false" onAction="#WithdrawHandler" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                      <graphic>
                         <ImageView fitHeight="55.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: transparent;">
                            <image>
@@ -158,22 +149,17 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label layoutX="32.0" layoutY="65.0" text="Send" textFill="#0053ca">
+                  <Label layoutX="44.0" layoutY="65.0" text="Send" textFill="#0053ca">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="102.0" layoutY="65.0" text="Load" textFill="#0053ca">
+                  <Label layoutX="131.0" layoutY="65.0" text="Deposit" textFill="#0053ca">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="160.0" layoutY="65.0" text="Deposit" textFill="#0053ca">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="235.0" layoutY="65.0" text="Withdraw" textFill="#0053ca">
+                  <Label layoutX="221.0" layoutY="65.0" text="Withdraw" textFill="#0053ca">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>

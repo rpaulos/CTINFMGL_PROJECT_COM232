@@ -72,7 +72,7 @@ public class LoginPageNumberController {
             FXMLLoader loader;
     
             if (usernumber.equalsIgnoreCase("Admin")) {
-                loader = new FXMLLoader(getClass().getResource("AdminPage.fxml"));
+                loader = new FXMLLoader(getClass().getResource("TESTPAGE.fxml"));
             } else {
                 loader = new FXMLLoader(getClass().getResource("LoginPageMPIN.fxml"));
             }
@@ -84,8 +84,25 @@ public class LoginPageNumberController {
             stage.setScene(scene);
             stage.centerOnScreen();
             stage.show();
+            
         } else {
-            //Account does not exist pop up message
+
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                Parent root = fxmlLoader.load();
+
+                ErrorPopUpController controller = fxmlLoader.getController();
+                controller.setErrorMessage("Account does not exists. Sign up or input a valid number.");
+
+                Stage newStage = new Stage();
+                newStage.setTitle("Error");
+                newStage.setScene(new Scene(root));
+                newStage.centerOnScreen();
+                newStage.show();
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         
     }

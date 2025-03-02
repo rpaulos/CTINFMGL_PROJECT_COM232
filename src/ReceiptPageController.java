@@ -67,9 +67,9 @@ public class ReceiptPageController implements Initializable{
                 setExpressSendReceipt();
                 break;
             
-            case 2:
-                setLoadReceipt();
-                break;
+            // case 2:
+            //     setLoadReceipt();
+            //     break;
             
             case 3:
                 setDepositReceipt();
@@ -83,6 +83,7 @@ public class ReceiptPageController implements Initializable{
     }
 
     public void setExpressSendReceipt() {
+
         //Ommits the first character of the number and set the text
         String modifiedNumber = numberSentTo.substring(1);
         txt_myNumber.setText(modifiedNumber);
@@ -105,9 +106,6 @@ public class ReceiptPageController implements Initializable{
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         String formattedDate = transacDateTime.format(formatter);
         txt_transacDate.setText(formattedDate);
-    }
-
-    public void setLoadReceipt() {
 
     }
 
@@ -145,8 +143,8 @@ public class ReceiptPageController implements Initializable{
         txt_myNumber.setText(modifiedNumber);
 
         //Casts the float to a string and set the text for the amount sent
-        txt_amount.setText(Float.toString(amountDeposited));
-        txt_totalAmount.setText(Float.toString(amountDeposited));
+        txt_amount.setText(Float.toString(amountWithdrawn));
+        txt_totalAmount.setText(Float.toString(amountWithdrawn));
 
         txt_title.setText("Withdraw");
         txt_SentViaLabel.setText("Withdraw via GCash");
