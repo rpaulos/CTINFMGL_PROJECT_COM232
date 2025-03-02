@@ -1,4 +1,5 @@
 
+// import java.awt.Button;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.util.Observable;
@@ -79,10 +80,10 @@ public class AdminPageController implements Initializable {
     
     @FXML
     private TableColumn<Wallet, String> phone_number_walletcol, first_name_walletcol, 
-                                last_name_walletcol, balance_walletcol;
+                                last_name_walletcol, balance_walletcol, currency_walletcol;
 
     @FXML
-    private TableColumn<Money, String> currency_moneycol;
+    private TableColumn<Money, String> currency_moneycol, conversion_ratemoneycol;
 
     @FXML
     private TableColumn<TransactionTypes, String> transaction_type_ID_transactiontypecol;
@@ -113,6 +114,15 @@ public class AdminPageController implements Initializable {
     private Button btn_adminWalletSubmit;
 
     @FXML
+    private Button btn_adminCurrencySubmit;
+
+    @FXML
+    private Button btn_adminCurrencyUpdate;
+
+    @FXML
+    private Button btn_adminCurrencyDelete;
+
+    @FXML
     private TextField tf_Address;
 
     @FXML
@@ -138,6 +148,12 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private TextField tf_adminWalletAmount;
+
+    @FXML
+    private TextField tf_adminCurrency;
+
+    @FXML
+    private TextField tf_adminConversionRate;
 
     @FXML
     private DatePicker dp_Birthdate;
@@ -169,8 +185,10 @@ public class AdminPageController implements Initializable {
         first_name_walletcol.setCellValueFactory(new PropertyValueFactory<>("first_name"));
         last_name_walletcol.setCellValueFactory(new PropertyValueFactory<>("last_name"));
         balance_walletcol.setCellValueFactory(new PropertyValueFactory<>("balance"));
+        currency_walletcol.setCellValueFactory(new PropertyValueFactory<>("currency"));
 
         currency_moneycol.setCellValueFactory(new PropertyValueFactory<>("currency"));
+        conversion_ratemoneycol.setCellValueFactory(new PropertyValueFactory<>("conversion_rate"));
 
         transaction_type_ID_transactiontypecol.setCellValueFactory(new PropertyValueFactory<>("transaction_type_ID"));
 
@@ -240,8 +258,9 @@ public class AdminPageController implements Initializable {
                 String first_name = result.getString("first_name");
                 String last_name = result.getString("last_name");
                 String balance = result.getString("balance");
+                String currency = result.getString("currency");
 
-                walletList.add(new Wallet(phone_number, first_name, last_name, balance));
+                walletList.add(new Wallet(phone_number, first_name, last_name, balance, currency));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -260,8 +279,10 @@ public class AdminPageController implements Initializable {
         try {
             while (result.next()) {
                 String currency = result.getString("currency");
+                String conversion_rate = result.getString("conversion_rate");
 
-                moneyList.add(new Money(currency));
+                moneyList.add(new Money(currency, conversion_rate));
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -392,6 +413,12 @@ public class AdminPageController implements Initializable {
                 //call deposit
                 DatabaseHandler.deposit(amount, phone_number);
 
+                //DatabaseHandler for recording transaction history for deposit by admin
+                DatabaseHandler.adminDeposit(phone_number, amount);
+
+                displayWallet();
+                displayDepositTransactions();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
                     Parent root = fxmlLoader.load();
@@ -408,12 +435,16 @@ public class AdminPageController implements Initializable {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                displayWallet();
   
             } else {
                 //call withdraw
                 DatabaseHandler.withdraw(Math.abs(amount), phone_number);
+
+                //DatabaseHandler for recording transaction history for withdraw by admin
+                DatabaseHandler.adminWithdraw(phone_number, amount);
+
+                displayWallet();
+                displayWithdrawTransactions();
 
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
@@ -431,8 +462,6 @@ public class AdminPageController implements Initializable {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                displayWallet();
             }
         }
     }
@@ -609,7 +638,7 @@ public class AdminPageController implements Initializable {
                     controller.setSuccessMessage("The account has been successfully updated.");
 
                     Stage newStage = new Stage();
-                    newStage.setTitle("Success: Account deleted");
+                    newStage.setTitle("Success: Account updated");
                     newStage.setScene(new Scene(root));
                     newStage.centerOnScreen();
                     newStage.show();
@@ -638,6 +667,187 @@ public class AdminPageController implements Initializable {
 
         }
         displayUser();
+    }
+
+    @FXML
+    private void createMoney(ActionEvent event) {
+        if (isEmpty(tf_adminCurrency) || isEmpty(tf_adminConversionRate)) {
+
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+
+                    ErrorPopUpController controller = fxmlLoader.getController();
+                    controller.setErrorMessage("An error has occurred while processing action. Make sure to answer all fields before submitting.");
+
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Error: Empty field");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                    
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+        
+        } else {
+
+            String currency = tf_adminCurrency.getText();
+            String conversionRate = tf_adminConversionRate.getText();
+
+            Money money = new Money(currency, conversionRate);
+
+            if (DatabaseHandler.addMoney(money)) {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+
+                    SuccessPopUpController controller = fxmlLoader.getController();
+                    controller.setSuccessMessage("New currency and conversion rate has been added.");
+
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Success");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            } else {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+
+                    ErrorPopUpController controller = fxmlLoader.getController();
+                    controller.setErrorMessage("An error has occurred while processing action. Make sure to answer all fields before submitting.");
+
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Error: Empty field");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                    
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        displayMoney();
+    }
+
+    @FXML
+    private void deleteMoney(ActionEvent event) {
+        Money money = myMoneyTable.getSelectionModel().getSelectedItem();
+
+        String currency = money.getCurrency();
+
+        if (DatabaseHandler.deleteMoney(money)) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
+                Parent root = fxmlLoader.load();
+
+                SuccessPopUpController controller = fxmlLoader.getController();
+                controller.setSuccessMessage("Currency has been removed from the database.");
+
+                Stage newStage = new Stage();
+                newStage.setTitle("Success");
+                newStage.setScene(new Scene(root));
+                newStage.centerOnScreen();
+                newStage.show();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            displayMoney();
+        } else {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                Parent root = fxmlLoader.load();
+
+                ErrorPopUpController controller = fxmlLoader.getController();
+                controller.setErrorMessage("An error has occurred while processing action.");
+
+                Stage newStage = new Stage();
+                newStage.setTitle("Error");
+                newStage.setScene(new Scene(root));
+                newStage.centerOnScreen();
+                newStage.show();
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    @FXML
+    private void updateMoney(ActionEvent event) {
+        if (isEmpty(tf_adminCurrency) || isEmpty(tf_adminConversionRate)) {
+
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+
+                    ErrorPopUpController controller = fxmlLoader.getController();
+                    controller.setErrorMessage("An error has occurred while processing action. Make sure to answer all fields before submitting.");
+
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Error: Empty field");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                    
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+        
+        } else {
+
+           String currency = tf_adminCurrency.getText();
+            String conversionRate = tf_adminConversionRate.getText();
+
+            Money money = new Money(currency, conversionRate);
+
+            if (DatabaseHandler.updateMoney(money)) {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+
+                    SuccessPopUpController controller = fxmlLoader.getController();
+                    controller.setSuccessMessage("Currency has been updated.");
+
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Success");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+
+                    ErrorPopUpController controller = fxmlLoader.getController();
+                    controller.setErrorMessage("An error has occurred while processing action. Update can't go through.");
+
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Error");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                    
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+        displayMoney();
     }
 
 }

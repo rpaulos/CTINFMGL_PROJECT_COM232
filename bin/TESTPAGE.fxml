@@ -63,8 +63,8 @@
          <children>
             <AnchorPane layoutX="15.0" layoutY="504.0" prefHeight="62.0" prefWidth="242.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" AnchorPane.leftAnchor="15.0">
                <children>
-                  <Button fx:id="btn_Create" layoutX="13.0" layoutY="18.0" mnemonicParsing="false" onAction="#createUser" style="-fx-background-radius: 10px; -fx-background-color: #0053ca; -fx-min-width: 60px; -fx-font-weight: bold;" text="Create" textFill="WHITE" AnchorPane.leftAnchor="13.0" />
-                  <Button fx:id="btn_Delete" layoutX="170.0" layoutY="19.0" mnemonicParsing="false" onAction="#deleteUser" style="-fx-background-radius: 10px; -fx-background-color: #0053ca; -fx-min-width: 60px; -fx-font-weight: bold;" text="Delete" textFill="WHITE" />
+                  <Button fx:id="btn_Create" layoutX="13.0" layoutY="18.0" mnemonicParsing="false" onAction="#createUser" style="-fx-background-radius: 10px; -fx-background-color: green; -fx-min-width: 60px; -fx-font-weight: bold;" text="Create" textFill="WHITE" AnchorPane.leftAnchor="13.0" />
+                  <Button fx:id="btn_Delete" layoutX="170.0" layoutY="19.0" mnemonicParsing="false" onAction="#deleteUser" style="-fx-background-radius: 10px; -fx-background-color: maroon; -fx-min-width: 60px; -fx-font-weight: bold;" text="Delete" textFill="WHITE" />
                   <Button fx:id="btn_Update" layoutX="90.0" layoutY="18.0" mnemonicParsing="false" onAction="#updateUser" style="-fx-background-radius: 10px; -fx-background-color: #0053ca; -fx-min-width: 60px; -fx-font-weight: bold;" text="Update" textFill="WHITE" />
                </children>
             </AnchorPane>
@@ -184,6 +184,7 @@
                                   <TableColumn fx:id="first_name_walletcol" minWidth="120.0" prefWidth="120.0" text="first_name" />
                                     <TableColumn fx:id="last_name_walletcol" minWidth="120.0" prefWidth="120.0" text="last_name" />
                                     <TableColumn fx:id="balance_walletcol" minWidth="120.0" prefWidth="120.0" text="balance" />
+                                    <TableColumn fx:id="currency_walletcol" prefWidth="140.0" text="currency" />
                                 </columns>
                               </TableView>
                            </children>
@@ -196,15 +197,19 @@
                            <children>
                               <AnchorPane layoutX="118.4" layoutY="14.0" prefHeight="479.0" prefWidth="678.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label layoutX="423.0" layoutY="456.0" text="Currency" />
-                                    <TextField fx:id="tf_adminCurrency" layoutX="423.0" layoutY="474.0" prefHeight="26.0" prefWidth="170.0" promptText="US Dollar" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="202.60000000000002" />
-                                    <Button fx:id="btn_adminCurrencyDelete" layoutX="611.0" layoutY="478.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" style="-fx-background-radius: 10px; -fx-background-color: maroon; -fx-min-width: 60px; -fx-font-weight: bold;" text="Delete" textFill="WHITE" AnchorPane.bottomAnchor="26.0" AnchorPane.rightAnchor="109.0" />
-                                    <Button fx:id="btn_adminCurrencySubmit" layoutX="698.0" layoutY="477.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" style="-fx-background-radius: 10px; -fx-background-color: #0053ca; -fx-min-width: 60px; -fx-font-weight: bold;" text="Submit" textFill="WHITE" />
+                                    <Label layoutX="128.0" layoutY="459.0" text="Currency" />
+                                    <TextField fx:id="tf_adminCurrency" layoutX="128.0" layoutY="477.0" prefHeight="26.0" prefWidth="170.0" promptText="US Dollar" AnchorPane.bottomAnchor="26.200000000000045" AnchorPane.rightAnchor="497.6" />
+                                    <Button fx:id="btn_adminCurrencyDelete" layoutX="697.0" layoutY="477.0" mnemonicParsing="false" onAction="#deleteMoney" prefHeight="26.0" prefWidth="76.0" style="-fx-background-radius: 10px; -fx-background-color: maroon; -fx-min-width: 60px; -fx-font-weight: bold;" text="Delete" textFill="WHITE" AnchorPane.bottomAnchor="26.200000000000045" AnchorPane.rightAnchor="23.0" />
+                                    <Button fx:id="btn_adminCurrencySubmit" layoutX="518.0" layoutY="477.0" mnemonicParsing="false" onAction="#createMoney" prefHeight="26.0" prefWidth="72.0" style="-fx-background-radius: 10px; -fx-background-color: green; -fx-min-width: 60px; -fx-font-weight: bold;" text="Submit" textFill="WHITE" />
+                                    <Button fx:id="btn_adminCurrencyUpdate" layoutX="607.0" layoutY="477.0" mnemonicParsing="false" onAction="#updateMoney" prefHeight="26.0" prefWidth="72.0" style="-fx-background-radius: 10px; -fx-background-color: #0053ca; -fx-min-width: 60px; -fx-font-weight: bold;" text="Update" textFill="WHITE" />
+                                    <TextField fx:id="tf_adminConversionRate" layoutX="325.0" layoutY="477.0" prefHeight="26.0" prefWidth="170.0" promptText="1.00" />
+                                    <Label layoutX="325.0" layoutY="459.0" text="Conversion Rate" />
                                  </children>
                               </AnchorPane>
                               <TableView fx:id="myMoneyTable" layoutX="14.0" layoutY="14.0" prefHeight="479.0" prefWidth="120.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
                                   <TableColumn fx:id="currency_moneycol" minWidth="120.0" prefWidth="75.0" text="currency" />
+                                    <TableColumn fx:id="conversion_ratemoneycol" prefWidth="148.79995727539062" text="conversion_rate" />
                                 </columns>
                               </TableView>
                            </children>

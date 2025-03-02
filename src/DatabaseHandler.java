@@ -452,6 +452,24 @@ public class DatabaseHandler {
         }
     }
 
+    public static void adminDeposit(String phone_number, Float amount) {
+        String query = "INSERT INTO deposit_transactions (depositor_number, amount) VALUES (?, ?);";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, phone_number);
+            stmt.setFloat(2, amount);
+            int affectedRows = stmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void withdraw(Float negateFromBalance, String phone_number) {
         String query = "UPDATE wallet SET balance = balance - ? WHERE phone_number = ?";
         Connection conn = null;
@@ -463,6 +481,24 @@ public class DatabaseHandler {
             stmt = conn.prepareStatement(query);
             stmt.setFloat(1, negateFromBalance);
             stmt.setString(2, phone_number);
+            int affectedRows = stmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void adminWithdraw(String phone_number, Float amount) {
+        String query = "INSERT INTO withdraw_transactions (withdrawer_number, amount) VALUES (?, ?)";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, phone_number);
+            stmt.setFloat(2, amount);
             int affectedRows = stmt.executeUpdate();
 
         } catch (Exception e) {
@@ -582,6 +618,53 @@ public class DatabaseHandler {
             pstatement.setString(7, user.getCountry());
             pstatement.setString(8, user.getAddress());
             pstatement.setString(9, user.getPhone_number());
+
+            int res = pstatement.executeUpdate();
+
+            if (res > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean addMoney(Money money) {
+        try {
+            pstatement = getDBConnection().prepareStatement("INSERT INTO money (currency, conversion_rate) VALUES (?, ?)");
+            pstatement.setString(1, money.getCurrency());
+            pstatement.setString(2, money.getConversion_rate());
+
+            return pstatement.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean deleteMoney(Money money) {
+        try {
+            pstatement = getDBConnection().prepareStatement("DELETE FROM money WHERE currency = ?");
+            pstatement.setString(1, money.getCurrency());
+            
+            int res = pstatement.executeUpdate();
+            if (res > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean updateMoney(Money money) {
+
+        try {
+            pstatement = getDBConnection().prepareStatement("UPDATE money SET currency = ?, conversion_rate = ? WHERE currency = ?");
+            pstatement.setString(1, money.getCurrency());
+            pstatement.setString(2, money.getConversion_rate());
+            pstatement.setString(3, money.getCurrency());
 
             int res = pstatement.executeUpdate();
 
