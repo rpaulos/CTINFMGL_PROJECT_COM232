@@ -63,6 +63,8 @@ public class DepositPageController {
             ReceiptPageController.amountDeposited = amountToDeposit;
             DatabaseHandler.deposit(amountToDeposit, number);
 
+            DatabaseHandler.recordDeposit(number, amountToDeposit);
+
             //Call the receipt page
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ReceiptPage.fxml"));
 

@@ -75,11 +75,6 @@
                         <Font name="Arial Rounded MT Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btn_help" alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-radius: 50px; -fx-max-height: 25; -fx-min-height: 25; -fx-max-width: 50px; -fx-min-width: 50px; -fx-background-color: #0053ca; -fx-font-weight: bold; -fx-font-family: Arial Rounded MT Bold; -fx-cursor: hand;" text="HELP" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="13.0" layoutY="52.0" prefHeight="88.0" prefWidth="310.0" style="-fx-background-color: #1a72fa; -fx-background-radius: 10 10 0 0;">

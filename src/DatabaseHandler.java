@@ -97,6 +97,18 @@ public class DatabaseHandler {
         return false;
     }
 
+    public static ResultSet getAdmin(){
+        ResultSet result = null;
+        
+        try {
+            String query = "SELECT * FROM admins";
+            result = handler.execQuery(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
     public static ResultSet getUsers(){
         ResultSet result = null;
         
@@ -159,18 +171,25 @@ public class DatabaseHandler {
         return result;
     }
     
-    // //getLoadTransactions
-    // public static ResultSet getLoadTransactions(){
-    //     ResultSet result = null;
-        
+    // //record send transactions
+    // public static void recordExpressSend(String send_transaction_id, String sender_number, String sender_name, String receiver_name, String receiver_number, Float amount, String transaction_date) {
+    //     String query = "INSERT INTO send_transactions (send_transaction_id, sender_number, sender_name, receiver_name, receiver_number, amount, transaction_date) VALUES (?, ?, ?, ?, ?, ?, ?);";
+    //     Connection conn = null;
+    //     PreparedStatement stmt = null;
+
     //     try {
-    //         String query = "SELECT * FROM load_transactions";
-    //         result = handler.execQuery(query);
+
+    //         conn = getDBConnection();
+    //         stmt = conn.prepareStatement(query);
+    //         // stmt.setString(1, phone_number);
+    //         // stmt.setFloat(2, amount);
+    //         int affectedRows = stmt.executeUpdate();
+
     //     } catch (Exception e) {
     //         e.printStackTrace();
     //     }
-    //     return result;
     // }
+
 
     //getDepositTransactions
     public static ResultSet getDepositTransactions(){
@@ -185,6 +204,8 @@ public class DatabaseHandler {
         return result;
     }
 
+    //record deposit transactions
+
     //getWithdrawTransactions
     public static ResultSet getWithdrawTransactions(){
         ResultSet result = null;
@@ -197,6 +218,8 @@ public class DatabaseHandler {
         }
         return result;
     }
+
+    //record withdraw transactions
 
     //getFirstName and getUserBalance is used to display the name and balance of the user in the HomePage
     public static String getFirstName(String phone_number) {
@@ -470,6 +493,24 @@ public class DatabaseHandler {
         }
     }
 
+    public static void recordDeposit(String phone_number, Float amount) {
+        String query = "INSERT INTO deposit_transactions (depositor_number, amount) VALUES (?, ?);";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, phone_number);
+            stmt.setFloat(2, amount);
+            int affectedRows = stmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void withdraw(Float negateFromBalance, String phone_number) {
         String query = "UPDATE wallet SET balance = balance - ? WHERE phone_number = ?";
         Connection conn = null;
@@ -489,6 +530,24 @@ public class DatabaseHandler {
     }
 
     public static void adminWithdraw(String phone_number, Float amount) {
+        String query = "INSERT INTO withdraw_transactions (withdrawer_number, amount) VALUES (?, ?)";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, phone_number);
+            stmt.setFloat(2, amount);
+            int affectedRows = stmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void recordWithdraw(String phone_number, Float amount) {
         String query = "INSERT INTO withdraw_transactions (withdrawer_number, amount) VALUES (?, ?)";
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -545,6 +604,36 @@ public class DatabaseHandler {
             e.printStackTrace();
         }
     }
+
+    public static boolean addAdmin(Admins admins) {
+        try {
+            pstatement = getDBConnection().prepareStatement("INSERT INTO admins (admin_full_name, admin_email_address, admin_PIN) VALUES (?, ?, ?)");
+            pstatement.setString(1, admins.getAdmin_full_name());
+            pstatement.setString(2, admins.getAdmin_email_address());
+            pstatement.setString(3, admins.getAdmin_PIN());
+
+            return pstatement.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean deleteAdmin(Admins admins) {
+        try {
+            pstatement = getDBConnection().prepareStatement("DELETE FROM admins WHERE admin_ID = ?");
+            pstatement.setString(1, admins.getAdmin_ID());
+            
+            int res = pstatement.executeUpdate();
+            if (res > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
     public static boolean addUser(User user) {
         try {

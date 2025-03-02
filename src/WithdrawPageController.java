@@ -84,6 +84,7 @@ public class WithdrawPageController {
                 ReceiptPageController.mode = feature;
                 ReceiptPageController.amountWithdrawn = amountToWithdraw;
                 DatabaseHandler.withdraw(amountToWithdraw, number);
+                DatabaseHandler.recordWithdraw(number, amountToWithdraw);
 
                 //Call the receipt page
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("ReceiptPage.fxml"));

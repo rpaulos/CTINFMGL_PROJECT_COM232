@@ -131,11 +131,24 @@
                                     <TableView fx:id="myAdminTable" layoutX="61.0" layoutY="23.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <columns>
                                         <TableColumn fx:id="admin_id_col" prefWidth="120.0" text="admin_ID" />
-                                        <TableColumn fx:id="admin_full_name_col" prefWidth="150.0" text="admin_full_name" />
-                                          <TableColumn fx:id="admin_email_col" prefWidth="150.0" text="admin_email" />
+                                        <TableColumn fx:id="admin_full_name_col" prefWidth="180.0" text="admin_full_name" />
+                                          <TableColumn fx:id="admin_email_col" prefWidth="180.0" text="admin_email" />
                                           <TableColumn fx:id="admin_pin_col" prefWidth="100.0" text="admin_PIN" />
                                       </columns>
                                     </TableView>
+                                    <AnchorPane layoutX="-348.0" layoutY="443.0" prefHeight="86.0" prefWidth="796.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                       <children>
+                                          <Label layoutX="20.0" layoutY="18.0" text="Full Name" AnchorPane.bottomAnchor="50.800000000000004" />
+                                          <TextField fx:id="tf_adminFullName" layoutX="20.0" layoutY="35.0" prefHeight="26.0" prefWidth="150.0" promptText="Rae Paulos" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="625.6" />
+                                          <Button fx:id="btn_delete" mnemonicParsing="false" onAction="#deleteAdmin" prefHeight="26.0" prefWidth="76.0" style="-fx-background-radius: 10px; -fx-background-color: maroon; -fx-min-width: 60px; -fx-font-weight: bold;" text="Delete" textFill="WHITE" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="23.0" />
+                                          <Button fx:id="btn_adminSubmit" layoutX="524.0" layoutY="33.0" mnemonicParsing="false" onAction="#createAdmin" prefHeight="26.0" prefWidth="72.0" style="-fx-background-radius: 10px; -fx-background-color: green; -fx-min-width: 60px; -fx-font-weight: bold;" text="Submit" textFill="WHITE" AnchorPane.bottomAnchor="25.0" />
+                                          <Button fx:id="btn_update" layoutX="611.0" layoutY="33.0" mnemonicParsing="false" onAction="#updateMoney" prefHeight="26.0" prefWidth="72.0" style="-fx-background-radius: 10px; -fx-background-color: #0053ca; -fx-min-width: 60px; -fx-font-weight: bold;" text="Update" textFill="WHITE" AnchorPane.bottomAnchor="25.0" />
+                                          <TextField fx:id="tf_adminEmail" layoutX="190.0" layoutY="35.0" prefHeight="26.0" prefWidth="150.0" promptText="raepaulos@admin-gcash.com" AnchorPane.bottomAnchor="24.0" />
+                                          <Label layoutX="190.0" layoutY="17.0" text="Email" AnchorPane.bottomAnchor="51.800000000000004" />
+                                          <TextField fx:id="tf_adminPIN" layoutX="360.0" layoutY="35.0" prefHeight="26.0" prefWidth="150.0" promptText="1 2 3 4" AnchorPane.bottomAnchor="24.0" />
+                                          <Label layoutX="360.0" layoutY="17.0" text="PIN" />
+                                       </children>
+                                    </AnchorPane>
                                  </children>
                               </AnchorPane>
                            </children>
@@ -197,13 +210,17 @@
                            <children>
                               <AnchorPane layoutX="118.4" layoutY="14.0" prefHeight="479.0" prefWidth="678.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label layoutX="128.0" layoutY="459.0" text="Currency" />
-                                    <TextField fx:id="tf_adminCurrency" layoutX="128.0" layoutY="477.0" prefHeight="26.0" prefWidth="170.0" promptText="US Dollar" AnchorPane.bottomAnchor="26.200000000000045" AnchorPane.rightAnchor="497.6" />
-                                    <Button fx:id="btn_adminCurrencyDelete" layoutX="697.0" layoutY="477.0" mnemonicParsing="false" onAction="#deleteMoney" prefHeight="26.0" prefWidth="76.0" style="-fx-background-radius: 10px; -fx-background-color: maroon; -fx-min-width: 60px; -fx-font-weight: bold;" text="Delete" textFill="WHITE" AnchorPane.bottomAnchor="26.200000000000045" AnchorPane.rightAnchor="23.0" />
-                                    <Button fx:id="btn_adminCurrencySubmit" layoutX="518.0" layoutY="477.0" mnemonicParsing="false" onAction="#createMoney" prefHeight="26.0" prefWidth="72.0" style="-fx-background-radius: 10px; -fx-background-color: green; -fx-min-width: 60px; -fx-font-weight: bold;" text="Submit" textFill="WHITE" />
-                                    <Button fx:id="btn_adminCurrencyUpdate" layoutX="607.0" layoutY="477.0" mnemonicParsing="false" onAction="#updateMoney" prefHeight="26.0" prefWidth="72.0" style="-fx-background-radius: 10px; -fx-background-color: #0053ca; -fx-min-width: 60px; -fx-font-weight: bold;" text="Update" textFill="WHITE" />
-                                    <TextField fx:id="tf_adminConversionRate" layoutX="325.0" layoutY="477.0" prefHeight="26.0" prefWidth="170.0" promptText="1.00" />
-                                    <Label layoutX="325.0" layoutY="459.0" text="Conversion Rate" />
+                                    <AnchorPane layoutX="81.0" layoutY="451.0" prefHeight="86.0" prefWidth="796.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                       <children>
+                                          <Label layoutX="152.0" layoutY="14.0" text="Currency" AnchorPane.bottomAnchor="50.0" />
+                                          <TextField fx:id="tf_adminCurrency" layoutX="152.0" layoutY="30.0" prefHeight="26.0" prefWidth="170.0" promptText="US Dollar" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="473.6" />
+                                          <Button fx:id="btn_adminCurrencyDelete" mnemonicParsing="false" onAction="#deleteMoney" prefHeight="26.0" prefWidth="76.0" style="-fx-background-radius: 10px; -fx-background-color: maroon; -fx-min-width: 60px; -fx-font-weight: bold;" text="Delete" textFill="WHITE" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="23.0" />
+                                          <Button fx:id="btn_adminCurrencySubmit" layoutX="524.0" layoutY="33.0" mnemonicParsing="false" onAction="#createMoney" prefHeight="26.0" prefWidth="72.0" style="-fx-background-radius: 10px; -fx-background-color: green; -fx-min-width: 60px; -fx-font-weight: bold;" text="Submit" textFill="WHITE" AnchorPane.bottomAnchor="25.0" />
+                                          <Button fx:id="btn_adminCurrencyUpdate" layoutX="611.0" layoutY="33.0" mnemonicParsing="false" onAction="#updateMoney" prefHeight="26.0" prefWidth="72.0" style="-fx-background-radius: 10px; -fx-background-color: #0053ca; -fx-min-width: 60px; -fx-font-weight: bold;" text="Update" textFill="WHITE" AnchorPane.bottomAnchor="25.0" />
+                                          <TextField fx:id="tf_adminConversionRate" layoutX="341.0" layoutY="33.0" prefHeight="26.0" prefWidth="170.0" promptText="1.00" AnchorPane.bottomAnchor="25.0" />
+                                          <Label layoutX="341.0" layoutY="23.0" text="Conversion Rate" AnchorPane.bottomAnchor="50.0" />
+                                       </children>
+                                    </AnchorPane>
                                  </children>
                               </AnchorPane>
                               <TableView fx:id="myMoneyTable" layoutX="14.0" layoutY="14.0" prefHeight="479.0" prefWidth="120.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

@@ -38,6 +38,8 @@ import java.util.ResourceBundle;
 
 public class AdminPageController implements Initializable {
 
+    ObservableList<Admins> adminList = FXCollections.observableArrayList();
+
     ObservableList<User> userlist = FXCollections.observableArrayList();
 
     ObservableList<Wallet> walletList = FXCollections.observableArrayList();
@@ -52,6 +54,8 @@ public class AdminPageController implements Initializable {
 
     ObservableList<WithdrawTransactions> withdrawTransactionsList = FXCollections.observableArrayList();
 
+    @FXML
+    private TableView<Admins> myAdminTable;
     @FXML
     private TableView<User> mytable;
 
@@ -72,6 +76,10 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private TableView<WithdrawTransactions> myWithdrawTable;
+
+    @FXML
+    private TableColumn<Admins, String> admin_id_col, admin_full_name_col, admin_email_col, 
+                                admin_pin_col;
 
     @FXML
     private TableColumn<User, String> phone_numbercol, first_namecol, last_namecol, 
@@ -144,6 +152,15 @@ public class AdminPageController implements Initializable {
     private TextField tf_PhoneNumber;
 
     @FXML
+    private TextField tf_adminFullName;
+
+    @FXML
+    private TextField tf_adminEmail;
+
+    @FXML
+    private TextField tf_adminPIN;
+
+    @FXML
     private TextField tf_adminWalletNumber;
 
     @FXML
@@ -161,6 +178,7 @@ public class AdminPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initializeCol();
+        displayAdmin();
         displayUser();
         displayWallet();
         displayMoney();
@@ -168,10 +186,17 @@ public class AdminPageController implements Initializable {
         displaySendTransactions();
         displayDepositTransactions();
         displayWithdrawTransactions();
+        displayAdmin();
         
     }
 
     private void initializeCol() {
+
+        admin_id_col.setCellValueFactory(new PropertyValueFactory<>("admin_ID"));
+        admin_full_name_col.setCellValueFactory(new PropertyValueFactory<>("admin_full_name"));
+        admin_email_col.setCellValueFactory(new PropertyValueFactory<>("admin_email_address"));
+        admin_pin_col.setCellValueFactory(new PropertyValueFactory<>("admin_PIN"));
+
         phone_numbercol.setCellValueFactory(new PropertyValueFactory<>("phone_number"));
         first_namecol.setCellValueFactory(new PropertyValueFactory<>("first_name"));
         last_namecol.setCellValueFactory(new PropertyValueFactory<>("last_name"));
@@ -215,6 +240,30 @@ public class AdminPageController implements Initializable {
 
     private static boolean isEmpty(TextField field) {
         return field == null || field.getText().trim().isEmpty();
+    }
+
+    private void displayAdmin() {
+
+        adminList.clear();
+
+        ResultSet result = DatabaseHandler.getAdmin();
+        
+        try {
+            while (result.next()) {
+                int admin_ID = result.getInt("admin_ID");
+                String admin_full_name = result.getString("admin_full_name");
+                String admin_email_address = result.getString("admin_email_address");
+                String admin_PIN = result.getString("admin_PIN");
+
+                adminList.add(new Admins(String.valueOf(admin_ID), admin_full_name, admin_email_address, admin_PIN));
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        myAdminTable.setItems(adminList);
+
     }
 
     private void displayUser() {
@@ -464,6 +513,121 @@ public class AdminPageController implements Initializable {
                 }
             }
         }
+    }
+
+    @FXML
+    private void createAdmin(ActionEvent event) {
+        if (isEmpty(tf_adminFullName) || isEmpty(tf_adminEmail) || isEmpty(tf_adminPIN)) {
+
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+
+                    ErrorPopUpController controller = fxmlLoader.getController();
+                    controller.setErrorMessage("An error has occurred while processing action. Make sure to answer all fields before submitting.");
+
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Error: Empty field");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                    
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+        
+        } else {
+
+            String adminFullName = tf_adminFullName.getText();
+            String adminEmail = tf_adminEmail.getText();
+            String adminPIN = tf_adminPIN.getText();
+
+            Admins admins = new Admins("", adminFullName, adminEmail, adminPIN);
+
+            if (DatabaseHandler.addAdmin(admins)) {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+
+                    SuccessPopUpController controller = fxmlLoader.getController();
+                    controller.setSuccessMessage("Admin account has been created.");
+
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Success");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            } else {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+
+                    ErrorPopUpController controller = fxmlLoader.getController();
+                    controller.setErrorMessage("An error has occurred while processing action. Make sure to answer all fields before submitting.");
+
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Error: Empty field");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+                    
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        displayAdmin();
+    }
+
+    @FXML
+    private void deleteAdmin(ActionEvent event) {
+        Admins admins = myAdminTable.getSelectionModel().getSelectedItem();
+
+        int adminUser_ID = Integer.parseInt(admins.getAdmin_ID());
+
+        if (DatabaseHandler.deleteAdmin(admins)) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
+                Parent root = fxmlLoader.load();
+
+                SuccessPopUpController controller = fxmlLoader.getController();
+                controller.setSuccessMessage("Admin has been removed from the database.");
+
+                Stage newStage = new Stage();
+                newStage.setTitle("Success");
+                newStage.setScene(new Scene(root));
+                newStage.centerOnScreen();
+                newStage.show();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            displayAdmin();
+
+        } else {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                Parent root = fxmlLoader.load();
+
+                ErrorPopUpController controller = fxmlLoader.getController();
+                controller.setErrorMessage("An error has occurred while processing action.");
+
+                Stage newStage = new Stage();
+                newStage.setTitle("Error");
+                newStage.setScene(new Scene(root));
+                newStage.centerOnScreen();
+                newStage.show();
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     @FXML
