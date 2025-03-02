@@ -110,6 +110,9 @@ public class AdminPageController implements Initializable {
     private Button btn_Update;
 
     @FXML
+    private Button btn_adminWalletSubmit;
+
+    @FXML
     private TextField tf_Address;
 
     @FXML
@@ -129,6 +132,12 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private TextField tf_PhoneNumber;
+
+    @FXML
+    private TextField tf_adminWalletNumber;
+
+    @FXML
+    private TextField tf_adminWalletAmount;
 
     @FXML
     private DatePicker dp_Birthdate;
@@ -184,6 +193,10 @@ public class AdminPageController implements Initializable {
         withdrawer_name_withdrawcol.setCellValueFactory(new PropertyValueFactory<>("withdrawer_name"));
         amount_withdrawcol.setCellValueFactory(new PropertyValueFactory<>("amount"));
         transaction_date_withdrawcol.setCellValueFactory(new PropertyValueFactory<>("transaction_date"));
+    }
+
+    private static boolean isEmpty(TextField field) {
+        return field == null || field.getText().trim().isEmpty();
     }
 
     private void displayUser() {
@@ -352,6 +365,79 @@ public class AdminPageController implements Initializable {
     }
 
     @FXML
+    private void adminBalance (ActionEvent event) {
+
+        if (isEmpty(tf_adminWalletNumber) || isEmpty((tf_adminWalletAmount))) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ErrorPopUp.fxml"));
+                Parent root = fxmlLoader.load();
+
+                ErrorPopUpController controller = fxmlLoader.getController();
+                controller.setErrorMessage("An error has occurred while processing action. Make sure to answer all fields before submitting.");
+
+                Stage newStage = new Stage();
+                newStage.setTitle("Error: Empty field");
+                newStage.setScene(new Scene(root));
+                newStage.centerOnScreen();
+                newStage.show();
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            String phone_number = tf_adminWalletNumber.getText();
+            float amount = Float.parseFloat(tf_adminWalletAmount.getText());
+
+            if (amount > 0) {
+                //call deposit
+                DatabaseHandler.deposit(amount, phone_number);
+
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+
+                    SuccessPopUpController controller = fxmlLoader.getController();
+                    controller.setSuccessMessage("Action Complete");
+
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Success");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                displayWallet();
+  
+            } else {
+                //call withdraw
+                DatabaseHandler.withdraw(Math.abs(amount), phone_number);
+
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
+                    Parent root = fxmlLoader.load();
+
+                    SuccessPopUpController controller = fxmlLoader.getController();
+                    controller.setSuccessMessage("Action complete.");
+
+                    Stage newStage = new Stage();
+                    newStage.setTitle("Success");
+                    newStage.setScene(new Scene(root));
+                    newStage.centerOnScreen();
+                    newStage.show();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                displayWallet();
+            }
+        }
+    }
+
+    @FXML
     private void createUser(ActionEvent event) {
         if (isEmpty(tf_PhoneNumber) || isEmpty(tf_FirstName) || isEmpty(tf_LastName) ||
             isEmpty(tf_EmailAddress) || isEmpty(tf_PIN) || isEmpty(tf_Country) ||
@@ -428,10 +514,6 @@ public class AdminPageController implements Initializable {
             }
         }
         displayUser();
-    }
-
-    private static boolean isEmpty(TextField field) {
-        return field == null || field.getText().trim().isEmpty();
     }
 
     @FXML
