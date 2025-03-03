@@ -109,17 +109,37 @@ public class EditProfilePageController {
 
     }
 
-    public void sendBackToHomeHandler(ActionEvent event) throws IOException{
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
-
+    @FXML
+    public void transactionPageHandler(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TransactionHistoryPage.fxml"));
         root = loader.load();
-
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
+    @FXML
+    public void sendBackToHomeHandler(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    @FXML
+    public void profilePageHandler(ActionEvent event) throws IOException{
+
+        ProfilePageController.myNumber = myNumber;
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

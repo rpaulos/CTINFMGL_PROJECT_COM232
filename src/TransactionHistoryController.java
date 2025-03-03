@@ -159,9 +159,9 @@ public class TransactionHistoryController implements Initializable {
     }
 
     @FXML
-    void profilePageHandler(ActionEvent event) throws IOException{
+    public void profilePageHandler(ActionEvent event) throws IOException{
 
-        ProfilePageController.myNumber = myNumber;
+        // ProfilePageController.myNumber = myNumber;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
 

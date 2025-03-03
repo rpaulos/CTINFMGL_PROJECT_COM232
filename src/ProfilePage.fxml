@@ -16,7 +16,7 @@
                <children>
                   <AnchorPane layoutX="26.0" layoutY="40.0" maxHeight="74.0" maxWidth="80.0" prefHeight="80.0" prefWidth="80.0" style="-fx-background-radius: 50; -fx-min-height: 70; -fx-max-width: 70; -fx-min-width: 70; -fx-max-height: 70; -fx-background-color: #E5F3FD;">
                      <children>
-                        <Label fx:id="lbl_initials" layoutX="15.0" layoutY="18.0" prefHeight="36.0" prefWidth="44.0" text="RP" textFill="#120884">
+                        <Label fx:id="lbl_initials" layoutX="7.0" layoutY="18.0" prefHeight="36.0" prefWidth="58.0" style="-fx-alignment: center;" text="RP" textFill="#120884">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="30.0" />
                            </font>

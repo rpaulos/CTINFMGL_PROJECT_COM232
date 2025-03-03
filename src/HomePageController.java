@@ -62,6 +62,7 @@ public class HomePageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ProfilePageController.myNumber = validNumber;
         ReceiptPageController.myNumber = validNumber;
         EditProfilePageController.myNumber = validNumber;
         getName();

@@ -73,7 +73,7 @@ public class DatabaseHandler {
             }
         }
         catch (SQLException e){
-            e.printStackTrace();
+            // e.printStackTrace();
         }
         return false;
     }

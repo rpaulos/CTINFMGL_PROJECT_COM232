@@ -82,6 +82,11 @@ public class ProfilePageController implements Initializable{
             String myInitials = myFirstName.substring(0, 1).toUpperCase() + myLastName.substring(0, 1).toUpperCase();
             
             lbl_initials.setText(myInitials);
+
+            System.out.println(myFirstName);
+            System.out.println(myLastName);
+
+            System.out.println(myInitials);
         } else {
             lbl_initials.setText("Error");
         }
@@ -178,6 +183,23 @@ public class ProfilePageController implements Initializable{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessPopUp.fxml"));
+            Parent root = fxmlLoader.load();
+
+            SuccessPopUpController controller = fxmlLoader.getController();
+            controller.setSuccessMessage("Account has been deleted");
+
+            Stage newStage = new Stage();
+            newStage.setTitle("Success: Account Deleted");
+            newStage.setScene(new Scene(root));
+            newStage.centerOnScreen();
+            newStage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
