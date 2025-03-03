@@ -175,6 +175,10 @@ public class AdminPageController implements Initializable {
     @FXML
     private DatePicker dp_Birthdate;
 
+    private Stage stage;
+    private Scene scene; 
+    private Parent root;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initializeCol();
@@ -1012,6 +1016,18 @@ public class AdminPageController implements Initializable {
 
         }
         displayMoney();
+    }
+
+    public void sendBackToLoginHandler(ActionEvent event) throws IOException{
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPageNumber.fxml"));
+
+        root = loader.load();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

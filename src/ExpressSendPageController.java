@@ -150,9 +150,12 @@ public class ExpressSendPageController {
                 Float negateFromBalance = amountToSend;
                 DatabaseHandler.negateBalance(negateFromBalance, number);
 
-                //Call databasehandler for record receive
-                
+                //Call databasehandler for record express send
+                DatabaseHandler.recordExpressSend(number, numberToSendTo, amountToSend);
 
+                //Handles the recording of the receiving end
+                DatabaseHandler.recordExpressSend(numberToSendTo, number, amountToSend);
+                
                 //Loads the receipt page
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("ReceiptPage.fxml"));
 

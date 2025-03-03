@@ -170,26 +170,19 @@ public class DatabaseHandler {
         }
         return result;
     }
-    
-    // //record send transactions
-    // public static void recordExpressSend(String send_transaction_id, String sender_number, String sender_name, String receiver_name, String receiver_number, Float amount, String transaction_date) {
-    //     String query = "INSERT INTO send_transactions (send_transaction_id, sender_number, sender_name, receiver_name, receiver_number, amount, transaction_date) VALUES (?, ?, ?, ?, ?, ?, ?);";
-    //     Connection conn = null;
-    //     PreparedStatement stmt = null;
 
-    //     try {
+    //Get the express send transaction of the user
+    public static ResultSet getUserSendTransactions(String phone_number) {
+        ResultSet result = null;
 
-    //         conn = getDBConnection();
-    //         stmt = conn.prepareStatement(query);
-    //         // stmt.setString(1, phone_number);
-    //         // stmt.setFloat(2, amount);
-    //         int affectedRows = stmt.executeUpdate();
-
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     }
-    // }
-
+        try {
+        String query = "SELECT * FROM send_transactions WHERE sender_number = " + phone_number + "";
+        result = handler.execQuery(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
+        return result;
+    }
 
     //getDepositTransactions
     public static ResultSet getDepositTransactions(){
@@ -204,7 +197,18 @@ public class DatabaseHandler {
         return result;
     }
 
-    //record deposit transactions
+    //Gets the deposit transaction history of a user
+    public static ResultSet getUserDepositTransactions(String phone_number) {
+        ResultSet result = null;
+
+        try {
+        String query = "SELECT * FROM deposit_transactions WHERE depositor_number = " + phone_number + "";
+        result = handler.execQuery(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
+        return result;
+    }
 
     //getWithdrawTransactions
     public static ResultSet getWithdrawTransactions(){
@@ -219,7 +223,18 @@ public class DatabaseHandler {
         return result;
     }
 
-    //record withdraw transactions
+    //Gets the withdraw transaction history of a user
+    public static ResultSet getUserWithdrawTransactions(String phone_number) {
+        ResultSet result = null;
+    
+        try {
+            String query = "SELECT * FROM withdraw_transactions WHERE withdrawer_number = " + phone_number + "";
+            result = handler.execQuery(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
+        return result;
+    }
 
     //getFirstName and getUserBalance is used to display the name and balance of the user in the HomePage
     public static String getFirstName(String phone_number) {
@@ -424,6 +439,46 @@ public class DatabaseHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void recordExpressSend(String sender_number, String receiver_number, Float amount) {
+        String query = "INSERT INTO send_transactions (sender_number, receiver_number, amount) VALUES (?, ?, ?);";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, sender_number);
+            stmt.setString(2, receiver_number);
+            stmt.setFloat(3, amount);
+            int affectedRows = stmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void recordExpressSendReceiver(String sender_number, String receiver_number, Float amount) {
+        String query = "INSERT INTO send_transactions (sender_number, receiver_number, amount) VALUES (?, ?, ?);";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+
+            conn = getDBConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, sender_number);
+            stmt.setString(2, receiver_number);
+            stmt.setFloat(3, amount);
+            int affectedRows = stmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public static String getFirstLastName(String phone_number) {

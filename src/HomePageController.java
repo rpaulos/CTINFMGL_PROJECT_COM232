@@ -163,4 +163,19 @@ public class HomePageController implements Initializable {
         stage.show();
     }
 
+    public void transactionPageHandler(ActionEvent event) throws IOException {
+
+        TransactionHistoryController.myNumber = validNumber;
+
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TransactionHistoryPage.fxml"));
+
+        root = loader.load();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }

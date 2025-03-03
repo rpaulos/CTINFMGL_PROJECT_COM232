@@ -61,14 +61,14 @@
       </MenuBar>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="582.0" prefWidth="1092.0" style="-fx-background-color: #E5F3FD;" VBox.vgrow="ALWAYS">
          <children>
-            <AnchorPane layoutX="15.0" layoutY="504.0" prefHeight="62.0" prefWidth="242.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" AnchorPane.leftAnchor="15.0">
+            <AnchorPane layoutX="13.0" layoutY="462.0" prefHeight="62.0" prefWidth="242.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" AnchorPane.leftAnchor="13.0">
                <children>
                   <Button fx:id="btn_Create" layoutX="13.0" layoutY="18.0" mnemonicParsing="false" onAction="#createUser" style="-fx-background-radius: 10px; -fx-background-color: green; -fx-min-width: 60px; -fx-font-weight: bold;" text="Create" textFill="WHITE" AnchorPane.leftAnchor="13.0" />
                   <Button fx:id="btn_Delete" layoutX="170.0" layoutY="19.0" mnemonicParsing="false" onAction="#deleteUser" style="-fx-background-radius: 10px; -fx-background-color: maroon; -fx-min-width: 60px; -fx-font-weight: bold;" text="Delete" textFill="WHITE" />
                   <Button fx:id="btn_Update" layoutX="90.0" layoutY="18.0" mnemonicParsing="false" onAction="#updateUser" style="-fx-background-radius: 10px; -fx-background-color: #0053ca; -fx-min-width: 60px; -fx-font-weight: bold;" text="Update" textFill="WHITE" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="14.0" layoutY="57.0" prefHeight="435.0" prefWidth="238.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" AnchorPane.leftAnchor="15.0">
+            <AnchorPane layoutX="14.0" layoutY="12.0" prefHeight="441.0" prefWidth="238.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" AnchorPane.leftAnchor="15.0">
                <children>
                   <TextField fx:id="tf_PhoneNumber" layoutX="35.2" layoutY="28.0" prefHeight="26.0" prefWidth="170.0" promptText="1234 567 8901" style="-fx-prompt-text-fill: #0053ca; -fx-background-color: #FAFAFA; -fx-border-color: #0053ca; -fx-border-radius: 5px;" AnchorPane.leftAnchor="40.0" />
                   <Label layoutX="15.0" layoutY="64.0" text="First Name" AnchorPane.leftAnchor="10.0">
@@ -341,16 +341,21 @@
                   </Tab>
               </tabs>
             </TabPane>
-            <ImageView fitHeight="30.0" fitWidth="71.0" layoutX="23.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+            <ImageView fitHeight="30.0" fitWidth="71.0" layoutX="15.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="541.0">
                <image>
                   <Image url="@../../../../../Downloads/gcash-logo_brandlogos.net_kiaqh-512x427.png" />
                </image>
             </ImageView>
-            <Label layoutX="61.0" layoutY="15.2" text="GCASH" textFill="#341176" AnchorPane.topAnchor="15.2">
+            <Label layoutX="62.0" layoutY="541.0" text="GCASH" textFill="#341176" AnchorPane.topAnchor="541.0">
                <font>
                   <Font name="Arial Rounded MT Bold" size="25.0" />
                </font>
             </Label>
+            <Button fx:id="btn_deleteAccount" layoutX="169.0" layoutY="541.0" mnemonicParsing="false" onAction="#sendBackToLoginHandler" prefHeight="30.0" prefWidth="85.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: #0053ca; -fx-border-radius: 20;" text="Sign Out" textFill="#0053ca">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>
