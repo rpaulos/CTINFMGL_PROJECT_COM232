@@ -46,16 +46,20 @@
          <children>
             <AnchorPane layoutX="13.0" layoutY="243.0" prefHeight="358.0" prefWidth="310.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10 10 0 0;">
                <children>
-                  <ImageView fitHeight="166.0" fitWidth="284.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../Downloads/heart-gcash.jpg" />
-                     </image>
-                  </ImageView>
                   <ImageView fitHeight="194.0" fitWidth="284.0" layoutX="14.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../Downloads/joshua-gcash.jpg" />
                      </image>
                   </ImageView>
+                  <Button fx:id="btn_ad" layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#heartAd" prefHeight="166.0" prefWidth="292.0" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="166.0" fitWidth="284.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Downloads/heart-gcash.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="52.0" prefWidth="335.0">

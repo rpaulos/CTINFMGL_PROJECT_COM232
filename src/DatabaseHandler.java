@@ -73,10 +73,29 @@ public class DatabaseHandler {
             }
         }
         catch (SQLException e){
-            // e.printStackTrace();
+            e.printStackTrace();
         }
         return false;
     }
+
+    // public static boolean validateAdminNumber(String phone_number){
+
+    //     getInstance();
+    //     String query = "SELECT * FROM admins WHERE admin_ID = '" + phone_number + "'";
+        
+    //     System.out.println(query);
+
+    //     ResultSet result = handler.execQuery(query);
+    //     try {
+    //         if (result.next()) {
+    //             return true;
+    //         }
+    //     }
+    //     catch (SQLException e){
+    //         e.printStackTrace();
+    //     }
+    //     return false;
+    // }
 
     //validateMobileNumberAndMPIN handles the validation of the account
     public static boolean validateMobileNumberAndMPIN(String phone_number, String PIN){
@@ -96,6 +115,25 @@ public class DatabaseHandler {
         }
         return false;
     }
+
+    // public static boolean validateAdminNumberAndMPIN(String phone_number, String PIN){
+
+    //     getInstance();
+    //     String query = "SELECT * FROM admins WHERE admin_ID = '" + phone_number + "' AND admin_PIN = '" + PIN + "'";
+        
+    //     System.out.println(query);
+
+    //     ResultSet result = handler.execQuery(query);
+    //     try {
+    //         if (result.next()) {
+    //             return true;
+    //         }
+    //     }
+    //     catch (SQLException e){
+    //         e.printStackTrace();
+    //     }
+    //     return false;
+    // }
 
     public static ResultSet getAdmin(){
         ResultSet result = null;
@@ -375,7 +413,7 @@ public class DatabaseHandler {
         return address;
     }
     
-
+    //Get the balance of the user to display on the home page
     public static float getUserBalance(String phone_number) {
         String query = "SELECT balance FROM wallet WHERE phone_number = ?";
         float balance = 0.0f;
@@ -399,10 +437,7 @@ public class DatabaseHandler {
         return balance;
     }
 
-    //expressSend and subtractFromBalance handles the amound to send to other users
-    //Need a way to negate the amountToSend from the phone_number of the user who sent the money
-    //Plus a way to check the balance first  before sending the money. 
-    //If balance < amountToSend, show a pop up message
+    //expressSend and negateBalance handles the amound to send to other users
     public static float expressSend(String numberToSendTo, float amountToSend) {
         String query = "UPDATE wallet SET balance = balance + ? WHERE phone_number = ?";
         float balance = 0.0f;
@@ -447,7 +482,6 @@ public class DatabaseHandler {
         PreparedStatement stmt = null;
 
         try {
-
             conn = getDBConnection();
             stmt = conn.prepareStatement(query);
             stmt.setString(1, sender_number);
@@ -458,28 +492,27 @@ public class DatabaseHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
-    public static void recordExpressSendReceiver(String sender_number, String receiver_number, Float amount) {
-        String query = "INSERT INTO send_transactions (sender_number, receiver_number, amount) VALUES (?, ?, ?);";
-        Connection conn = null;
-        PreparedStatement stmt = null;
+    // public static void recordExpressSendReceiver(String sender_number, String receiver_number, Float amount) {
+    //     String query = "INSERT INTO send_transactions (sender_number, receiver_number, amount) VALUES (?, ?, ?);";
+    //     Connection conn = null;
+    //     PreparedStatement stmt = null;
 
-        try {
+    //     try {
 
-            conn = getDBConnection();
-            stmt = conn.prepareStatement(query);
-            stmt.setString(1, sender_number);
-            stmt.setString(2, receiver_number);
-            stmt.setFloat(3, amount);
-            int affectedRows = stmt.executeUpdate();
+    //         conn = getDBConnection();
+    //         stmt = conn.prepareStatement(query);
+    //         stmt.setString(1, sender_number);
+    //         stmt.setString(2, receiver_number);
+    //         stmt.setFloat(3, amount);
+    //         int affectedRows = stmt.executeUpdate();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
 
-    }
+    // }
 
     public static String getFirstLastName(String phone_number) {
         String query = "SELECT first_Name, last_Name FROM wallet WHERE phone_number = ?";
@@ -518,7 +551,6 @@ public class DatabaseHandler {
         PreparedStatement stmt = null;
 
         try {
-
             conn = getDBConnection();
             stmt = conn.prepareStatement(query);
             stmt.setFloat(1, addToBalance);
@@ -554,7 +586,6 @@ public class DatabaseHandler {
         PreparedStatement stmt = null;
 
         try {
-
             conn = getDBConnection();
             stmt = conn.prepareStatement(query);
             stmt.setString(1, phone_number);
@@ -572,7 +603,6 @@ public class DatabaseHandler {
         PreparedStatement stmt = null;
 
         try {
-
             conn = getDBConnection();
             stmt = conn.prepareStatement(query);
             stmt.setFloat(1, negateFromBalance);
@@ -608,7 +638,6 @@ public class DatabaseHandler {
         PreparedStatement stmt = null;
 
         try {
-
             conn = getDBConnection();
             stmt = conn.prepareStatement(query);
             stmt.setString(1, phone_number);

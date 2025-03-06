@@ -132,7 +132,7 @@
                         <Font name="Arial Rounded MT Bold" size="11.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_registerAddress" layoutX="29.0" layoutY="258.0" prefHeight="29.0" prefWidth="251.0" promptText="Filipino" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
+                  <TextField fx:id="tf_registerAddress" layoutX="29.0" layoutY="258.0" prefHeight="29.0" prefWidth="251.0" promptText="Quezon" style="-fx-prompt-text-fill: #0053ca; -fx-font-size: 15; -fx-text-fill: #0053ca; -fx-background-color: transparent; -fx-border-color: transparent transparent  #0053ca transparent; -fx-border-width: 0 0 1 0; -fx-font-weight: bold;">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="15.0" />
                      </font>

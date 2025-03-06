@@ -1,5 +1,8 @@
 
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -34,6 +37,9 @@ public class HomePageController implements Initializable {
 
     @FXML
     private Button btn_profile;
+
+    @FXML
+    private Button btn_ad;
 
     @FXML
     private Button btn_toExpressSend;
@@ -177,6 +183,11 @@ public class HomePageController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    public void heartAd(ActionEvent event) throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI("https://web.facebook.com/share/p/18Lj4exq5U/"));
     }
 
 }
